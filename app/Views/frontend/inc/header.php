@@ -215,7 +215,7 @@
                                     </li>
 
                                     <li class="menu-item">
-                                        <a href="#" target="_blank" class="item-link">
+                                        <a href="<?=base_url('about-us');?>"  class="item-link">
                                             <span class="text cus-text">
                                                 About Us
                                             </span>
@@ -223,7 +223,7 @@
                                     </li>
 
                                     <li class="menu-item">
-                                        <a href="#" target="_blank" class="item-link">
+                                        <a href="<?=base_url('contact');?>" class="item-link">
                                             <span class="text cus-text">
                                                 Contact Us
                                             </span>
