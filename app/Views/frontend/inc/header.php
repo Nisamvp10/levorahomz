@@ -51,7 +51,7 @@
                                         foreach($taglines as $tagline) {
                                             ?>
                                              <div class="swiper-slide d-flex gap-3">
-                                                    <img src="<?= validImg($tagline->image) ?>" />
+                                                       <img src="<?= validImg($tagline->image)?>" alt="img"/>
                                                     <p class="text-white text-line-clamp-1">
                                                         <?= $tagline->title; ?>
                                                     </p>
