@@ -83,13 +83,13 @@ class Database extends Config
         $isLocal = in_array($host, ['localhost', '127.0.0.1']);
 
         // Dynamic settings
-        $this->tests['hostname'] = $isLocal ? 'localhost' : 'localhost';
+        $this->tests['hostname'] = $isLocal ? 'localhost' : 'sdb-l.hosting.stackcp.net';
 
-        $this->tests['username'] = $isLocal ? 'root' : 'u540196853_userrobin';
+        $this->tests['username'] = $isLocal ? 'root' : 'levorahomezzdb-3139325df2';
 
-        $this->tests['password'] = $isLocal ? '': 'y:nfRFg/I!I9';
+        $this->tests['password'] = $isLocal ? '': 'eGqOC=c£:[>S';
 
-        $this->tests['database'] = $isLocal ? 'levorahomz' : 'u540196853_robinfood';
+        $this->tests['database'] = $isLocal ? 'levorahomz' : 'levorahomezzdb-3139325df2';
 
         // Ensure that we always set the database group to 'tests' if
         // we are currently running an automated test suite, so that
