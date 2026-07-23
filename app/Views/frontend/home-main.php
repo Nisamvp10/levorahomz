@@ -1681,7 +1681,7 @@
         <!-- Banner Discover -->
         <section class="themesFlat flat-spacing">
             <div class="container-full">
-                <div class="banner-v03 parallaxie" style='background-image: url("assets/images/offer-img.webp")'>
+                <div class="banner-v03 parallaxie" style='background-image: url("<?=base_url('public/assets/template/');?>assets/images/offer-img.webp")'>
                     <div class="bn_image">
                         <img class="opacity-0" loading="lazy" width="1770" height="440"
                             src="<?=base_url('public/assets/template/');?>assets/images/section/furniture-banner-1.jpg" alt="Image">
