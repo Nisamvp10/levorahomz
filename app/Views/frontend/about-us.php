@@ -46,14 +46,21 @@
      </div> -->
 
 <!-- Page Title -->
-<section class="section-page-title text-center flat-spacing-2 pb-0">
+<section class="section-page-title text-center pb-0 about-breadcrumbs-bg">
     <div class="container">
         <div class="main-page-title">
+            <div class="breadcrumbs pt-40">
+                <a href="index.html" class="text-caption-01 cl-text-3 link">Home</a>
+                <i class="icon icon-CaretRightThin cl-text-3"></i>
+                <P class="text-caption-01">
+                    About Us
+                </P>
+            </div>
             <div class="breadcrumbs">
-                <div class="about-page-section pt-40 pb-40 fix">
+                <div class="about-page-section pt-0 pb-40 fix">
                     <div class="container">
                         <h3>
-                            About Us
+                            Who We Are
                         </h3>
                         <p class="text-body-1 cl-text-2 width-60">
                             Crafting beautiful furniture that combines comfort, quality, and timeless design. For over
