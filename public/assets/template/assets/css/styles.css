@@ -16,7 +16,7 @@
 :root {
   --white: #ffffff;
   --black: #000000;
-  --primary: #DC4646;
+  --primary: #003800;
   --secondary: #003800;
   --third: #FFEB8A;
   --text: #101010;
@@ -27659,4 +27659,24 @@ header {
 .header-s8 .header-inner {
   padding-top: 10px !important;
   padding-bottom: 10px !important;
+}
+
+.about-breadcrumbs-bg {
+  background-color: #f5f5f5;
+}
+
+.card-product_wrapper {
+    aspect-ratio: auto !important;
+}
+
+.price-val_wrap input{
+  border: none !important;
+}
+
+.price-val_wrap .form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color: none !important;
+    outline: 0;
+    box-shadow: none !important;
 }
