@@ -414,7 +414,7 @@
 
 
 <!-- Testmonial -->
-<section class="section-testimonial-v2 tf-btn-swiper-main">
+<section class="section-testimonial-v2 tf-btn-swiper-main mb-40">
     <div class="container-full">
         <div class="wrap flat-spacing">
             <div class="container">
@@ -578,6 +578,7 @@
 <!-- /Testmonial -->
 
 
+        <?= view('frontend/inc/footer') ?>
 
 
 
