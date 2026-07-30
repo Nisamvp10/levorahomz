@@ -17,7 +17,7 @@ function validImg($img)
 {
     if (empty($img)) {
         return base_url('uploads/default.png');
-    }
+    } 
 
     if (filter_var($img, FILTER_VALIDATE_URL)) {
         $path = parse_url($img, PHP_URL_PATH);

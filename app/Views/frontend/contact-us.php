@@ -1,220 +1,135 @@
 <?= view('frontend/inc/header') ?>
-
-      <!-- Search Area Start -->
-      <div class="search-wrap">
-         <div class="search-inner">
-            <i class="fas fa-times search-close" id="search-close"></i>
-            <div class="search-cell">
-               <form method="get">
-                  <div class="search-field-holder">
-                     <input
-                        type="search"
-                        class="main-search-input"
-                        placeholder="Search..."
-                     />
-                  </div>
-               </form>
-            </div>
-         </div>
-      </div>
-
-      <div class="breadcumb-section">
-        <div
-           class="breadcumb-container-wrapper"
-            data-bg-src="<?=base_url('public/assets/template/');?>assets/images/breadcumb/contact.webp"
-        >
-           <div class="shape1">
-              <img
-                 src="<?=base_url('public/assets/template/');?>assets/img/breadcumb-shape1_1.png"
-                 alt="shape"
-              />
-           </div>
-           <div class="shape2">
-              <img
-                 src="<?=base_url('public/assets/template/');?>assets/img/breadcumb-shape1_2.png"
-                 alt="shape"
-              />
-           </div>
-           <div class="shape3">
-              <img
-                 src="<?=base_url('public/assets/template/');?>assets/img/breadcumb-shape1_3.png"
-                 alt="shape"
-              />
-           </div>
-           <div class="shape4">
-              <img
-                 src="<?=base_url('public/assets/template/');?>assets/img/breadcumb-shape1_4.png"
-                 alt="shape"
-              />
-           </div>
-           <div class="container">
-              <ul class="breadcumb-wrapper">
-                 <li>
-                    <a href="<?=base_url()?>"
-                       ><i class="fa-sharp fa-light fa-house"></i
-                    ></a>
-                 </li>
-                 <li><i class="fa-solid fa-chevron-right"></i></li>
-                 <li>Home</li>
-                 <li><i class="fa-solid fa-chevron-right"></i></li>
-                 <li>Contact Us</li>
-              </ul>
-           </div>
-        </div>
-     </div>
-
-    
-     <section class="contact-section fix section-padding">
-        <div class="container">
-            <div class="contact-section-wrapper">
-                <div class="row">
-                  <div class="col-xl-5">
-                    <div class="contact-info">
-                      <div class="contact-info__contact">
-                        <h5 class="contact-info__contact--title">Contact Information</h5> 
-                        <p class="contact-info__contact--subtitle">Say something to start a live chat!</p>
-                        <div class="contact-info__contact--contact-items">
-                          <ul class="contact-info-items">
-                            <li>
-                              <i class="fa-solid fa-phone"></i>
-                              <a href="tel:+91<?=getappdata('phone') ?>">+91 <?=getappdata('phone') ?></a>
-                            </li>
-
-                            <li>
-                              <i class="fa-solid fa-phone"></i>
-                              <a href="tel:7034741741">+91 703 474 1741</a>
-                            </li>
-    
-                            <li>
-                              <i class="fa-regular fa-envelope"></i>
-                              <a href="mailto:<?=getappdata('email') ?>"><?=getappdata('email') ?></a>
-                            </li>
-                            <li class="d-none">
-                              <i class="fas fa-map-marker-alt"></i>
-                              <a href=""><?=getappdata('address') ?> <?=getappdata('city') ?> <?=getappdata('state') ?> <?=getappdata('zip_code') ?> <?=getappdata('country') ?> </a>
-                            </li>
-
-                            <li>
-                              <i class="fas fa-map-marker-alt"></i>
-                             
-                              <span class="text-white" ><b class="d-block">Manufactured by</b> Nambiyattukudy Food Spices Near Aimuri Ganapathi Temple Koovappady PO, Perumbavoor Ernakulam, Kerala-683544 <br><span  class="d-block">Essai Lic. No. 11316007000247 </span></span>
-                            </li>
-
-                            <li>
-                              <i class="fas fa-map-marker-alt"></i>
-                             
-                              <span class="text-white" ><b class="d-block">Marketed & Exported by</b>Arrikar Foods Pvt Ltd, 19/636, Perumbavoor, Koovapady, Ernakulam, Kerala. 683544   <br><span class="d-block"> Essai Lic. No. 11323999000136 </span></span>
-                            </li>
-    
-                          </ul>
-                        </div>
-                        <div class="contact-info__contact--social-icon d-flex align-items-center">
-                          <a href="https://www.facebook.com/Robinfoodindia"
-                                 ><i class="fab fa-facebook-f"></i
-                              ></a>
-                              <a href="https://instagram.com/robinfood_india"
-                                 ><i class="fab fa-instagram"></i
-                              ></a>
-                              <a href="https://www.youtube.com/@robinfood1849"
-                                 ><i class="fab fa-youtube"></i
-                              ></a>
-                        </div>
-                      </div>
-                      <div class="contact-info__icon">
-                        <div class="icon-1">
-                          <img src="<?=base_url('public/assets/template/');?>assets/images/shape-1.png" alt="icon">
-                        </div>
-                        <div class="icon-2">
-                          <img src="<?=base_url('public/assets/template/');?>assets/images/shape-2.png" alt="icon">
-                        </div>
-                      </div>
+  <!-- Page Title -->
+        <section class="section-page-title text-center flat-spacing-2 pb-0">
+            <div class="container">
+                <div class="main-page-title">
+                    <div class="breadcrumbs">
+                        <a href="index.html" class="text-caption-01 cl-text-3 link">Home</a>
+                        <i class="icon icon-CaretRightThin cl-text-3"></i>
+                        <P class="text-caption-01">
+                            Contact Us
+                        </P>
                     </div>
-                  </div>
-                  <div class="col-xl-7"> 
-                        <div class="contact-form-items-1">
-                        <form action="#" id="contact-form-1" method="POST" id="contactForm">
-                            <div class="row g-4">
-                            <div class="col-xl-6 wow fadeInUp" data-wow-delay=".3s">
-                                <div class="form-clt-1 mb-3">
-                                    <label for="name">First Name</label>
-                                <input type="text" name="name" id="name2" placeholder="Enter Your Name">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 wow fadeInUp" data-wow-delay=".3s">
-                                <div class="form-clt-1 mb-3">  
-                                    <label for="name">Last Name</label>
-                                <input type="text" name="name" id="name" placeholder="Enter your Last name">
-                                </div>
-                            </div>
-                            <div class="col-xl-6 wow fadeInUp mb-5" data-wow-delay=".5s">
-                                <div class="form-clt-1">
-                                    <label for="name">Email</label>
-                                <input type="text" name="email" id="email212" placeholder="Enter Your Email">
-                                </div>
-                            </div>
-                            <div class=" col-xl-6 wow fadeInUp mb-5" data-wow-delay=".7s">
-                                <div class="form-clt-1">
-                                    <label for="name">Phone Number</label>
-                                <input type="text" name="phone" id="phone" placeholder="Enter Phone number">
-                                </div>
-                            </div>
-                            <div class="col-xl-12 d-none">
-                                <div class="subjects">
-                                    <h6>Select Subject?</h6>
-                                    <div class="checkbox">
-                                        <label class="checkbox-single">
-                                            <span class="checkbox-area">
-                                                <input type="checkbox">
-                                                <span class="checkmark d-center"></span> 
-                                                <span class="text">General Inquiry</span> 
-                                            </span> 
-                                        </label>
-                                        <label class="checkbox-single">
-                                            <span class="checkbox-area">
-                                                <input type="checkbox">
-                                                <span class="checkmark d-center"></span> 
-                                                <span class="text">General Inquiry</span> 
-                                            </span> 
-                                        </label>
-                                        <label class="checkbox-single">
-                                            <span class="checkbox-area">
-                                                <input type="checkbox">
-                                                <span class="checkmark d-center"></span> 
-                                                <span class="text">General Inquiry</span> 
-                                            </span> 
-                                        </label>
-                                        <label class="checkbox-single">
-                                            <span class="checkbox-area">
-                                                <input type="checkbox">
-                                                <span class="checkmark d-center"></span> 
-                                                <span class="text">General Inquiry</span> 
-                                            </span> 
-                                        </label>
-                                    </div>
-                                </div>
-    
-                            </div>
-                            <div class="col-xl-12 wow fadeInUp" data-wow-delay=".3s">
-                                <div class="form-clt-1">
-                                    <label for="name">Message</label>
-                                <textarea name="message" id="message" placeholder="Write your message.."></textarea>
-                                </div>
-                            </div>
-                            <div class="btn-wrapper d-flex justify-content-end">
-                                <a class="theme-btn style6" >Send Message</a>
-    
-                            </div>
-                            </div>
-                        </form>
-                        </div>
-                  </div> 
+                    <h3>
+                        Contact Us
+                    </h3>
+                    <p class="text-body-1 cl-text-2">
+                        Get in touch with us for inquiries, support, or collaboration we’re here to help you.
+                    </p>
                 </div>
-              </div>
+            </div>
+        </section>
+        <!-- /Page Title -->
+        <!-- Map -->
+        <div class="section-map flat-spacing-2 pb-0">
+            <div class="container">
+                <div class="wg-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7880.148272329334!2d151.20657421407668!3d-33.858885268389294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae682c546039%3A0x16da940d587922a1!2sCircular%20Quay!5e0!3m2!1sen!2s!4v1745205798630!5m2!1sen!2s"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
         </div>
-      </section>
-    
-
-
+        <!-- /Map -->
+        <!-- Contact -->
+        <section class="section-contact flat-spacing">
+            <div class="container">
+                <div class="row gy-5 flex-wrap-reverse">
+                    <div class="col-md-6">
+                        <div class="col-left">
+                            <div class="heading d-grid gap-8">
+                                <h4>Information</h4>
+                                <h5 class="d-none">Perfect Heading SEO</h5>
+                                <p class="cl-text-2">
+                                    Have a question? Please contact us using the customer support channels below.
+                                </p>
+                            </div>
+                            <div class="grid-info tf-grid-layout sm-col-2">
+                                <div class="d-grid gap-8">
+                                    <h6>Phone:</h6>
+                                    <p>
+                                        <a href="tel:16662348888" class="cl-text-2 link">
+                                            +1 666 234 8888
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="d-grid gap-8">
+                                    <h6>Email:</h6>
+                                    <p>
+                                        <a href="mailto:hi.amere@gmail.com" class="cl-text-2 link">
+                                            hi.amere@gmail.com
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="wd-full d-grid gap-8">
+                                    <h6>Address:</h6>
+                                    <p>
+                                        <a href="https://www.google.com/maps?q=600+N+Michigan+Ave+Chicago,+IL+60611+USA"
+                                            target="_blank" class="cl-text-2 link">
+                                            2163 Phillips Gap Rd, West Jefferson, North Carolina, United States
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="wd-full d-grid gap-8">
+                                    <h6>Open Time:</h6>
+                                    <ul class="open-text">
+                                        <li class="d-flex gap-4 mb-4">
+                                            <span class="cl-text-2">Mon - Sat:</span>7:30am - 8:00pm PST
+                                        </li>
+                                        <li class="d-flex gap-4">
+                                            <span class="cl-text-2">Sunday:</span>9:00am - 5:00pm PST
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="mb-8">Get In Touch</h4>
+                        <p class="mb-24 cl-text-2">
+                            Use the form below to get in touch with the sales team
+                        </p>
+                        <form class="form-get">
+                            <div class="form-content">
+                                <div class="tf-grid-layout sm-col-2">
+                                    <fieldset class="tf-field">
+                                        <label for="your-name" class="tf-lable fw-medium">
+                                            Your Name
+                                            <span class="text-primary">*</span>
+                                        </label>
+                                        <input type="text" id="your-name" placeholder="Your Name*" required>
+                                    </fieldset>
+                                    <fieldset class="tf-field">
+                                        <label for="your-email" class="tf-lable fw-medium">
+                                            Your Email
+                                            <span class="text-primary">*</span>
+                                        </label>
+                                        <input type="email" id="your-email" placeholder="Your Email*" required>
+                                    </fieldset>
+                                </div>
+                                <fieldset class="tf-field">
+                                    <label for="your-email" class="tf-lable fw-medium">
+                                        Your Message
+                                        <span class="text-primary">*</span>
+                                    </label>
+                                    <textarea placeholder="Your Message*" required></textarea>
+                                </fieldset>
+                                <div class="checkbox-wrap">
+                                    <input class="tf-check flex-shrink-0" type="checkbox" id="agree-term-2">
+                                    <label for="agree-term-2">
+                                        Save my name, email, and website in this browser for the next time I comment.
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="tf-btn animate-btn">
+                                Send message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Contact -->
 
     <!-- Page Contact Us End -->
 <?= view('frontend/inc/footerLink') ?>

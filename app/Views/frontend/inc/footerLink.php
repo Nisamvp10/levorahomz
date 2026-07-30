@@ -1,3 +1,4 @@
+<?= view('frontend/inc/footer') ?>
 
     <!-- Javascript -->
 
@@ -6,6 +7,8 @@
     <script src="<?=base_url('public/assets/template/');?>assets/js/plugin/swiper-bundle.min.js"></script>
     <script src="<?=base_url('public/assets/template/');?>assets/js/plugin/bootstrap-select.min.js"></script>
     <script src="<?=base_url('public/assets/template/');?>assets/js/plugin/count-down.js"></script>
+    <script src="<?=base_url('public/assets/template/');?>assets/js/plugin/drift.min.js"></script>
+    
     <script src="<?=base_url('public/assets/template/');?>assets/js/plugin/infinityslide.js"></script>
     <script src="<?=base_url('public/assets/template/');?>assets/js/plugin/wow.min.js"></script>
     <script src="<?=base_url('public/assets/template/');?>assets/js/plugin/parallaxie.js"></script>
@@ -21,6 +24,3 @@
         'siteUrl' : '<?=base_url()?>'
         })
     </script>
-</body>
-
-</html>
