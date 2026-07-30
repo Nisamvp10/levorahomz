@@ -1,7 +1,7 @@
 <?= view('frontend/inc/header') ?>
 
 <!-- Page Title -->
-        <section class="section-page-title text-center flat-spacing-2 pb-0">
+        <section class="section-page-title text-center flat-spacing-2 pb-0" id="xyz>
             <div class="container">
                 <div class="main-page-title">
                     <div class="breadcrumbs">
@@ -83,139 +83,12 @@
                             Clear all
                         </button>
                     </div>
-                    <div class="wrapper-shop tf-grid-layout tf-col-4" id="gridLayout" style="">
+                    <div class="wrapper-shop tf-grid-layout tf-col-4 productsList" id="gridLayout" style="">
                         <!-- Product 1 -->
-                        <?php if (!empty($products)) :
-                            foreach ($products as $product) :
-
-                              $price = calculatePrice(
-                                    $product['price'],
-                                    $product['compare_price'],
-                                    $product['price_offer_type']
-                              );
-
-                                $offerPrice  = $price['offer_price'];
-                                $discount    = $price['discount'] ?? 0;
-                                $actualPrice = $price['actual_price'];
-                             
-                            ?>
-
-                             <div class="card-product grid" data-availability="In Stock"
-                            data-brand="Louis Vuitton">
-                            <div class="card-product_wrapper">
-                                <a href="product-detail.html" class="product-img">
-                                    <img class="img-product" loading="lazy" width="330" height="440"
-                                        src="<?=validImg($product['product_image'])?>" alt="Product">
-                                    <img class="img-hover" loading="lazy" width="330" height="440"
-                                        src="<?=validImg($product['product_image'])?>" alt="Product">
-                                </a>
-                                <ul class="product-badge_list">
-                                    <li class="product-badge_item text-caption-01 new">NEW</li>
-                                </ul>
-                                <div class="product-marquee_sale">
-                                    <div class="marquee-wrapper">
-                                        <div class="initial-child-container">
-                                            <!-- 1 -->
-
-                                          <?php
-                                             if(!empty($product['compare_price'])) {
-                                                if($product['price_offer_type'] ==1 && $product['compare_price'] > 0){
-                                                   $type = ' RS OFF';
-                                                }else{
-                                                   $type = '% OFF';
-                                                }
-                                                ?>
-                                             <?php } ?>
-                                             
-                                            <div class="marquee-child-item">
-                                                HOT SALE <?=$discount?> <?= $type ?>
-                                            </div>
-                                            <i class="icon icon-Star2"></i>
-                                            <!-- 2 -->
-                                            <div class="marquee-child-item">
-                                                HOT SALE <?=$discount?> <?= $type ?>
-                                            </div>
-                                            <i class="icon icon-Star2"></i>
-                                            <!-- 3 -->
-                                            <div class="marquee-child-item">
-                                                HOT SALE <?=$discount?> <?= $type ?>
-                                            </div>
-                                            <i class="icon icon-Star2"></i>
-                                            <!-- 4 -->
-                                            <div class="marquee-child-item">
-                                                HOT SALE <?=$discount?> <?= $type ?>
-                                            </div>
-                                            <i class="icon icon-Star2"></i>
-                                            <!-- 5 -->
-                                            <div class="marquee-child-item">
-                                                HOT SALE <?=$discount?> <?= $type ?>
-                                            </div>
-                                            <i class="icon icon-Star2"></i>
-                                            <!-- 1 -->
-                                            <div class="marquee-child-item">
-                                                HOT SALE <?=$discount?> <?= $type ?>
-                                            </div>
-                                            <i class="icon icon-Star2"></i>
-                                            <!-- 2 -->
-                                            <div class="marquee-child-item">
-                                                HOT SALE <?=$discount?> <?= $type ?>
-                                            </div>
-                                            <i class="icon icon-Star2"></i>
-                                            <!-- 3 -->
-                                            <div class="marquee-child-item">
-                                                HOT SALE <?=$discount?> <?= $type ?>
-                                            </div>
-                                            <i class="icon icon-Star2"></i>
-                                            <!-- 4 -->
-                                           
-                                            <i class="icon icon-Star2"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-product_info">
-                                <a href="product-detail.html" class="name-product lh-24 fw-medium link-underline-text">
-                                    <?=$product['product_title']?>
-                                </a>
-                                <div class="star-wrap d-flex align-items-center">
-                                    <i class="icon icon-Star"></i>
-                                    <i class="icon icon-Star"></i>
-                                    <i class="icon icon-Star"></i>
-                                    <i class="icon icon-Star"></i>
-                                    <i class="icon icon-Star"></i>
-                                </div>
-                                <div class="price-wrap">
-                                    <span class="price-new text-primary fw-semibold"><?=money_format_custom($offerPrice);?></span>
-                                    <span class="price-old text-caption-01 cl-text-3"><?=money_format_custom($actualPrice);?></span>
-                                </div>
-                                <p class="description text-caption-01 mb-10">
-                                    <?= $product['short_description'] ?>
-                                </p>
-                                
-                              
-                            </div>
-                        </div>
-
-             
-
-                     <?php endforeach; else: ?>
-                        <p class="text-center">No products found</p>
-                     <?php endif; ?>
-
-                                       
-                        
-                        <!-- Pagination -->
-                        <div class="wd-full justify-content-center">
-                            <div class="tf-page-pagination">
-                                <a href="#" class="pag-item">1</a>
-                                <p class="pag-item active">2</p>
-                                <a href="#" class="pag-item">3</a>
-                                <a href="#" class="pag-item">
-                                    <i class="icon icon-CaretRightThin"></i>
-                                </a>
-                            </div>
-                        </div>
                     </div>
+                    <div class="wd-full justify-content-center">
+                     <div class="tf-page-pagination paginationArea"></div>
+                  </div>
 
                   
                 </div>
@@ -223,4 +96,190 @@
         </div>
         <!-- /Shop -->
 
+
+        
 <?= view('frontend/inc/footerLink') ?>
+<!-- data list to ajax -->
+<script>
+
+let currentPage = 1;
+let loading = false;
+let hasMore = true;
+
+// Load first page
+products();
+
+function products() {
+    if (loading || !hasMore) return;
+      
+    loading = true;
+
+    $.ajax({
+        url: "<?= base_url('productLists') ?>",
+        type: "GET",
+        data: {
+            page: currentPage
+        },
+        dataType: "json",
+
+        beforeSend: function () {
+            $('#loader').show();
+        },
+
+        success: function(res) {
+
+            if (res.status == 200) {
+                // Append products instead of replacing
+                renderProducts(res.products, currentPage > 1);
+                currentPage++;
+                // Stop loading when there are no more products
+                if (res.products.length < 4) {
+                    hasMore = false;
+                    $('#loader').hide();
+                }
+
+            } else {
+                hasMore = false;
+            }
+        },
+
+        complete: function () {
+            loading = false;
+            $('#loader').hide();
+        }
+
+    });
+
+}
+
+function renderProducts(products, append = false) {
+
+    let html = '';
+    console.log(products)
+    if (products.length === 0) {
+        html = '<div class="text-center">No products found</div>';
+    } else {
+
+        products.forEach(function(product) {
+
+            let type = '';
+
+            if (product.compare_price > 0) {
+                if (product.price_offer_type == 1) {
+                    type = ' RS OFF';
+                } else {
+                    type = '% OFF';
+                }
+            }
+
+            html += `
+            <div class="card-product grid" data-availability="In Stock" data-brand="Louis Vuitton">
+
+                <div class="card-product_wrapper">
+
+                    <a href="product-detail.html" class="product-img">
+                        <img class="img-product"
+                             loading="lazy"
+                             width="330"
+                             height="440"
+                             src="${product.product_image}"
+                             alt="Product">
+
+                        <img class="img-hover"
+                             loading="lazy"
+                             width="330"
+                             height="440"
+                             src="${product.product_image}"
+                             alt="Product">
+                    </a>
+
+                    <ul class="product-badge_list">
+                        <li class="product-badge_item text-caption-01 new">NEW</li>
+                    </ul>
+
+                    <div class="product-marquee_sale">
+                        <div class="marquee-wrapper">
+                            <div class="initial-child-container">
+
+                                ${Array(8).fill(`
+                                    <div class="marquee-child-item">
+                                        HOT SALE ${product.discount}${type}
+                                    </div>
+                                    <i class="icon icon-Star2"></i>
+                                `).join('')}
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="card-product_info">
+
+                    <a href="product-detail.html"
+                       class="name-product lh-24 fw-medium link-underline-text">
+                        ${product.product_title}
+                    </a>
+
+                    <div class="star-wrap d-flex align-items-center">
+                        <i class="icon icon-Star"></i>
+                        <i class="icon icon-Star"></i>
+                        <i class="icon icon-Star"></i>
+                        <i class="icon icon-Star"></i>
+                        <i class="icon icon-Star"></i>
+                    </div>
+
+                    <div class="price-wrap">
+                        <span class="price-new text-primary fw-semibold">
+                            ${product.offer_price}
+                        </span>
+
+                        <span class="price-old text-caption-01 cl-text-3">
+                            ${product.actual_price}
+                        </span>
+                    </div>
+
+                    <p class="description text-caption-01 mb-10">
+                        ${product.short_description ?? ''}
+                    </p>
+
+                </div>
+
+            </div>`;
+        });
+    }
+
+    //$('.productsList').html(html);
+
+    if (append) {
+        $('.productsList').append(html);
+    } else {
+        $('.productsList').html(html);
+    }
+
+}
+
+// $(document).on('click', '.paginationArea a', function(e){
+
+//     e.preventDefault();
+
+//     let url = new URL($(this).attr('href'));
+//     let page = url.searchParams.get('page') || url.searchParams.get('page_default');
+
+//     products(page, true);   // scroll after loading
+// });
+
+$(window).on('scroll', function () {
+
+    let scrollTop = $(window).scrollTop();
+    let windowHeight = $(window).height();
+    let documentHeight = $(document).height();
+    if (scrollTop + windowHeight >= documentHeight - 200) {
+        if (!loading && hasMore) {
+            products();
+        }
+    }
+
+});
+
+</script>
