@@ -42,6 +42,59 @@ class ProductController extends BaseController
         ]);
     }
 
+    public function ajaxProductList() {
+
+        $valid['success'] = ['status' => 400,'message'=>'Invalid request'];
+
+        $categorySlug = $this->request->getGet('category');
+        $perPage = 4;
+
+        $category = null;
+
+        if ($categorySlug) {
+            $category = $this->categoryModel->where('slug', $categorySlug)->first();
+        }
+        $productsList = [];
+        if ($category) {
+            $products = $this->productModel->getProducts($category['id'], $perPage);
+            
+        } else {
+            $products = $this->productModel->getProducts(false, $perPage);
+        }
+
+        if(!empty($products)) {
+            foreach ($products as &$product) {
+
+                $price = calculatePrice(
+                    $product['price'],
+                    $product['compare_price'],
+                    $product['price_offer_type']
+                );
+
+                $product['offer_price']  = money_format_custom($price['offer_price']);
+                $product['actual_price'] = money_format_custom($price['actual_price']);
+                $product['discount']     = $price['discount'];
+                $product['product_image'] = validImg($product['product_image']);
+            }
+            
+        }
+        
+        if($products) {
+            $valid['status'] = 200;
+            $valid['message'] = 'Data fetch successfully';
+            $valid['products'] = $products;
+            $valid['pagination'] = $this->productModel->pager->links('default', 'custom_pager');
+
+        } else {
+            $valid['status'] = 400;
+            $valid['message'] = 'No data found';
+            $valid['products'] = [];
+            $valid['pagination'] = '';
+        }
+
+        echo json_encode($valid);
+    }
+
     public function singleDetails($slug) {
         $result = $this->productModel->productSingle($slug);
         $product = [];
