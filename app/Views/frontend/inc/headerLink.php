@@ -19,6 +19,10 @@
     <!-- css -->
     <link rel="stylesheet" href="<?=base_url('public/assets/template/');?>assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?=base_url('public/assets/template/');?>assets/css/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="<?=base_url('public/assets/template/');?>assets/css/drift-basic.min.css">
+    <link rel="stylesheet" href="<?=base_url('public/assets/template/');?>assets/css/photoswipe.css">
+
     <link rel="stylesheet" href="<?=base_url('public/assets/template/');?>assets/css/animate.css">
     <link rel="stylesheet" type="text/css" href="<?=base_url('public/assets/template/');?>assets/css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css" rel="stylesheet">
