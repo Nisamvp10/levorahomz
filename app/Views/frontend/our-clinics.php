@@ -42,75 +42,74 @@
                                 <div class="swiper-wrapper">
                                     <!-- item 1 -->
                                     <div class="swiper-slide" data-color="green" data-size="L">
-                                        <a href="assets/images/product/single/detail-1.jpg" target="_blank" class="item"
+                                        <a href="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>" target="_blank" class="item"
                                             data-pswp-width="576px" data-pswp-height="768px">
                                             <img loading="lazy" width="576" height="768" class="tf-image-zoom"
-                                                data-zoom="assets/images/product/single/detail-1.jpg"
-                                                <?= base_url('public/assets/template/'); ?>
-                                                src="assets/images/product/single/detail-1.jpg" alt="img-product">
+                                                data-zoom="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>"                                                 
+                                                src="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>" alt="img-product">
                                         </a>
                                     </div>
                                     <!-- item 2 -->
                                     <div class="swiper-slide" data-color="green" data-size="S">
-                                        <a href="assets/images/product/single/detail-1_2.jpg" target="_blank"
+                                        <a href="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>" target="_blank"
                                             class="item" data-pswp-width="576px" data-pswp-height="768px">
                                             <img loading="lazy" width="576" height="768" class="tf-image-zoom"
-                                                data-zoom="assets/images/product/single/detail-1_2.jpg"
-                                                src="assets/images/product/single/detail-1_2.jpg" alt="img-product">
+                                                data-zoom="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>"                                                 
+                                                src="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>" alt="img-product">
                                         </a>
                                     </div>
                                     <!-- item 3 -->
                                     <div class="swiper-slide" data-color="green" data-size="M">
-                                        <a href="assets/images/product/single/detail-1_3.jpg" target="_blank"
+                                        <a href="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>" target="_blank"
                                             class="item" data-pswp-width="576px" data-pswp-height="768px">
                                             <img loading="lazy" width="576" height="768" class="tf-image-zoom"
-                                                data-zoom="assets/images/product/single/detail-1_3.jpg"
-                                                src="assets/images/product/single/detail-1_3.jpg" alt="img-product">
+                                                data-zoom="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>"                                                 
+                                                src="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>" alt="img-product">
                                         </a>
                                     </div>
                                     <!-- item 4 -->
                                     <div class="swiper-slide" data-color="green" data-size="XL">
-                                        <a href="assets/images/product/single/detail-1_4.jpg" target="_blank"
+                                        <a href="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>" target="_blank"
                                             class="item" data-pswp-width="576px" data-pswp-height="768px">
                                             <img loading="lazy" width="576" height="768" class="tf-image-zoom"
-                                                data-zoom="assets/images/product/single/detail-1_4.jpg"
-                                                src="assets/images/product/single/detail-1_4.jpg" alt="img-product">
+                                                data-zoom="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>"                                                 
+                                                src="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>" alt="img-product">
                                         </a>
                                     </div>
                                     <!-- item 5 -->
                                     <div class="swiper-slide" data-color="gray" data-size="M">
-                                        <a href="assets/images/product/single/detail-1_5.jpg" target="_blank"
+                                        <a href="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>" target="_blank"
                                             class="item" data-pswp-width="576px" data-pswp-height="768px">
                                             <img loading="lazy" width="576" height="768" class="tf-image-zoom"
-                                                data-zoom="assets/images/product/single/detail-1_5.jpg"
-                                                src="assets/images/product/single/detail-1_5.jpg" alt="img-product">
+                                                data-zoom="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>"                                                 
+                                                src="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>" alt="img-product">
                                         </a>
                                     </div>
                                     <!-- item 6 -->
                                     <div class="swiper-slide" data-color="gray" data-size="M">
-                                        <a href="assets/images/product/single/detail-1_6.jpg" target="_blank"
+                                        <a href="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>" target="_blank"
                                             class="item" data-pswp-width="576px" data-pswp-height="768px">
                                             <img loading="lazy" width="576" height="768" class="tf-image-zoom"
-                                                data-zoom="assets/images/product/single/detail-1_6.jpg"
-                                                src="assets/images/product/single/detail-1_6.jpg" alt="img-product">
+                                                data-zoom="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>"                                                 
+                                                src="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>" alt="img-product">
                                         </a>
                                     </div>
                                     <!-- item 7 -->
                                     <div class="swiper-slide" data-color="black" data-size="L">
-                                        <a href="assets/images/product/single/detail-1_7.jpg" target="_blank"
+                                        <a href="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>" target="_blank"
                                             class="item" data-pswp-width="576px" data-pswp-height="768px">
                                             <img loading="lazy" width="576" height="768" class="tf-image-zoom"
-                                                data-zoom="assets/images/product/single/detail-1_7.jpg"
-                                                src="assets/images/product/single/detail-1_7.jpg" alt="img-product">
+                                                data-zoom="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>"                                                 
+                                                src="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>" alt="img-product">
                                         </a>
                                     </div>
                                     <!-- item 8 -->
                                     <div class="swiper-slide" data-color="black" data-size="L">
-                                        <a href="assets/images/product/single/detail-1_8.jpg" target="_blank"
+                                        <a href="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>" target="_blank"
                                             class="item" data-pswp-width="576px" data-pswp-height="768px">
                                             <img loading="lazy" width="576" height="768" class="tf-image-zoom"
-                                                data-zoom="assets/images/product/single/detail-1_8.jpg"
-                                                src="assets/images/product/single/detail-1_8.jpg" alt="img-product">
+                                                data-zoom="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>"                                                 
+                                                src="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>" alt="img-product">
                                         </a>
                                     </div>
                                 </div>
@@ -123,56 +122,56 @@
                                 <div class="swiper-slide stagger-item">
                                     <div class="item">
                                         <img loading="lazy" width="82" height="110"
-                                            src="assets/images/product/single/detail-1.jpg" alt="Image">
+                                            src="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>" alt="Image">
                                     </div>
                                 </div>
                                 <!-- item 2 -->
                                 <div class="swiper-slide stagger-item">
                                     <div class="item">
                                         <img loading="lazy" width="82" height="110"
-                                            src="assets/images/product/single/detail-1_2.jpg" alt="Image">
+                                            src="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>" alt="Image">
                                     </div>
                                 </div>
                                 <!-- item 3 -->
                                 <div class="swiper-slide stagger-item">
                                     <div class="item">
                                         <img loading="lazy" width="82" height="110"
-                                            src="assets/images/product/single/detail-1_3.jpg" alt="Image">
+                                            src="<?= base_url('public/assets/template/assets/images/product/single/detail-1_3.jpg')?>" alt="Image">
                                     </div>
                                 </div>
                                 <!-- item 4 -->
                                 <div class="swiper-slide stagger-item">
                                     <div class="item">
                                         <img loading="lazy" width="82" height="110"
-                                            src="assets/images/product/single/detail-1_4.jpg" alt="Image">
+                                            src="<?= base_url('public/assets/template/assets/images/product/single/detail-1.jpg'); ?>" alt="Image">
                                     </div>
                                 </div>
                                 <!-- item 5 -->
                                 <div class="swiper-slide stagger-item">
                                     <div class="item">
                                         <img loading="lazy" width="82" height="110"
-                                            src="assets/images/product/single/detail-1_5.jpg" alt="Image">
+                                            src="<?= base_url('public/assets/template/assets/images/product/single/detail-1_5.jpg'); ?>" alt="Image">
                                     </div>
                                 </div>
                                 <!-- item 6 -->
                                 <div class="swiper-slide stagger-item">
                                     <div class="item">
                                         <img loading="lazy" width="82" height="110"
-                                            src="assets/images/product/single/detail-1_6.jpg" alt="Image">
+                                            src="<?= base_url('public/assets/template/assets/images/product/single/detail-1_6.jpg')?>" alt="Image">
                                     </div>
                                 </div>
                                 <!-- item 7 -->
                                 <div class="swiper-slide stagger-item">
                                     <div class="item">
                                         <img loading="lazy" width="82" height="110"
-                                            src="assets/images/product/single/detail-1_7.jpg" alt="Image">
+                                            src="<?= base_url('public/assets/template/assets/images/product/single/detail-1_7.jpg');?>" alt="Image">
                                     </div>
                                 </div>
                                 <!-- item 8 -->
                                 <div class="swiper-slide stagger-item">
                                     <div class="item">
                                         <img loading="lazy" width="82" height="110"
-                                            src="assets/images/product/single/detail-1_8.jpg" alt="Image">
+                                            src="<?= base_url('public/assets/template/assets/images/product/single/detail-1_8.jpg'); ?>" alt="Image">
                                     </div>
                                 </div>
                             </div>
@@ -278,22 +277,22 @@
                             <p class="h6 text-seal">Guranteed Safe Checkout:</p>
                             <ul class="list-card">
                                 <li class="card-item">
-                                    <img width="50" height="32" src="assets/images/payment/visa.svg" alt="card">
+                                    <img width="50" height="32" src="<?= base_url('public/assets/template/assets/images/payment/visa.svg'); ?>" alt="card">
                                 </li>
                                 <li class="card-item">
-                                    <img width="50" height="32" src="assets/images/payment/master-card.svg" alt="card">
+                                    <img width="50" height="32" src="<?= base_url('public/assets/template/assets/images/payment/master-card.svg'); ?>" alt="card">
                                 </li>
                                 <li class="card-item">
-                                    <img width="50" height="32" src="assets/images/payment/amex.svg" alt="card">
+                                    <img width="50" height="32" src="<?= base_url('public/assets/template/assets/images/payment/amex.svg'); ?>" alt="card">
                                 </li>
                                 <li class="card-item">
-                                    <img width="50" height="32" src="assets/images/payment/paypal.svg" alt="card">
+                                    <img width="50" height="32" src="<?= base_url('public/assets/template/assets/images/payment/paypal.svg'); ?>" alt="card">
                                 </li>
                                 <li class="card-item">
-                                    <img width="50" height="32" src="assets/images/payment/water.svg" alt="card">
+                                    <img width="50" height="32" src="<?= base_url('public/assets/template/assets/images/payment/water.svg'); ?>" alt="card">
                                 </li>
                                 <li class="card-item">
-                                    <img width="50" height="32" src="assets/images/payment/discover.svg" alt="card">
+                                    <img width="50" height="32" src="<?= base_url('public/assets/template/assets/images/payment/discover.svg'); ?>" alt="card">
                                 </li>
                             </ul>
                         </div>
@@ -309,7 +308,7 @@
             <div class="tf-sticky-atc-product d-flex align-items-center">
                 <div class="atc-product-side">
                     <div class="prd_img">
-                        <img loading="lazy" width="60" height="80" src="assets/images/product/single/detail-1_2.jpg"
+                        <img loading="lazy" width="60" height="80" src="<?= base_url('public/assets/template/assets/images/product/single/detail-1_2.jpg')?>"
                             alt="Image">
                     </div>
                     <div class="prd_info d-none d-lg-grid">
@@ -501,7 +500,7 @@
                                     <div class="comment_info">
                                         <div class="info_image">
                                             <img loading="lazy" width="60" height="60"
-                                                src="assets/images/avatar/avatar-2.jpg" alt="Image">
+                                                src="<?= base_url('public/assets/template/assets/images/avatar/avatar-2.jpg');?>" alt="Image">
                                         </div>
                                         <div class="info_author">
                                             <p class="h6 author__name">
@@ -521,7 +520,7 @@
                                         <div class="comment_info">
                                             <div class="info_image">
                                                 <img loading="lazy" width="60" height="60"
-                                                    src="assets/images/avatar/avatar-1.jpg" alt="Image">
+                                                    src="<?= base_url('public/assets/template/assets/images/avatar/avatar-1.jpg')?>" alt="Image">
                                             </div>
                                             <div class="info_author">
                                                 <p class="h6 author__name">
@@ -543,7 +542,7 @@
                                     <div class="comment_info">
                                         <div class="info_image">
                                             <img loading="lazy" width="60" height="60"
-                                                src="assets/images/avatar/avatar-3.jpg" alt="Image">
+                                                src="<?= base_url('public/assets/template/assets/images/avatar/avatar-3.jpg');?>" alt="Image">
                                         </div>
                                         <div class="info_author">
                                             <p class="h6 author__name">
@@ -722,9 +721,9 @@
                                 <div class="card-product_wrapper">
                                     <a href="product-detail.html" class="product-img">
                                         <img class="img-product" loading="lazy" width="330" height="440"
-                                            src="assets/images/product/product-1.jpg" alt="Product">
+                                            src="<?= base_url('public/assets/template/assets/images/product/product-1.jpg');?>" alt="Product">
                                         <img class="img-hover" loading="lazy" width="330" height="440"
-                                            src="assets/images/product/product-1_2.jpg" alt="Product">
+                                            src="<?= base_url('public/assets/template/assets/images/product/product-1_2.jpg');?>" alt="Product">
                                     </a>
                                     <ul class="product-action_list">
                                         <li class="wishlist">
@@ -810,20 +809,20 @@
                                         <li class="product-color-item color-swatch hover-tooltip tooltip-bot active">
                                             <span class="tooltip color-filter">Brown</span>
                                             <span class="swatch-value bg-warm-beige"></span>
-                                            <img src="assets/images/product/product-1.jpg"
-                                                data-src="assets/images/product/product-1.jpg" alt="Image">
+                                            <img src="<?= base_url('public/assets/template/assets/images/product/product-1.jpg'); ?>"
+                                                data-src="<?= base_url('public/assets/template/assets/images/product/product-1.jpg'); ?>" alt="Image">
                                         </li>
                                         <li class="product-color-item color-swatch hover-tooltip tooltip-bot">
                                             <span class="tooltip color-filter">Dark Blue</span>
                                             <span class="swatch-value bg-midnight-blue"></span>
-                                            <img src="assets/images/product/product-1_3.jpg"
-                                                data-src="assets/images/product/product-1_3.jpg" alt="Image">
+                                            <img src="<?= base_url('public/assets/template/assets/images/product/product-1_3.jpg');?>"
+                                                data-src="<?= base_url('public/assets/template/assets/images/product/product-1_3.jpg');?>" alt="Image">
                                         </li>
                                         <li class="product-color-item color-swatch hover-tooltip tooltip-bot">
                                             <span class="tooltip color-filter">White</span>
                                             <span class="swatch-value bg-white"></span>
-                                            <img src="assets/images/product/product-1_4.jpg"
-                                                data-src="assets/images/product/product-1_4.jpg" alt="Image">
+                                            <img src="<?= base_url('public/assets/template/assets/images/product/product-1_4.jpg'); ?>"
+                                                data-src="<?= base_url('public/assets/template/assets/images/product/product-1_4.jpg'); ?>" alt="Image">
                                         </li>
                                     </ul>
                                 </div>
@@ -835,9 +834,9 @@
                                 <div class="card-product_wrapper">
                                     <a href="product-detail.html" class="product-img">
                                         <img class="img-product" loading="lazy" width="330" height="440"
-                                            src="assets/images/product/product-2.jpg" alt="Product">
+                                            src="<?= base_url('public/assets/template/assets/images/product/product-2.jpg');?>" alt="Product">
                                         <img class="img-hover" loading="lazy" width="330" height="440"
-                                            src="assets/images/product/product-2_2.jpg" alt="Product">
+                                            src="<?= base_url('public/assets/template/assets/images/product/product-2_2.jpg');?>" alt="Product">
                                     </a>
                                     <ul class="product-action_list">
                                         <li class="wishlist">
@@ -892,14 +891,14 @@
                                         <li class="product-color-item color-swatch hover-tooltip tooltip-bot active">
                                             <span class="tooltip color-filter">Brown</span>
                                             <span class="swatch-value bg-warm-brown"></span>
-                                            <img src="assets/images/product/product-2.jpg"
-                                                data-src="assets/images/product/product-2.jpg" alt="Image">
+                                            <img src="<?= base_url('public/assets/template/assets/images/product/product-2.jpg');?>"
+                                                data-src="<?= base_url('public/assets/template/assets/images/product/product-2.jpg');?>" alt="Image">
                                         </li>
                                         <li class="product-color-item color-swatch hover-tooltip tooltip-bot">
                                             <span class="tooltip color-filter">Beige</span>
                                             <span class="swatch-value bg-beige"></span>
-                                            <img src="assets/images/product/product-2_3.jpg"
-                                                data-src="assets/images/product/product-2_3.jpg" alt="Image">
+                                            <img src="<?= base_url('public/assets/template/assets/images/product/product-2_3.jpg');?>"
+                                                data-src="<?= base_url('public/assets/template/assets/images/product/product-2_3.jpg');?>" alt="Image">
                                         </li>
                                     </ul>
                                 </div>
@@ -911,9 +910,9 @@
                                 <div class="card-product_wrapper">
                                     <a href="product-detail.html" class="product-img">
                                         <img class="img-product" loading="lazy" width="330" height="440"
-                                            src="assets/images/product/product-3.jpg" alt="Product">
+                                            src="<?= base_url('public/assets/template/assets/images/product/product-3.jpg');?>" alt="Product">
                                         <img class="img-hover" loading="lazy" width="330" height="440"
-                                            src="assets/images/product/product-3_2.jpg" alt="Product">
+                                            src="<?= base_url('public/assets/template/assets/images/product/product-3_2.jpg');?>" alt="Product">
                                     </a>
                                     <ul class="product-action_list">
                                         <li class="wishlist">
@@ -968,20 +967,20 @@
                                         <li class="product-color-item color-swatch hover-tooltip tooltip-bot active">
                                             <span class="tooltip color-filter">Brown</span>
                                             <span class="swatch-value bg-olive-brown"></span>
-                                            <img src="assets/images/product/product-3.jpg"
-                                                data-src="assets/images/product/product-3.jpg" alt="Image">
+                                            <img src="<?= base_url('public/assets/template/assets/images/product/product-3.jpg');?>"
+                                                data-src="<?= base_url('public/assets/template/assets/images/product/product-3.jpg');?>" alt="Image">
                                         </li>
                                         <li class="product-color-item color-swatch hover-tooltip tooltip-bot">
                                             <span class="tooltip color-filter">Blue</span>
                                             <span class="swatch-value bg-dark-blue"></span>
-                                            <img src="assets/images/product/product-3_3.jpg"
-                                                data-src="assets/images/product/product-3_3.jpg" alt="Image">
+                                            <img src="<?= base_url('public/assets/template/assets/images/product/product-3_3.jpg');?>"
+                                                data-src="<?= base_url('public/assets/template/assets/images/product/product-3_3.jpg');?>" alt="Image">
                                         </li>
                                         <li class="product-color-item color-swatch hover-tooltip tooltip-bot">
                                             <span class="tooltip color-filter">Light</span>
                                             <span class="swatch-value bg-warm-beige"></span>
-                                            <img src="assets/images/product/product-3_4.jpg"
-                                                data-src="assets/images/product/product-3_4.jpg" alt="Image">
+                                            <img src="<?= base_url('public/assets/template/assets/images/product/product-3_4.jpg');?>"
+                                                data-src="<?= base_url('public/assets/template/assets/images/product/product-3_4.jpg');?>" alt="Image">
                                         </li>
                                     </ul>
                                 </div>
@@ -993,9 +992,9 @@
                                 <div class="card-product_wrapper">
                                     <a href="product-detail.html" class="product-img">
                                         <img class="img-product" loading="lazy" width="330" height="440"
-                                            src="assets/images/product/product-4.jpg" alt="Product">
+                                            src="<?= base_url('public/assets/template/assets/images/product/product-4.jpg');?>" alt="Product">
                                         <img class="img-hover" loading="lazy" width="330" height="440"
-                                            src="assets/images/product/product-4_2.jpg" alt="Product">
+                                            src="<?= base_url('public/assets/template/assets/images/product/product-4_2.jpg');?>" alt="Product">
                                     </a>
                                     <ul class="product-action_list">
                                         <li class="wishlist">
@@ -1052,8 +1051,8 @@
                                         <li class="product-color-item color-swatch hover-tooltip tooltip-bot active">
                                             <span class="tooltip color-filter">Blue</span>
                                             <span class="swatch-value bg-dark-blue-2"></span>
-                                            <img src="assets/images/product/product-4.jpg"
-                                                data-src="assets/images/product/product-4.jpg" alt="Image">
+                                            <img src="<?= base_url('public/assets/template/assets/images/product/product-4.jpg');?>"
+                                                data-src="<?= base_url('public/assets/template/assets/images/product/product-4.jpg');?>" alt="Image">
                                         </li>
                                     </ul>
                                 </div>
@@ -1074,9 +1073,9 @@
                                 <div class="card-product_wrapper">
                                     <a href="product-detail.html" class="product-img">
                                         <img class="img-product" loading="lazy" width="330" height="440"
-                                            src="assets/images/product/product-3.jpg" alt="Product">
+                                            src="<?= base_url('public/assets/template/assets/images/product/product-3.jpg');?>" alt="Product">
                                         <img class="img-hover" loading="lazy" width="330" height="440"
-                                            src="assets/images/product/product-3_2.jpg" alt="Product">
+                                            src="<?= base_url('public/assets/template/assets/images/product/product-3_2.jpg');?>" alt="Product">
                                     </a>
                                     <ul class="product-action_list">
                                         <li class="wishlist">
@@ -1131,20 +1130,20 @@
                                         <li class="product-color-item color-swatch hover-tooltip tooltip-bot active">
                                             <span class="tooltip color-filter">Brown</span>
                                             <span class="swatch-value bg-olive-brown"></span>
-                                            <img src="assets/images/product/product-3.jpg"
-                                                data-src="assets/images/product/product-3.jpg" alt="Image">
+                                            <img src="<?= base_url('public/assets/template/assets/images/product/product-3.jpg');?>"
+                                                data-src="<?= base_url('public/assets/template/assets/images/product/product-3.jpg');?>" alt="Image">
                                         </li>
                                         <li class="product-color-item color-swatch hover-tooltip tooltip-bot">
                                             <span class="tooltip color-filter">Blue</span>
                                             <span class="swatch-value bg-dark-blue"></span>
-                                            <img src="assets/images/product/product-3_3.jpg"
-                                                data-src="assets/images/product/product-3_3.jpg" alt="Image">
+                                            <img src="<?= base_url('public/assets/template/assets/images/product/product-3_3.jpg');?>"
+                                                data-src="<?= base_url('public/assets/template/assets/images/product/product-3_3.jpg');?>" alt="Image">
                                         </li>
                                         <li class="product-color-item color-swatch hover-tooltip tooltip-bot">
                                             <span class="tooltip color-filter">Light</span>
                                             <span class="swatch-value bg-warm-beige"></span>
-                                            <img src="assets/images/product/product-3_4.jpg"
-                                                data-src="assets/images/product/product-3_4.jpg" alt="Image">
+                                            <img src="<?= base_url('public/assets/template/assets/images/product/product-3_4.jpg');?>"
+                                                data-src="<?= base_url('public/assets/template/assets/images/product/product-3_4.jpg');?>" alt="Image">
                                         </li>
                                     </ul>
                                 </div>
@@ -1156,9 +1155,9 @@
                                 <div class="card-product_wrapper">
                                     <a href="product-detail.html" class="product-img">
                                         <img class="img-product" loading="lazy" width="330" height="440"
-                                            src="assets/images/product/product-4.jpg" alt="Product">
+                                            src="<?= base_url('public/assets/template/assets/images/product/product-4.jpg');?>" alt="Product">
                                         <img class="img-hover" loading="lazy" width="330" height="440"
-                                            src="assets/images/product/product-4_2.jpg" alt="Product">
+                                            src="<?= base_url('public/assets/template/assets/images/product/product-4_2.jpg');?>" alt="Product">
                                     </a>
                                     <ul class="product-action_list">
                                         <li class="wishlist">
@@ -1215,8 +1214,8 @@
                                         <li class="product-color-item color-swatch hover-tooltip tooltip-bot active">
                                             <span class="tooltip color-filter">Blue</span>
                                             <span class="swatch-value bg-dark-blue-2"></span>
-                                            <img src="assets/images/product/product-4.jpg"
-                                                data-src="assets/images/product/product-4.jpg" alt="Image">
+                                            <img src="<?= base_url('public/assets/template/assets/images/product/product-4.jpg');?>"
+                                                data-src="<?= base_url('public/assets/template/assets/images/product/product-4.jpg');?>" alt="Image">
                                         </li>
                                     </ul>
                                 </div>
@@ -1228,9 +1227,9 @@
                                 <div class="card-product_wrapper">
                                     <a href="product-detail.html" class="product-img">
                                         <img class="img-product" loading="lazy" width="330" height="440"
-                                            src="assets/images/product/product-1.jpg" alt="Product">
+                                            src="<?= base_url('public/assets/template/assets/images/product/product-1.jpg');?>" alt="Product">
                                         <img class="img-hover" loading="lazy" width="330" height="440"
-                                            src="assets/images/product/product-1_2.jpg" alt="Product">
+                                            src="<?= base_url('public/assets/template/assets/images/product/product-1_2.jpg');?>" alt="Product">
                                     </a>
                                     <ul class="product-action_list">
                                         <li class="wishlist">
@@ -1316,20 +1315,20 @@
                                         <li class="product-color-item color-swatch hover-tooltip tooltip-bot active">
                                             <span class="tooltip color-filter">Brown</span>
                                             <span class="swatch-value bg-warm-beige"></span>
-                                            <img src="assets/images/product/product-1.jpg"
-                                                data-src="assets/images/product/product-1.jpg" alt="Image">
+                                            <img src="<?= base_url('public/assets/template/assets/images/product/product-1.jpg');?>"
+                                                data-src="<?= base_url('public/assets/template/assets/images/product/product-1.jpg');?>" alt="Image">
                                         </li>
                                         <li class="product-color-item color-swatch hover-tooltip tooltip-bot">
                                             <span class="tooltip color-filter">Dark Blue</span>
                                             <span class="swatch-value bg-midnight-blue"></span>
-                                            <img src="assets/images/product/product-1_3.jpg"
-                                                data-src="assets/images/product/product-1_3.jpg" alt="Image">
+                                            <img src="<?= base_url('public/assets/template/assets/images/product/product-1_3.jpg');?>"
+                                                data-src="<?= base_url('public/assets/template/assets/images/product/product-1_3.jpg');?>" alt="Image">
                                         </li>
                                         <li class="product-color-item color-swatch hover-tooltip tooltip-bot">
                                             <span class="tooltip color-filter">White</span>
                                             <span class="swatch-value bg-white"></span>
-                                            <img src="assets/images/product/product-1_4.jpg"
-                                                data-src="assets/images/product/product-1_4.jpg" alt="Image">
+                                            <img src="<?= base_url('public/assets/template/assets/images/product/product-1_4.jpg');?>"
+                                                data-src="<?= base_url('public/assets/template/assets/images/product/product-1_4.jpg');?>" alt="Image">
                                         </li>
                                     </ul>
                                 </div>
@@ -1341,9 +1340,9 @@
                                 <div class="card-product_wrapper">
                                     <a href="product-detail.html" class="product-img">
                                         <img class="img-product" loading="lazy" width="330" height="440"
-                                            src="assets/images/product/product-2.jpg" alt="Product">
+                                            src="<?= base_url('public/assets/template/assets/images/product/product-2.jpg');?>" alt="Product">
                                         <img class="img-hover" loading="lazy" width="330" height="440"
-                                            src="assets/images/product/product-2_2.jpg" alt="Product">
+                                            src="<?= base_url('public/assets/template/assets/images/product/product-2_2.jpg');?>" alt="Product">
                                     </a>
                                     <ul class="product-action_list">
                                         <li class="wishlist">
@@ -1398,14 +1397,14 @@
                                         <li class="product-color-item color-swatch hover-tooltip tooltip-bot active">
                                             <span class="tooltip color-filter">Brown</span>
                                             <span class="swatch-value bg-warm-brown"></span>
-                                            <img src="assets/images/product/product-2.jpg"
-                                                data-src="assets/images/product/product-2.jpg" alt="Image">
+                                            <img src="<?= base_url('public/assets/template/assets/images/product/product-2.jpg');?>"
+                                                data-src="<?= base_url('public/assets/template/assets/images/product/product-2.jpg');?>" alt="Image">
                                         </li>
                                         <li class="product-color-item color-swatch hover-tooltip tooltip-bot">
                                             <span class="tooltip color-filter">Beige</span>
                                             <span class="swatch-value bg-beige"></span>
-                                            <img src="assets/images/product/product-2_3.jpg"
-                                                data-src="assets/images/product/product-2_3.jpg" alt="Image">
+                                            <img src="<?= base_url('public/assets/template/assets/images/product/product-2_3.jpg');?>"
+                                                data-src="<?= base_url('public/assets/template/assets/images/product/product-2_3.jpg');?>" alt="Image">
                                         </li>
                                     </ul>
                                 </div>
@@ -1421,6 +1420,10 @@
 <!-- /Relate Product -->
 
 <?= view('frontend/inc/footerLink') ?>
+
+    <script src="<?= base_url('public/assets/template/assets/js/zoom.js')?>"></script>
+    <script src="<?= base_url('public/assets/template/assets/js/plugin/photoswipe-lightbox.umd.min.js')?>"></script>
+    <script src="<?= base_url('public/assets/template/assets/js/plugin/photoswipe.umd.min.js')?>"></script>
 
 </body>
 
