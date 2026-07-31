@@ -1316,93 +1316,49 @@
                     <i class="icon icon-X2 fs-24"></i>
                 </span>
             </div>
-            <div class="tf-product-quick_add tf-quick-prd_variant">
-                <div class="product-mini-view">
-                    <a href="product-detail.html" class="prd-image">
-                        <img class="img-product" width="80" height="107" src="assets/images/product/single/detail-1.jpg"
-                            alt="Image Product">
-                    </a>
-                    <div class="prd-content">
-                        <a href="product-detail.html" class="prd-name fw-medium link-underline link text-capitalize">
-                            linen slim-fit shirt
-                        </a>
-                        <div class="price-wrap">
-                            <span class="price-new text-primary fw-semibold price-on-sale">₹79.99</span>
-                            <span class="price-old text-caption-01 cl-text-3">₹99,99</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="quick-variant-picker picker_color">
-                    <div class="variant-picker_label mb-12">
-                        <div>
-                            Colors:
-                            <span class="variant__value text-capitalize fw-medium">Gray</span>
-                        </div>
-                    </div>
-                    <div class="variant-picker_values">
-                        <div class="hover-tooltip tooltip-bot color_btn style-image active">
-                            <div class="img">
-                                <img loading="lazy" width="60" height="60"
-                                    src="assets/images/product/single/img_square/detail-1_2.jpg"
-                                    data-src="assets/images/product/single/detail-1.jpg" alt="img">
-                            </div>
-                            <span class="tooltip color__label">Green</span>
-                        </div>
-                        <div class="hover-tooltip tooltip-bot color_btn style-image">
-                            <div class="img">
-                                <img loading="lazy" width="60" height="60"
-                                    src="assets/images/product/single/img_square/detail-1_5.jpg"
-                                    data-src="assets/images/product/single/detail-1_5.jpg" alt="img">
-                            </div>
-                            <span class="tooltip color__label">Gray</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="quick-variant-picker picker_size">
-                    <div class="variant-picker_label mb-12">
-                        <div>
-                            Size:
-                            <span class="variant__value text-capitalize fw-medium">L</span>
-                        </div>
-                        <a href="#findSize" data-bs-toggle="modal"
-                            class="tf-btn-line-2 style-primary text-caption-01 fw-semibold">
-                            Size Guide
-                        </a>
-                    </div>
-                    <div class="variant-picker_values">
-                        <span class="size_btn" data-quick-size="S" data-quick-price="39.99">S</span>
-                        <span class="size_btn" data-quick-size="M" data-quick-price="59.99">M</span>
-                        <span class="size_btn active" data-quick-size="L" data-quick-price="79.99">L</span>
-                        <span class="size_btn" data-quick-size="XL" data-quick-price="89.99">XL</span>
-                        <span class="size_btn disabled" data-quick-size="XX" data-quick-price="99.99">XXL</span>
-                    </div>
-                </div>
-                <div class="product-total-quantity">
-                    <p class="">
-                        Quantity:
-                    </p>
-                    <div class="group-action">
-                        <div class="wg-quantity">
-                            <button class="btn-quantity btn-decrease">
-                                <i class="icon icon-minus"></i>
-                            </button>
-                            <input class="quantity-product" type="text" name="number" value="1">
-                            <button class="btn-quantity btn-increase">
-                                <i class="icon icon-plus"></i>
-                            </button>
-                        </div>
-                        <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                            class="btn-action-price tf-btn type-xl animate-btn w-100">
-                            Add to Cart
-                            <span class="d-none d-sm-block d-md-none d-lg-block">&nbsp;-&nbsp;</span>
-                            <span class="price-add d-none d-sm-block d-md-none d-lg-block">₹79.99</span>
-                        </a>
-                    </div>
-                    <a href="checkout.html" class="tf-btn type-xl btn-primary animate-btn w-100">
-                        Buy It Now
-                    </a>
-                </div>
+            <div class="card-product_wrapper">
+                <a href="product-detail.html" class="product-img">
+                    <img class="img-product" loading="lazy" width="330" height="440"
+                        src="http://localhost/levora/public/assets/template/assets/images/product/home/product-1.webp"
+                        alt="Product">
+                    <img class="img-hover" loading="lazy" width="330" height="440"
+                        src="http://localhost/levora/public/assets/template/assets/images/product/home/product-1.webp"
+                        alt="Product">
+                </a>
             </div>
+
+            <form class="form-get">
+                <div class="form-content">
+                    <div class="tf-grid-layout sm-col-2">
+                        <fieldset class="tf-field">
+                            <label for="your-name" class="tf-lable fw-medium">
+                                Your Name
+                                <span class="text-primary">*</span>
+                            </label>
+                            <input type="text" id="your-name" placeholder="Your Name*" required>
+                        </fieldset>
+                        <fieldset class="tf-field">
+                            <label for="your-email" class="tf-lable fw-medium">
+                                Your Email
+                                <span class="text-primary">*</span>
+                            </label>
+                            <input type="email" id="your-email" placeholder="Your Email*" required>
+                        </fieldset>
+                    </div>
+                    <fieldset class="tf-field">
+                        <label for="your-email" class="tf-lable fw-medium">
+                            Description
+                            <span class="text-primary">*</span>
+                        </label>
+                        <textarea placeholder="Your Message*" required></textarea>
+                    </fieldset>
+                </div>
+                <button type="submit" class="tf-btn animate-btn">
+                    Send message
+                </button>
+            </form>
+
+
         </div>
     </div>
 </div>
