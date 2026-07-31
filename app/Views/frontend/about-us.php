@@ -46,7 +46,7 @@
      </div> -->
 
 <!-- Page Title -->
-<section class="section-page-title text-center pb-0 about-breadcrumbs-bg">
+<section class="section-page-title text-center pb-0 breadcrumbs-bg">
     <div class="container">
         <div class="main-page-title">
             <div class="breadcrumbs pt-40">
@@ -282,8 +282,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
 
@@ -577,8 +575,6 @@
 </section>
 <!-- /Testmonial -->
 
-
-        <?= view('frontend/inc/footer') ?>
 
 
 
