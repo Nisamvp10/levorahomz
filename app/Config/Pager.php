@@ -26,6 +26,8 @@ class Pager extends BaseConfig
         'default_head'   => 'CodeIgniter\Pager\Views\default_head',
         'template_header'   => 'inc\header',
         'custom_pagination' => 'Pager/custom_pagination',
+        'custom_pager'   => 'Pager/custom_pagination',
+
     ];
 
     /**
