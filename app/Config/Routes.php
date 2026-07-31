@@ -230,6 +230,7 @@ $routes->get('products','ProductController::index');
 $routes->get('productlist','ProductController::details');
 $routes->get('product-details/(:segment)','ProductController::singleDetails/$1');
 $routes->get('productLists','ProductController::ajaxProductList');
+$routes->get('product/quick-view','ProductController::quickView');
 //cart
 $routes->post('cart/add', 'CartController::add');
 $routes->post('cart/getCart', 'CartController::getCartItems');
