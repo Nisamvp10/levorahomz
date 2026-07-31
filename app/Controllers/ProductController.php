@@ -131,6 +131,105 @@ class ProductController extends BaseController
   
         }
         return view('frontend/products/productdetials',compact('product'));
-    } 
+    }
+    
+
+    public function quickView()
+    {
+        $id = $this->request->getGet('id');
+
+        $result = $this->productModel->productSingle('', $id);
+
+        $valid = [
+            'status'  => 400,
+            'message' => 'Product not found',
+            'product' => []
+        ];
+
+        $product = [];
+
+        if (!empty($result)) {
+
+            foreach ($result as $row) {
+
+                $productId = $row->id;
+
+                if (!isset($product[$productId])) {
+
+                    $product[$productId] = [
+
+                        'id'                => $row->id,
+                        'product_title'     => $row->product_title,
+                        'compare_price'     => $row->compare_price,
+                        'price_offer_type'  => $row->price_offer_type,
+                        'price'             => $row->price,
+                        'product_image'     => validImg($row->product_image),
+                        'description'       => $row->description,
+                        'short_description' => $row->short_description,
+                        'category_id'       => $row->category_id,
+                        'category_name'     => $row->category,
+                        'sku'               => $row->sku,
+                        'stock'             => $row->current_stock,
+                        'stock_status'      => $row->stock_status,
+                        'variantImages'     => []
+
+                    ];
+
+                }
+
+                if (!empty($row->variantimages)) {
+
+                    $product[$productId]['variantImages'][] = [
+
+                        'id'    => encryptor($row->variantimageid),
+                        'image' => validImg($row->variantimages)
+
+                    ];
+
+                }
+
+            }
+
+            $product = array_values($product);
+
+            foreach ($product as &$item) {
+
+                $price = calculatePrice(
+                    $item['price'],
+                    $item['compare_price'],
+                    $item['price_offer_type']
+                );
+
+                $item['offer_price']  = money_format_custom($price['offer_price']);
+                $item['actual_price'] = money_format_custom($price['actual_price']);
+                $item['discount']     = $price['discount'];
+
+                if (!empty($item['compare_price'])) {
+
+                    if ($item['price_offer_type'] == 1) {
+                        $item['discount_text'] = money_format_custom($price['discount']) . ' OFF';
+                    } else {
+                        $item['discount_text'] = $price['discount'] . '% OFF';
+                    }
+
+                } else {
+
+                    $item['discount_text'] = '';
+
+                }
+
+            }
+
+            $valid = [
+                'status'  => 200,
+                'message' => 'Product details fetched successfully',
+                'product' => $product
+            ];
+
+        }
+
+        return $this->response->setJSON($valid);
+    }
 
 }
+

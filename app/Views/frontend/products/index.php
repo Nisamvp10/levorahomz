@@ -193,9 +193,25 @@ function renderProducts(products, append = false) {
                              alt="Product">
                     </a>
 
+                    <ul class="product-action_list">
+                            <li>
+                                <a href="#quickView" data-bs-toggle="offcanvas" data-id="${product.id}"
+                                    class="hover-tooltip tooltip-left box-icon">
+                                    <span class="icon icon-Eye"></span>
+                                    <span class="tooltip">Quick view</span>
+                                </a>
+                            </li>
+                        </ul>
+
                     <ul class="product-badge_list">
                         <li class="product-badge_item text-caption-01 new">NEW</li>
                     </ul>
+                    <div class="product-action_bot">
+                        <a href="#quickAdd" data-bs-toggle="modal" data-product-id="${product.id}" class="tf-btn btn-white small  w-100">
+                            Enquiry
+                        </a>
+                    </div>
+
 
                     <div class="product-marquee_sale">
                         <div class="marquee-wrapper">
@@ -207,6 +223,8 @@ function renderProducts(products, append = false) {
                                     </div>
                                     <i class="icon icon-Star2"></i>
                                 `).join('')}
+
+                                
 
                             </div>
                         </div>

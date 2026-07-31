@@ -24,3 +24,4 @@
         'siteUrl' : '<?=base_url()?>'
         })
     </script>
+    <script src="<?=base_url('public/assets/template/assets/js/products.js');?>" ></script>
