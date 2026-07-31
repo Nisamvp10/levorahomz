@@ -228,7 +228,8 @@
                     <option selected
                         data-thumbnail="<?= base_url('public/assets/template/assets/images/country/us.png'); ?>">(USD ₹)
                     </option>
-                    <option data-thumbnail="<?= base_url('public/assets/template/assets/images/country/vn.png'); ?>">(VND
+                    <option data-thumbnail="<?= base_url('public/assets/template/assets/images/country/vn.png'); ?>">
+                        (VND
                         ₫)</option>
                 </select>
             </div>
@@ -257,7 +258,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="d-flex align-items-center justify-content-between mb-20">
-                <h5>Quick Add</h5>
+                <h5>Enquiry</h5>
                 <span class="d-flex cs-pointer link" data-bs-dismiss="modal">
                     <i class="icon icon-X2 fs-24"></i>
                 </span>
@@ -272,7 +273,7 @@
                         </a>
                         <div class="prd-content">
                             <a href="product-detail.html" class="prd-name fw-medium link-underline">
-                                linen slim-fit shirt
+                                Product name
                             </a>
                             <div class="price-wrap">
                                 <span class="price-new text-primary fw-semibold price-on-sale">₹29,99</span>
@@ -280,83 +281,55 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tf-product-variant">
-                        <div class="variant-picker-item variant-color">
-                            <div class="variant-picker-label">
-                                <div>
-                                    Colors:
-                                    <span
-                                        class="variant-picker-label-value value-currentColor text-capitalize fw-medium">Gray</span>
-                                </div>
+
+                    <form class="form-get">
+                        <div class="form-content">
+                            <div class="tf-grid-layout sm-col-12">
+                                <fieldset class="tf-field">
+                                    <label for="your-name" class="tf-lable fw-medium">
+                                        Your Name
+                                        <span class="text-primary">*</span>
+                                    </label>
+                                    <input type="text" id="your-name" placeholder="Your Name*" required>
+                                </fieldset>
                             </div>
-                            <div class="variant-picker-values">
-                                <div class="hover-tooltip tooltip-bot color-btn style-image" data-color="green">
-                                    <!-- <span class="check-color bg-blue-1"></span> -->
-                                    <div class="img">
-                                        <img loading="lazy" width="60" height="60"
-                                            src="<?= base_url('public/assets/template/'); ?>assets/images/product/single/detail-1_2.jpg"
-                                            data-src="assets/images/product/single/detail-1_2.jpg" alt="img">
-                                    </div>
-                                    <span class="tooltip">Green</span>
-                                </div>
-                                <div class="hover-tooltip tooltip-bot color-btn style-image active" data-color="gray">
-                                    <!-- <span class="check-color bg-caramel"></span> -->
-                                    <div class="img">
-                                        <img loading="lazy" width="60" height="60"
-                                            src="<?= base_url('public/assets/template/'); ?>assets/images/product/single/detail-1_5.jpg"
-                                            data-src="assets/images/product/single/detail-1_5.jpg" alt="img">
-                                    </div>
-                                    <span class="tooltip">Gray</span>
-                                </div>
+
+                            <div class="tf-grid-layout sm-col-2">
+                                <fieldset class="tf-field">
+                                    <label for="your-phone-number" class="tf-lable fw-medium">
+                                        Your phone number
+                                        <span class="text-primary">*</span>
+                                    </label>
+                                    <input type="tel" id="your-name" inputmode="numeric"
+                                        placeholder="Your phone number*"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                                </fieldset>
+                                <fieldset class="tf-field">
+                                    <label for="your-email" class="tf-lable fw-medium">
+                                        Your Email
+                                        <span class="text-primary">*</span>
+                                    </label>
+                                    <input type="email" id="your-email" placeholder="Your Email*" required>
+                                </fieldset>
                             </div>
+
+
+                            <fieldset class="tf-field">
+                                <label for="your-email" class="tf-lable fw-medium">
+                                    Description
+                                    <span class="text-primary">*</span>
+                                </label>
+                                <textarea placeholder="Your Message*" required></textarea>
+                            </fieldset>
                         </div>
-                        <div class="variant-picker-item variant-size">
-                            <div class="variant-picker-label">
-                                <div>
-                                    Size:
-                                    <span
-                                        class="variant-picker-label-value value-currentSize text-capitalize fw-medium">M</span>
-                                </div>
-                                <a href="#findSize" data-bs-toggle="modal"
-                                    class="tf-btn-line-2 style-primary text-caption-01 fw-semibold">
-                                    Size Guide
-                                </a>
-                            </div>
-                            <div class="variant-picker-values">
-                                <span class="size-btn" data-size="S" data-price="39.99">S</span>
-                                <span class="size-btn active" data-size="M" data-price="59.99">M</span>
-                                <span class="size-btn" data-size="L" data-price="79.99">L</span>
-                                <span class="size-btn" data-size="XL" data-price="89.99">XL</span>
-                                <span class="size-btn disabled" data-size="XX" data-price="99.99">XXL</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tf-product-total-quantity">
-                        <p class="">
-                            Quantity:
-                        </p>
-                        <div class="group-action">
-                            <div class="wg-quantity">
-                                <button class="btn-quantity btn-decrease">
-                                    <i class="icon icon-minus"></i>
-                                </button>
-                                <input class="quantity-product" type="text" name="number" value="1">
-                                <button class="btn-quantity btn-increase">
-                                    <i class="icon icon-plus"></i>
-                                </button>
-                            </div>
-                            <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                                class="btn-action-price tf-btn type-xl animate-btn w-100">
-                                Enquiry
-                                <span class="d-none d-sm-block d-md-none d-lg-block">&nbsp;-&nbsp;</span>
-                                <span class="price-add d-none d-sm-block d-md-none d-lg-block">₹79.99</span>
-                            </a>
-                        </div>
-                        <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                            class="tf-btn type-xl btn-primary animate-btn w-100">
-                            Buy it now
-                        </a>
-                    </div>
+                        <button type="submit" class="tf-btn animate-btn">
+                            Send message
+                        </button>
+                    </form>
+
+
+
+
                 </div>
             </div>
         </div>
@@ -366,40 +339,30 @@
 <!-- Quick View -->
 <div class="offcanvas offcanvas-end canvas-quickview" id="quickView">
     <div class="mini-quick-image">
-        <div class="wrap-quick wrapper-scroll-quickview">
-            <div class="image item-scroll-quickview" data-scroll-quickview="Green">
-                <img loading="lazy" width="340" height="444"
-                    src="<?= base_url('public/assets/template/'); ?>assets/images/product/home/product-1.webp"
+        <div class="wrap-quick">
+            <div class="image">
+                <img class="aspect-ratio-1" loading="lazy" width="340" height="340"
+                    src="<?= base_url('public/assets/template/'); ?>assets/images/product/furniture/product-1.jpg"
                     alt="Image">
             </div>
-            <div class="image item-scroll-quickview" data-scroll-quickview="Green">
-                <img loading="lazy" width="340" height="444"
-                    src="<?= base_url('public/assets/template/'); ?>assets/images/product/home/product-1.webp"
+            <div class="image">
+                <img class="aspect-ratio-1" loading="lazy" width="340" height="340"
+                    src="<?= base_url('public/assets/template/'); ?>assets/images/product/furniture/product-1_2.jpg"
                     alt="Image">
             </div>
-            <div class="image item-scroll-quickview" data-scroll-quickview="Green">
-                <img loading="lazy" width="340" height="444"
-                    src="<?= base_url('public/assets/template/'); ?>assets/images/product/home/product-1.webp"
+            <div class="image">
+                <img class="aspect-ratio-1" loading="lazy" width="340" height="340"
+                    src="<?= base_url('public/assets/template/'); ?>assets/images/product/furniture/product-1_3.jpg"
                     alt="Image">
             </div>
-            <div class="image item-scroll-quickview" data-scroll-quickview="Gray">
-                <img loading="lazy" width="340" height="444"
-                    src="<?= base_url('public/assets/template/'); ?>assets/images/product/home/product-1.webp"
+            <div class="image">
+                <img class="aspect-ratio-1" loading="lazy" width="340" height="340"
+                    src="<?= base_url('public/assets/template/'); ?>assets/images/product/furniture/product-1_4.jpg"
                     alt="Image">
             </div>
-            <div class="image item-scroll-quickview" data-scroll-quickview="Gray">
-                <img loading="lazy" width="340" height="444"
-                    src="<?= base_url('public/assets/template/'); ?>assets/images/product/home/product-1.webp"
-                    alt="Image">
-            </div>
-            <div class="image item-scroll-quickview" data-scroll-quickview="Black">
-                <img loading="lazy" width="340" height="444"
-                    src="<?= base_url('public/assets/template/'); ?>assets/images/product/home/product-1.webp"
-                    alt="Image">
-            </div>
-            <div class="image item-scroll-quickview" data-scroll-quickview="Black">
-                <img loading="lazy" width="340" height="444"
-                    src="<?= base_url('public/assets/template/'); ?>assets/images/product/home/product-1.webp"
+            <div class="image">
+                <img class="aspect-ratio-1" loading="lazy" width="340" height="340"
+                    src="<?= base_url('public/assets/template/'); ?>assets/images/product/furniture/product-1_5.jpg"
                     alt="Image">
             </div>
         </div>
@@ -418,7 +381,7 @@
                         Furniture
                     </p>
                     <h3 class="product-infor-name mb-12 letter-space-0">
-                        Product Name
+                        Imola Lounge Chair
                     </h3>
                     <div class="product-infor-meta mb-20">
                         <div class="meta_rate">
@@ -451,16 +414,52 @@
                         The garments labelled as Committed are products that have been produced using
                         sustainable fibres or processes, reducing their environmental impact.
                     </p>
+                    <div class="product-infor-reality lh-24">
+                        <div class="ic d-flex">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="24" height="24" rx="4" fill="#101010" />
+                                <path
+                                    d="M19.4569 11.7975C19.435 11.7481 18.9056 10.5738 17.7287 9.39687C16.1606 7.82875 14.18 7 12 7C9.81999 7 7.83937 7.82875 6.27124 9.39687C5.09437 10.5738 4.56249 11.75 4.54312 11.7975C4.51469 11.8614 4.5 11.9306 4.5 12.0006C4.5 12.0706 4.51469 12.1398 4.54312 12.2037C4.56499 12.2531 5.09437 13.4269 6.27124 14.6038C7.83937 16.1713 9.81999 17 12 17C14.18 17 16.1606 16.1713 17.7287 14.6038C18.9056 13.4269 19.435 12.2531 19.4569 12.2037C19.4853 12.1398 19.5 12.0706 19.5 12.0006C19.5 11.9306 19.4853 11.8614 19.4569 11.7975ZM12 14.5C11.5055 14.5 11.0222 14.3534 10.6111 14.0787C10.1999 13.804 9.87951 13.4135 9.69029 12.9567C9.50107 12.4999 9.45157 11.9972 9.54803 11.5123C9.64449 11.0273 9.88259 10.5819 10.2322 10.2322C10.5819 9.8826 11.0273 9.6445 11.5123 9.54804C11.9972 9.45157 12.4999 9.50108 12.9567 9.6903C13.4135 9.87952 13.804 10.2 14.0787 10.6111C14.3534 11.0222 14.5 11.5055 14.5 12C14.5 12.663 14.2366 13.2989 13.7678 13.7678C13.2989 14.2366 12.663 14.5 12 14.5Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        28 people are viewing this right now
+                    </div>
                 </div>
                 <div class="br-line"></div>
                 <div class="tf-product-variant">
                     <div class="tf-product-total-quantity">
+                        <p class="">
+                            Quantity:
+                        </p>
+                        <div class="group-action">
+                            <div class="wg-quantity">
+                                <button class="btn-quantity btn-decrease">
+                                    <i class="icon icon-minus"></i>
+                                </button>
+                                <input class="quantity-product" type="text" name="number" value="1">
+                                <button class="btn-quantity btn-increase">
+                                    <i class="icon icon-plus"></i>
+                                </button>
+                            </div>
+                            <a href="#shoppingCart" data-bs-toggle="offcanvas"
+                                class="btn-action-price tf-btn type-xl animate-btn w-100">
+                                Enquiry
+                                <span class="d-none d-sm-block d-md-none d-lg-block">&nbsp;-&nbsp;</span>
+                                <span class="price-add d-none d-sm-block d-md-none d-lg-block">₹59.99</span>
+                            </a>
+                        </div>
                         <a href="checkout.html" class="tf-btn type-xl btn-primary animate-btn w-100">
-                            Enquiry
+                            Buy It Now
                         </a>
                     </div>
                 </div>
-
+                <div class="box-action">
+                    <a href="product-detail.html" class="tf-btn-line-2 style-primary fw-semibold">
+                        View Full Details
+                    </a>
+                </div>
             </div>
         </div>
     </div>
