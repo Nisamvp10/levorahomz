@@ -576,8 +576,6 @@
 <!-- /Testmonial -->
 
 
-        <?= view('frontend/inc/footer') ?>
-
 
 
 <?= view('frontend/inc/footerLink') ?>
