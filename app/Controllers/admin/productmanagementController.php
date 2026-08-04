@@ -24,7 +24,7 @@ class ProductmanagementController extends Controller
     {
        $page = (haspermission('','product_management')) ? ucwords(getappdata('product_management')) : lang('Custom.permissiondenied');
        $route = (haspermission('','product_management')) ? 'admin/productmanagement/index' : 'admin/pages-error-404';
-       $categories = $this->categoryModel->where('is_active',1)->findAll();
+       $categories = $this->categoryModel->where(['is_active'=>1,'parent_id'=>NULL])->findAll();
        //$products = 
        return view($route,compact('page','categories'));
     }
@@ -40,19 +40,24 @@ class ProductmanagementController extends Controller
         if(!haspermission('','product_management')) {
              $validMsg = lang('Custom.permissiondenied');
         }else{
+            // sub categories based on parent id
+          //  $categories = $this->categoryModel->where(['is_active'=>1,'parent_id'=>$id])->findAll();
+            $categories = $this->categoryModel->getAllChildCategoryIds($id);
             
            $products = $this->productModel->select('id,product_name')->where('category_id', $id)->where('current_stock >', 0)->where('status', 1)->findAll();
 
             if($products) {
                 $validStatus = true;
                 $validResult = $products;
+                $validCategories = $categories ?? [] ;
 
             }
         }
         return $this->response->setJson([
             'success' => $validStatus,
             'message' => $validMsg,
-            'products' => $validResult
+            'products' => $validResult,
+            'categories' => $validCategories,
         ]);
     }
 
@@ -218,6 +223,7 @@ class ProductmanagementController extends Controller
             'price_offer_type' => (int) ($this->request->getPost('price_offer_type') ?? 1),
             'short_description' => $this->request->getPost('note'),
             'description' => $this->request->getPost('description'),
+            'child_id'     => $this->request->getPost('sub_category'),
             'seo_title' => $this->request->getPost('meta_title'),
             'seo_description' => $this->request->getPost('meta_keywords'),
             'product_status'=> $this->request->getPost('status') ? 1 : 0,

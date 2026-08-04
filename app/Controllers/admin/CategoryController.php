@@ -177,7 +177,7 @@ class CategoryController extends Controller{
             return $this->response->setJSON(['success' => false,'message' => ' Invalid Request']);
         }
         
-        $category =  $this->categoryModel->where('is_active',1)->findAll();
+        $category =  $this->categoryModel->where('is_active',1)->where('parent_id IS NULL')->findAll();
         return $this->response->setJSON(['success' => true,'result'=>$category]) ;
     }
 }

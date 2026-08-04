@@ -4,7 +4,7 @@ use CodeIgniter\Model;
 class ProductManageModel extends Model{
     protected $table ="product_management";
     protected $primaryKey = 'id';
-    protected $allowedFields = ['product_id','product_title','slug','category_id','price','compare_price','premium_product','featured_product','price_offer_type','short_description','description','seo_title','seo_description','product_image','product_status','created_at','created_by','updated_at','updated_by'];
+    protected $allowedFields = ['product_id','product_title','slug','category_id','child_id','price','compare_price','premium_product','featured_product','price_offer_type','short_description','description','seo_title','seo_description','product_image','product_status','created_at','created_by','updated_at','updated_by'];
     
     function getData($search='',$filter=false){
         $builder = $this->table('product_management');
@@ -27,19 +27,33 @@ class ProductManageModel extends Model{
         return $builder->get()->getResult();
     }
 
-    public function getProducts($category_id=false,$perPage=null){
+    public function getProducts($productIds = false,$childId=false,$productType=false , $perPage = 4, $page = 1,$productCategory= false)
+    {
         $this->where('product_status', 1);
-        if ($category_id) {
-            $this->where('category_id', $category_id);
+        if (!empty($productIds)) {
+            $this->whereIn('product_id', $productIds);
         }
-        if ($perPage) {
-            return $this->paginate($perPage);
+        if (!empty($childId)) {
+           $this->where('child_id',$childId);
         }
+        if (!empty($productType)) {
+            $this->where($productType);
+        }
+        if (!empty($productCategory)) {
+            $this->where('category_id',$productCategory);
+        }
+        
+
+        return $this->paginate(
+            $perPage,
+            'default',
+            $page
+        );
     }
 
     function productSingle($slug='',$id=false) {
         $builder = $this->db->table('product_management as pm')
-            ->select('pm.id,pm.product_id,pm.product_title,pm.category_id,pm.price,pm.compare_price,pm.product_image,pm.product_status,pm.seo_title,pm.seo_description,pm.short_description,pm.description,pm.price_offer_type,pm.premium_product,pm.featured_product,pm.created_at,pm.updated_at,
+            ->select('pm.id,pm.product_id,pm.slug,pm.product_title,pm.category_id,pm.price,pm.compare_price,pm.product_image,pm.product_status,pm.seo_title,pm.seo_description,pm.short_description,pm.description,pm.price_offer_type,pm.premium_product,pm.featured_product,pm.created_at,pm.updated_at,
            pvi.image as variantimages,pvi.id as variantimageid,
            c.category as category,
            p.product_name,p.sku,p.current_stock,p.status as stock_status')

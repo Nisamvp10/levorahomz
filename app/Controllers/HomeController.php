@@ -11,6 +11,7 @@ use App\Models\NewsModel;
 use App\Models\ServiceModel;
 use App\Models\CategoryModel;
 use App\Models\ProductManageModel;
+use App\Models\PartnershipModel;
 
 class HomeController extends BaseController {
     protected $sliderModel;
@@ -36,16 +37,20 @@ class HomeController extends BaseController {
     public function index() {
         helper('text');
         $page = 'Home';
+        $partnershipModel = new PartnershipModel();
+        $gallery = $partnershipModel->where('status',1)->findAll();
         $banner = $this->sliderModel->where(['status' => 1 ])->orderBy('id','DESC')->get()->getResult();
         $itemCategories = $this->categoryModel->where(['is_active' => 1])->orderBy('id','DESC')->get()->getResult();
+        $products = $this->productManageModel->where(['product_status' => 1])->orderBy('id','DESC')->limit(8)->get()->getResult();
+        $productsfilter = $this->productManageModel->where(['product_status' => 1])->orderBy('id','DESC')->limit(25)->get()->getResult();
         $premiumProducts = $this->productManageModel->where(['product_status' => 1,'premium_product' =>1])->orderBy('id','DESC')->get()->getResult();
         $featuredProducts = $this->productManageModel->where(['product_status' => 1,'featured_product' =>1])->orderBy('id','DESC')->limit(6)->get()->getResult();
         $tagline = $this->expertiseModel->where(['status' => 1])->orderBy('title','ASC')->get()->getResult();
-        $feedback = $this->feedbackModel->where(['status' => 1])->orderBy('id','DESC')->get()->getResult();
+        $feedback = $this->feedbackModel->customerFeedback();
         $news  = $this->newsModel->where(['status' => 1])->orderBy('id','DESC')->limit(3)->get()->getResult();
         $srevices  = $this->serviceModel->getMysubcategoryItems('',9);
         $industries  = $this->industyModel->where(['status' => 1])->orderBy('id','ASC')->limit(3)->get()->getResult();    
-        return view('frontend/home-main',compact('page','banner','tagline','industries','feedback','news','srevices','itemCategories','premiumProducts','featuredProducts'));
+        return view('frontend/home-main',compact('page','banner','tagline','industries','feedback','news','srevices','gallery','itemCategories','productsfilter','premiumProducts','featuredProducts','products'));
 
     }
 }

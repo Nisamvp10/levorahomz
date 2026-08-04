@@ -77,15 +77,15 @@
                                     <p class="cl-text-3 mb-4">
                                         24/7 Support Center:
                                     </p>
-                                    <a href="tel:8113905557" class="text-white link h4 fw-medium mb-12">
-                                        +91 8113905557
+                                    <a href="tel:<?=getappdata('phone');?>" class="text-white link h4 fw-medium mb-12">
+                                        <?=getappdata('phone');?>   
                                     </a>
                                     <!-- <a href="https://www.google.com/maps?q=600+N+Michigan+Ave+Chicago,+IL+60611+USA"
                                         target="_blank" class="cl-text-3 link mb-4">
                                         600 N Michigan Ave, Chicago, IL 60611, USA
                                     </a> -->
-                                    <a href="mailto:info@levorahome.com" class="cl-text-3 link">
-                                        info@levorahome.com
+                                    <a href="mailto:<?=getappdata('email');?>" class="cl-text-3 link">
+                                        <?=getappdata('email');?>
                                     </a>
                                 </div>
                             </div>
@@ -97,10 +97,10 @@
                                     <p class="footer-heading footer-heading-mobile text-white">COMPANY</p>
                                     <div class="tf-collapse-content">
                                         <ul class="footer-menu-list">
-                                            <li><a href="#" class="cl-text-3 link">About Us</a></li>
-                                            <li><a href="#" class="cl-text-3 link">Our Store</a></li>
-                                            <li><a href="#" class="cl-text-3 link">Contact us</a></li>
-                                            <li><a href="#" class="cl-text-3 link">Locations</a></li>
+                                            <li><a href="<?= base_url('about') ?>" class="cl-text-3 link">About Us</a></li>
+                                            <li><a href="<?= base_url('contact') ?>" class="cl-text-3 link">Contact us</a></li>
+                                            <li><a href="<?= base_url('productlist') ?>" class="cl-text-3 link">Products</a></li>
+                                            <!-- <li><a href="<?= base_url('faq') ?>" class="cl-text-3 link">FAQ</a></li> -->
                                         </ul>
                                     </div>
                                 </div>
@@ -243,119 +243,83 @@
 
 
 
-
-
-    <!-- Quick Add -->
-    <div class="modal modalCentered fade modal-quickadd" id="quickAdd">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="d-flex align-items-center justify-content-between mb-20">
-                    <h5>Quick Add</h5>
-                    <span class="d-flex cs-pointer link" data-bs-dismiss="modal">
-                        <i class="icon icon-X2 fs-24"></i>
-                    </span>
-                </div>
-                <div class="tf-product-info-wrap p-0 m-0">
-                    <div class="tf-product-info-inner tf-product-info-list mb-0">
-                        <div class="tf-product-mini-view">
-                            <a href="product-detail.html" class="prd-image">
-                                <img width="80" height="107" src="<?=base_url('public/assets/template/');?>assets/images/product/product-2.jpg"
-                                    alt="Image Product">
+<div class="modal modalCentered fade modal-quickadd" id="quickAdd">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="d-flex align-items-center justify-content-between mb-20">
+                <h5>Enquiry</h5>
+                <span class="d-flex cs-pointer link" data-bs-dismiss="modal">
+                    <i class="icon icon-X2 fs-24"></i>
+                </span>
+            </div>
+            <div class="tf-product-info-wrap p-0 m-0">
+                <div class="tf-product-info-inner tf-product-info-list mb-0">
+                    <div class="tf-product-mini-view">
+                        <a href="" class="prd-image">
+                            <img width="80" height="107"
+                                src="<?= base_url('public/assets/template/'); ?>assets/images/product/product-2.jpg"
+                                alt="Image Product">
+                        </a>
+                        <div class="prd-content">
+                            <a href="" class="prd-name fw-medium link-underline" id="productName">
+                                Product name
                             </a>
-                            <div class="prd-content">
-                                <a href="product-detail.html" class="prd-name fw-medium link-underline">
-                                    linen slim-fit shirt
-                                </a>
-                                <div class="price-wrap">
-                                    <span class="price-new text-primary fw-semibold price-on-sale">₹29,99</span>
-                                    <span class="price-old text-caption-01 cl-text-3">₹49,99</span>
-                                </div>
+                            <div class="price-wrap">
+                                <span class="price-new text-primary fw-semibold price-on-sale" id="price-new"></span>
+                                <span class="price-old text-caption-01 cl-text-3" id="price-old"></span>
                             </div>
-                        </div>
-                        <div class="tf-product-variant">
-                            <div class="variant-picker-item variant-color">
-                                <div class="variant-picker-label">
-                                    <div>
-                                        Colors:
-                                        <span
-                                            class="variant-picker-label-value value-currentColor text-capitalize fw-medium">Gray</span>
-                                    </div>
-                                </div>
-                                <div class="variant-picker-values">
-                                    <div class="hover-tooltip tooltip-bot color-btn style-image" data-color="green">
-                                        <!-- <span class="check-color bg-blue-1"></span> -->
-                                        <div class="img">
-                                            <img loading="lazy" width="60" height="60"
-                                                src="<?=base_url('public/assets/template/');?>assets/images/product/single/detail-1_2.jpg"
-                                                data-src="assets/images/product/single/detail-1_2.jpg" alt="img">
-                                        </div>
-                                        <span class="tooltip">Green</span>
-                                    </div>
-                                    <div class="hover-tooltip tooltip-bot color-btn style-image active"
-                                        data-color="gray">
-                                        <!-- <span class="check-color bg-caramel"></span> -->
-                                        <div class="img">
-                                            <img loading="lazy" width="60" height="60"
-                                                src="<?=base_url('public/assets/template/');?>assets/images/product/single/detail-1_5.jpg"
-                                                data-src="assets/images/product/single/detail-1_5.jpg" alt="img">
-                                        </div>
-                                        <span class="tooltip">Gray</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="variant-picker-item variant-size">
-                                <div class="variant-picker-label">
-                                    <div>
-                                        Size:
-                                        <span
-                                            class="variant-picker-label-value value-currentSize text-capitalize fw-medium">M</span>
-                                    </div>
-                                    <a href="#findSize" data-bs-toggle="modal"
-                                        class="tf-btn-line-2 style-primary text-caption-01 fw-semibold">
-                                        Size Guide
-                                    </a>
-                                </div>
-                                <div class="variant-picker-values">
-                                    <span class="size-btn" data-size="S" data-price="39.99">S</span>
-                                    <span class="size-btn active" data-size="M" data-price="59.99">M</span>
-                                    <span class="size-btn" data-size="L" data-price="79.99">L</span>
-                                    <span class="size-btn" data-size="XL" data-price="89.99">XL</span>
-                                    <span class="size-btn disabled" data-size="XX" data-price="99.99">XXL</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tf-product-total-quantity">
-                            <p class="">
-                                Quantity:
-                            </p>
-                            <div class="group-action">
-                                <div class="wg-quantity">
-                                    <button class="btn-quantity btn-decrease">
-                                        <i class="icon icon-minus"></i>
-                                    </button>
-                                    <input class="quantity-product" type="text" name="number" value="1">
-                                    <button class="btn-quantity btn-increase">
-                                        <i class="icon icon-plus"></i>
-                                    </button>
-                                </div>
-                                <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                                    class="btn-action-price tf-btn type-xl animate-btn w-100">
-                                    Enquiry
-                                    <span class="d-none d-sm-block d-md-none d-lg-block">&nbsp;-&nbsp;</span>
-                                    <span class="price-add d-none d-sm-block d-md-none d-lg-block">₹79.99</span>
-                                </a>
-                            </div>
-                            <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                                class="tf-btn type-xl btn-primary animate-btn w-100">
-                                Buy it now
-                            </a>
                         </div>
                     </div>
+
+                    <form class="form-get">
+                        <div class="form-content">
+                            <div class="tf-grid-layout sm-col-12">
+                                <fieldset class="tf-field">
+                                    <label for="your-name" class="tf-lable fw-medium">
+                                        Your Name
+                                        <span class="text-primary">*</span>
+                                    </label>
+                                    <input type="text" id="your-name" placeholder="Your Name*" required>
+                                </fieldset>
+                            </div>
+
+                            <div class="tf-grid-layout sm-col-2">
+                                <fieldset class="tf-field">
+                                    <label for="your-phone-number" class="tf-lable fw-medium">
+                                        Your phone number
+                                        <span class="text-primary">*</span>
+                                    </label>
+                                    <input type="tel" id="your-name" inputmode="numeric"
+                                        placeholder="Your phone number*"
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                                </fieldset>
+                                <fieldset class="tf-field">
+                                    <label for="your-email" class="tf-lable fw-medium">
+                                        Your Email
+                                        <span class="text-primary">*</span>
+                                    </label>
+                                    <input type="email" id="your-email" placeholder="Your Email*" required>
+                                </fieldset>
+                            </div>
+
+
+                            <fieldset class="tf-field">
+                                <label for="your-email" class="tf-lable fw-medium">
+                                    Description
+                                    <span class="text-primary">*</span>
+                                </label>
+                                <textarea placeholder="Your Message*" required></textarea>
+                            </fieldset>
+                        </div>
+                        <button type="submit" class="tf-btn animate-btn">
+                            Send message
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- /Quick Add -->
+</div>
     <!-- Quick View -->
    
         <!-- Quick View -->
@@ -664,4 +628,3 @@
     </div>
 
 </main>
-
