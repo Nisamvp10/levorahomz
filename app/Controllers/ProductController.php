@@ -24,8 +24,8 @@ class ProductController extends BaseController
     }
    public function details()
     {
-        $categorySlug = $this->request->getGet('category');
-        $perPage = 12;
+        $categorySlug = $this->request->getGet('perPage');
+        $perPage = $this->request->getGet('perPage') ?? 12;
 
         $category = null;
 
