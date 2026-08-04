@@ -326,10 +326,6 @@
                             Send message
                         </button>
                     </form>
-
-
-
-
                 </div>
             </div>
         </div>
