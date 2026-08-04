@@ -43,16 +43,7 @@
             </div>
         </div>
         <div class="wrapper-control-shop gridLayout-wrapper">
-            <div class="meta-filter-shop">
-                <div id="product-count-grid" class="count-text text-caption-01"></div>
-                <div id="product-count-list" class="count-text text-caption-01"></div>
-                <div class="br-line type-vertical"></div>
-                <div id="applied-filters"></div>
-                <button id="remove-all" class="remove-all-filters" style="display: none;">
-                    <i class="icon icon-X2"></i>
-                    Clear all
-                </button>
-            </div>
+           
             <div class="wrapper-shop tf-grid-layout tf-col-4 productsList" id="gridLayout" style="">
                 <!-- Product 1 -->
             </div>
