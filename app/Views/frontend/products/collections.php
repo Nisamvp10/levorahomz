@@ -27,25 +27,7 @@
         <div class="flat-spacing">
             <div class="container">
                 <div class="tf-shop-control sticky-top no-offset">
-                    <a href="#filterShop" data-bs-toggle="offcanvas" class="tf-btn-filter">
-                        <span class="icon icon-filter"></span>
-                        <span class="text">Show Filters</span>
-                    </a>
-                    <ul class="tf-control-layout">
-                        <li class="tf-view-layout-switch sw-layout-list list-layout" data-value-layout="list">
-                            <i class="icon-List"></i>
-                        </li>
-                        <li class="tf-view-layout-switch sw-layout-2" data-value-layout="tf-col-2">
-                            <i class="icon-grid-2"></i>
-                        </li>
-                        <li class="tf-view-layout-switch sw-layout-3 d-none d-md-flex" data-value-layout="tf-col-3">
-                            <i class="icon-grid-3"></i>
-                        </li>
-                        <li class="tf-view-layout-switch sw-layout-4 active d-none d-lg-flex"
-                            data-value-layout="tf-col-4">
-                            <i class="icon-grid-4"></i>
-                        </li>
-                    </ul>
+                   
                     <div class="tf-control-sorting">
                             
                             <!-- <div class="dropdown-menu"> -->
@@ -59,16 +41,7 @@
                     </div>
                 </div>
                 <div class="wrapper-control-shop gridLayout-wrapper">
-                    <div class="meta-filter-shop">
-                        <div id="product-count-grid" class="count-text text-caption-01"></div>
-                        <div id="product-count-list" class="count-text text-caption-01"></div>
-                        <div class="br-line type-vertical"></div>
-                        <div id="applied-filters"></div>
-                        <button id="remove-all" class="remove-all-filters" style="display: none;">
-                            <i class="icon icon-X2"></i>
-                            Clear all
-                        </button>
-                    </div>
+                 
                     <div class="wrapper-shop tf-grid-layout tf-col-4 productsList" id="gridLayout" style="">
                         <!-- Product 1 -->
                     </div>
