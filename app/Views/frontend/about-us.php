@@ -202,7 +202,10 @@
                         <div class="col-md-3 no-padding">
                             <div class="box-icon_V01 wow fadeInLeft whyus-container">
                                 <span class="icon">
-                                    <i class="icon-Armchair"></i>
+                                    <!-- <i class="icon-Armchair"></i> -->
+                                    <img loading="lazy" width="100" height="100"
+                                        src="<?= base_url('public/assets/template/'); ?>assets/icon/levora-icon/premium-quality.svg"
+                                        alt="Image">
                                 </span>
                                 <div class="content">
                                     <h6 class="title">Premium Quality</h6>
@@ -216,7 +219,9 @@
                         <div class="col-md-3 no-padding">
                             <div class="box-icon_V01 wow fadeInLeft whyus-container">
                                 <span class="icon">
-                                    <i class="icon-Armchair"></i>
+                                    <img loading="lazy" width="100" height="100"
+                                        src="<?= base_url('public/assets/template/'); ?>assets/icon/levora-icon/modern-designs.svg"
+                                        alt="Image">
                                 </span>
                                 <div class="content">
                                     <h6 class="title">Modern Designs</h6>
@@ -230,7 +235,9 @@
                         <div class="col-md-3 no-padding">
                             <div class="box-icon_V01 wow fadeInLeft whyus-container">
                                 <span class="icon">
-                                    <i class="icon-Armchair"></i>
+                                    <img loading="lazy" width="100" height="100"
+                                        src="<?= base_url('public/assets/template/'); ?>assets/icon/levora-icon/affordable-prices.svg"
+                                        alt="Image">
                                 </span>
                                 <div class="content">
                                     <h6 class="title">Affordable Prices</h6>
@@ -244,7 +251,9 @@
                         <div class="col-md-3 no-padding">
                             <div class="box-icon_V01 wow fadeInLeft whyus-container">
                                 <span class="icon">
-                                    <i class="icon-Armchair"></i>
+                                    <img loading="lazy" width="100" height="100"
+                                        src="<?= base_url('public/assets/template/'); ?>assets/icon/levora-icon/fast-delivery.svg"
+                                        alt="Image">
                                 </span>
                                 <div class="content">
                                     <h6 class="title">Fast Delivery</h6>
@@ -258,7 +267,9 @@
                         <div class="col-md-3 no-padding">
                             <div class="box-icon_V01 wow fadeInLeft whyus-container">
                                 <span class="icon">
-                                    <i class="icon-Armchair"></i>
+                                    <img loading="lazy" width="100" height="100"
+                                        src="<?= base_url('public/assets/template/'); ?>assets/icon/levora-icon/customer-satisfaction.svg"
+                                        alt="Image">
                                 </span>
                                 <div class="content">
                                     <h6 class="title">Customer Satisfaction</h6>
@@ -271,7 +282,9 @@
                         <div class="col-md-3 no-padding">
                             <div class="box-icon_V01 wow fadeInLeft whyus-container">
                                 <span class="icon">
-                                    <i class="icon-Armchair"></i>
+                                    <img loading="lazy" width="100" height="100"
+                                        src="<?= base_url('public/assets/template/'); ?>assets/icon/levora-icon/warranty-support.svg"
+                                        alt="Image">
                                 </span>
                                 <div class="content">
                                     <h6 class="title">Warranty Support</h6>
@@ -329,14 +342,14 @@
                 <div class="tab-pane active show" id="moderm" role="tabpanel">
                     <div class="collect-image">
                         <img loading="lazy" width="805" height="604"
-                            src="<?= base_url('public/assets/template/'); ?>assets/images/home-image-1.webp"
+                            src="<?= base_url('public/assets/template/'); ?>assets/images/about-design-philosophy-img.webp"
                             alt="Image">
                     </div>
                 </div>
             </div>
 
 
-            <div class="col-left wow fadeInUp">
+            <div class="col-left wow fadeInUp justify-center">
                 <h3 class="mb-12 margin-bottom-20">
                     Our Design Philosophy
                 </h3>
@@ -347,11 +360,17 @@
                 <div class="design-philosopy-list-container">
                     <div class="philosopy-box">
                         <div class="philosopy-content-list">
-                            <span class="icon">
-                                <!-- <i class="icon-Package"></i> -->
+                            <!-- <span class="icon">
                                 <img
                                     src="http://localhost/levora/public/assets/template/assets/images/icon/fast-secure-delivery.svg">
+                            </span> -->
+
+                            <span class="icon">
+                                <img loading="lazy" width="100" height="100"
+                                    src="<?= base_url('public/assets/template/'); ?>assets/icon/levora-icon/timeless-design.svg"
+                                    alt="Image">
                             </span>
+
                             <div class="philosopy-title">
                                 <h3>Timeless Design</h3>
                                 <p>Elegant styles that never go out of fashion.</p>
@@ -362,9 +381,9 @@
                     <div class="philosopy-box">
                         <div class="philosopy-content-list">
                             <span class="icon">
-                                <!-- <i class="icon-Package"></i> -->
-                                <img
-                                    src="http://localhost/levora/public/assets/template/assets/images/icon/fast-secure-delivery.svg">
+                                <img loading="lazy" width="100" height="100"
+                                    src="<?= base_url('public/assets/template/'); ?>assets/icon/levora-icon/quality-materials.svg"
+                                    alt="Image">
                             </span>
                             <div class="philosopy-title">
                                 <h3>Quality Materials</h3>
@@ -376,9 +395,9 @@
                     <div class="philosopy-box">
                         <div class="philosopy-content-list">
                             <span class="icon">
-                                <!-- <i class="icon-Package"></i> -->
-                                <img
-                                    src="http://localhost/levora/public/assets/template/assets/images/icon/fast-secure-delivery.svg">
+                                <img loading="lazy" width="100" height="100"
+                                    src="<?= base_url('public/assets/template/'); ?>assets/icon/levora-icon/functional-living.svg"
+                                    alt="Image">
                             </span>
                             <div class="philosopy-title">
                                 <h3>Functional Living</h3>
@@ -390,9 +409,9 @@
                     <div class="philosopy-box">
                         <div class="philosopy-content-list">
                             <span class="icon">
-                                <!-- <i class="icon-Package"></i> -->
-                                <img
-                                    src="http://localhost/levora/public/assets/template/assets/images/icon/fast-secure-delivery.svg">
+                                <img loading="lazy" width="100" height="100"
+                                    src="<?= base_url('public/assets/template/'); ?>assets/icon/levora-icon/attention-to-detail.svg"
+                                    alt="Image">
                             </span>
                             <div class="philosopy-title">
                                 <h3>Attention to Detail</h3>
