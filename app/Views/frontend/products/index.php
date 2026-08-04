@@ -5,14 +5,14 @@
             <div class="container">
                 <div class="main-page-title">
                     <div class="breadcrumbs">
-                        <a href="index.html" class="text-caption-01 cl-text-3 link">Home</a>
+                        <a href="<?=base_url();?>" class="text-caption-01 cl-text-3 link">Home</a>
                         <i class="icon icon-CaretRightThin cl-text-3"></i>
                         <P class="text-caption-01">
-                            Tops & Shirts
+                           Products
                         </P>
                     </div>
                     <h3>
-                        Tops & Shirts
+                       Products
                     </h3>
                     <p class="text-body-1 cl-text-2">
                         Step into our Tops & Shirts Collection, where elegance meets confidence in styles
@@ -27,49 +27,18 @@
         <div class="flat-spacing">
             <div class="container">
                 <div class="tf-shop-control sticky-top no-offset">
-                    <a href="#filterShop" data-bs-toggle="offcanvas" class="tf-btn-filter">
-                        <span class="icon icon-filter"></span>
-                        <span class="text">Show Filters</span>
-                    </a>
-                    <ul class="tf-control-layout">
-                        <li class="tf-view-layout-switch sw-layout-list list-layout" data-value-layout="list">
-                            <i class="icon-List"></i>
-                        </li>
-                        <li class="tf-view-layout-switch sw-layout-2" data-value-layout="tf-col-2">
-                            <i class="icon-grid-2"></i>
-                        </li>
-                        <li class="tf-view-layout-switch sw-layout-3 d-none d-md-flex" data-value-layout="tf-col-3">
-                            <i class="icon-grid-3"></i>
-                        </li>
-                        <li class="tf-view-layout-switch sw-layout-4 active d-none d-lg-flex"
-                            data-value-layout="tf-col-4">
-                            <i class="icon-grid-4"></i>
-                        </li>
-                    </ul>
+                   
+                    
                     <div class="tf-control-sorting">
-                        <div class="tf-dropdown-sort" data-bs-toggle="dropdown">
-                            <div class="btn-select">
-                                <span class="text-sort-value">Best Selling</span>
-                                <span class="icon icon-CaretDown"></span>
-                            </div>
-                            <div class="dropdown-menu">
-                                <div class="select-item active remove-all-filters" data-sort-value="best-selling">
-                                    <span class="text-value-item">Best Selling</span>
-                                </div>
-                                <div class="select-item" data-sort-value="a-z">
-                                    <span class="text-value-item">Alphabetically, A-Z</span>
-                                </div>
-                                <div class="select-item" data-sort-value="z-a">
-                                    <span class="text-value-item">Alphabetically, Z-A</span>
-                                </div>
-                                <div class="select-item" data-sort-value="price-low-high">
-                                    <span class="text-value-item">Price, low to high</span>
-                                </div>
-                                <div class="select-item" data-sort-value="price-high-low">
-                                    <span class="text-value-item">Price, high to low</span>
-                                </div>
-                            </div>
-                        </div>
+                            
+                            <!-- <div class="dropdown-menu"> -->
+                               <select class="form-select form-control" aria-label="Default select example" id="sort_product_bycategory">
+                                   <option value="">Sort By</option>
+                                   <?php foreach(categories() as $main_category): ?>
+                                   <option <?=(isset($category) && $category == $main_category['slug']) ? 'selected' : '' ; ?> value="<?= $main_category['slug']; ?>"><?= $main_category['category']; ?></option>
+                                   <?php endforeach; ?>
+                               </select>
+                            <!-- </div> -->
                     </div>
                 </div>
                 <div class="wrapper-control-shop gridLayout-wrapper">
@@ -90,89 +59,95 @@
                      <div class="tf-page-pagination paginationArea"></div>
                   </div>
 
-
+                  
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-<!-- /Shop -->
+        <!-- /Shop -->
 
 
-
+        
 <?= view('frontend/inc/footerLink') ?>
 <!-- data list to ajax -->
 <script>
 
-    let currentPage = 1;
-    let loading = false;
-    let hasMore = true;
+let currentPage = 1;
+let loading = false;
+let hasMore = true;
 
-    // Load first page
-    products();
+// Load first page
+products();
 
 function products() {
+    console.log(loading, hasMore);
     if (loading || !hasMore) return;
       
     loading = true;
-
+    let currentcate = $('#sort_product_bycategory').val();
+    console.log(currentcate);
+    let category = currentcate != '' ? currentcate : "<?= isset($category) ? $category : ''; ?>";
+    let child = "<?= isset($child) ? $child : ''; ?>";
     $.ajax({
         url: "<?= base_url('productLists') ?>",
         type: "GET",
         data: {
-            page: currentPage
+            page: currentPage,
+            'category': category,
+            'child': child
         },
         dataType: "json",
 
-            beforeSend: function () {
-                $('#loader').show();
-            },
+        beforeSend: function () {
+            $('#loader').show();
+        },
 
-            success: function (res) {
+        success: function(res) {
 
             if (res.status == 200) {
                 // Append products instead of replacing
                 renderProducts(res.products, currentPage > 1);
                 currentPage++;
+                console.log(res.products.length);
                 // Stop loading when there are no more products
                 if (res.products.length < 4) {
                     hasMore = false;
                     $('#loader').hide();
                 }
 
-                } else {
-                    hasMore = false;
-                }
-            },
-
-            complete: function () {
-                loading = false;
-                $('#loader').hide();
+            } else {
+                hasMore = false;
             }
+        },
 
-        });
+        complete: function () {
+            loading = false;
+            $('#loader').hide();
+        }
 
-    }
+    });
 
-    function renderProducts(products, append = false) {
+}
+
+function renderProducts(products, append = false) {
 
     let html = '';
-    console.log(products)
     if (products.length === 0) {
         html = '<div class="text-center">No products found</div>';
     } else {
 
-            products.forEach(function (product) {
+        products.forEach(function(product) {
 
-                let type = '';
+            let type = '';
 
-                if (product.compare_price > 0) {
-                    if (product.price_offer_type == 1) {
-                        type = ' RS OFF';
-                    } else {
-                        type = '% OFF';
-                    }
+            if (product.compare_price > 0) {
+                if (product.price_offer_type == 1) {
+                    type = ' RS OFF';
+                } else {
+                    type = '% OFF';
                 }
+            }
 
-                html += `
+            html += `
             <div class="card-product grid" data-availability="In Stock" data-brand="Louis Vuitton">
 
                 <div class="card-product_wrapper">
@@ -264,41 +239,41 @@ function products() {
                 </div>
 
             </div>`;
-            });
-        }
-
-        //$('.productsList').html(html);
-
-        if (append) {
-            $('.productsList').append(html);
-        } else {
-            $('.productsList').html(html);
-        }
-
+        });
     }
 
-    // $(document).on('click', '.paginationArea a', function(e){
+    //$('.productsList').html(html);
 
-    //     e.preventDefault();
+    if (append) {
+        $('.productsList').append(html);
+    } else {
+        $('.productsList').html(html);
+    }
 
-    //     let url = new URL($(this).attr('href'));
-    //     let page = url.searchParams.get('page') || url.searchParams.get('page_default');
+}
 
-    //     products(page, true);   // scroll after loading
-    // });
+// $(document).on('click', '.paginationArea a', function(e){
 
-    $(window).on('scroll', function () {
+//     e.preventDefault();
 
-        let scrollTop = $(window).scrollTop();
-        let windowHeight = $(window).height();
-        let documentHeight = $(document).height();
-        if (scrollTop + windowHeight >= documentHeight - 200) {
-            if (!loading && hasMore) {
-                products();
-            }
+//     let url = new URL($(this).attr('href'));
+//     let page = url.searchParams.get('page') || url.searchParams.get('page_default');
+
+//     products(page, true);   // scroll after loading
+// });
+
+$(window).on('scroll', function () {
+
+    let scrollTop = $(window).scrollTop();
+    let windowHeight = $(window).height();
+    let documentHeight = $(document).height();
+    if (scrollTop + windowHeight >= documentHeight - 200) {
+        if (!loading && hasMore) {
+            products();
         }
+    }
 
-    });
+});
 
 
 $('#sort_product_bycategory').change(function () {
