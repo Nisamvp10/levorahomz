@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="main-page-title">
                     <div class="breadcrumbs">
-                        <a href="index.html" class="text-caption-01 cl-text-3 link">Home</a>
+                        <a href="<?=base_url();?>" class="text-caption-01 cl-text-3 link">Home</a>
                         <i class="icon icon-CaretRightThin cl-text-3"></i>
                         <P class="text-caption-01">
                            Products
