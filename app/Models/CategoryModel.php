@@ -20,4 +20,17 @@ class CategoryModel extends Model{
         }
         return $builder->get()->getResultArray();
     }
+
+    public function getAllChildCategoryIds($parentId) {
+        $ids = [];
+        $children = $this->where(['is_active' => 1, 'parent_id' => $parentId])->findAll();
+        
+        foreach ($children as $child) {
+            // 
+            $ids[]= ['id' => $child['id'], 'productCate' => $child['category']]; 
+            $ids = array_merge($ids, $this->getAllChildCategoryIds($child['id']));
+        }
+        
+        return $ids;
+    }
 }

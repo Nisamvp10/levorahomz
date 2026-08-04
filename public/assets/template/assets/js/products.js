@@ -44,8 +44,6 @@ function renderDetails(product) {
 
     let item = product[0];
 
-    console.log(item)
-
     let variantImage = '';
 
     let defaultImage = App.getSiteurl() + 'public/assets/template/assets/images/demo/home-1.jpg';
@@ -176,3 +174,44 @@ function renderDetails(product) {
     $('#quickView').html(html);
 
 }
+
+$(document).on('click', 'a[href="#quickAdd"]', function () {
+    let id = $(this).data('product-id');
+    $('#productName').text('');
+    $('#productImage').attr('src', '');
+    $('#url-product-quickadd').attr('href', '');
+    $('#price-new').text('');
+    $('#price-old').text('');
+    $('#productDiscount').text('');
+    let productName = $('#productName').text();
+    if (id) {
+        $.ajax({
+            url: App.getSiteurl() + 'product/quick-view',
+            type: 'GET',
+            data: {
+                id: id
+            },
+            dataType: 'json',
+            success: function (response) {
+                if (response.status != 200) {
+                    $('#quickAdd').html('<div class="text-center p-5">Product not found.</div>');
+                    return;
+                }
+                let item = response.product[0];
+                let productImage = item.product_image ?? App.getSiteurl() + 'public/assets/template/assets/images/demo/home-1.jpg';
+
+                $('.prd-image img').attr('src', productImage);
+                $('#quickAdd .prd-image').attr('href', App.getSiteurl() + 'product-details/' + item.slug);
+                $('#productName').text(item.product_title);
+                $('#price-new').text(item.offer_price);
+                $('#price-old').text(item.actual_price);
+                $('#productDiscount').text(item.discount);
+                $('#url-product-quickadd').attr('href', App.getSiteurl() + 'product-details/' + item.slug);
+                // renderDetails(response.product);
+            },
+            error: function () {
+                $('#quickAdd').html('<div class="text-center p-5">Something went wrong.</div>');
+            }
+        });
+    }
+})

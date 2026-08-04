@@ -25,9 +25,10 @@ Class ProductsController extends Controller {
         $page = (!haspermission('','create_investment') ? lang('Custom.permissionDenied' ): 'Edit Product ');
         $route = (!haspermission('','create_investment') ? 'pages-error-404': 'admin/products/create');
         $data = $this->productModel->find(decryptor($id));
-        $categories = $this->categoryModel->where(['is_active' =>1])->find();
+        $categories = $this->categoryModel->where(['is_active' =>1,'parent_id'=>NULL])->find();
         return view($route,compact('page','data','categories'));
     }
+    
 
     public function save() {
        // print_r($_POST);

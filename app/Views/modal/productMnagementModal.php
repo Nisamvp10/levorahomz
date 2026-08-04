@@ -49,24 +49,40 @@
                                 <div class="invalid-feedback" id="title_error"></div>
                             </div>
                         </div>
-                          <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Category *</label>
-                            <div class="relative">
-                                <div class="absolute inset-y-0 left-0 pl-3 mt-2 items-center pointer-events-none"><i class="bi bi-diagram-3 text-xl text-gray-400"></i></div>
-                                <select class="w-full px-3 !pl-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" name="category" id="category">
-                                     <option value="">Choose Category</option>
-                                <?php
-                                if(!empty($categories)){
-                                    foreach ($categories as $cate) {
-                                    ?>
-                                        <option value="<?=$cate['id'];?>"><?=$cate['category'];?></option>
-                                    <?php
-                                    }
-                                }?>
-                                </select>
-                                <div class="invalid-feedback" id="type_error"></div>
+                        <div class="grid grid-cols-2 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Category *</label>
+                                    <div class="relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3 mt-2 items-center pointer-events-none"><i class="bi bi-diagram-3 text-xl text-gray-400"></i></div>
+                                        <select class="w-full px-3 !pl-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" name="category" id="category">
+                                            <option value="">Choose Category</option>
+                                        <?php
+                                        if(!empty($categories)){
+                                            foreach ($categories as $cate) {
+                                            ?>
+                                                <option value="<?=$cate['id'];?>"><?=$cate['category'];?></option>
+                                            <?php
+                                            }
+                                        }?>
+                                        </select>
+                                        <div class="invalid-feedback" id="type_error"></div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-1">Sub Category  </label>
+                                        <div class="relative">
+                                            <div class="absolute inset-y-0 left-0 pl-3 mt-2 items-center pointer-events-none"><i class="bi bi-diagram-3 text-xl text-gray-400"></i></div>
+                                            <select class="w-full px-3 !pl-10 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" name="sub_category" id="sub_category">
+                                                <option value="">Select Sub Category</option>
+                                        
+                                            </select>
+                                            <div class="invalid-feedback" id="products_error"></div>
+                                        </div>
+                                    </div>
+
+
                             </div>
-                        </div>
                         
                           <div>
                             <label class="block text-sm font-medium text-gray-700 mb-1">Product  </label>

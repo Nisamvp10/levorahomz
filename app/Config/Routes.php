@@ -231,6 +231,10 @@ $routes->get('productlist','ProductController::details');
 $routes->get('product-details/(:segment)','ProductController::singleDetails/$1');
 $routes->get('productLists','ProductController::ajaxProductList');
 $routes->get('product/quick-view','ProductController::quickView');
+$routes->get('category/(:segment)','ProductController::index/$1');
+$routes->get('product/(:segment)','ProductController::categoryItem/$1');
+$routes->get('collections/(:segment)','ProductController::collectionItem/$1');
+$routes->get('collections-list','ProductController::collectionList');
 //cart
 $routes->post('cart/add', 'CartController::add');
 $routes->post('cart/getCart', 'CartController::getCartItems');
