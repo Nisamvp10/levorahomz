@@ -171,7 +171,7 @@
                             <nav class="box-navigation">
                                 <ul class="box-nav-menu">
                                     <li class="menu-item">
-                                        <a href="<?=base_url();?>" target="_blank" class="item-link">
+                                        <a href="<?=base_url();?>"  class="item-link">
                                             <span class="text cus-text">
                                                 Home
                                             </span>
