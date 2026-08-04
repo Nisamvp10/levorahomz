@@ -853,6 +853,17 @@ $(document).on('change', '#category', function (e, selectedSubcategoryId = null)
                             //$('#products').val(selectedSubcategoryId);
                             $('#products').val(selectedSubcategoryId ?? '').trigger('change', [selectedSubcategoryId]);
                         }
+                        // append sub categories 
+                        $('#sub_category').empty();
+                        $('#sub_category').append('<option value="">Select Sub Category</option>');
+                        if (res.categories.length > 0) {
+                            res.categories.forEach(category => {
+                                $('#sub_category').append(
+                                    `<option value="${category.id}">${category.productCate}</option>`
+                                );
+                            });
+                        }
+
                     } else {
                         $('#products').empty()
                     }

@@ -97,7 +97,7 @@
                             </a>
                         </div>
                         <div class="header-left">
-                            <a href="#" class="logo-site d-flex">
+                            <a href="<?=base_url();?>" class="logo-site d-flex">
                                 <img loading="lazy" width="120" height="30" src="<?= base_url('public/assets/template/');?>assets/images/main-logo.png"
                                     alt="Image">
                             </a>
@@ -108,36 +108,55 @@
                                         <i class="icon icon-CaretDown"></i>
                                     </div>
                                     <ul class="box-nav-category active-item">
-                                        <li>
-                                            <a href="shop-default.html" class="nav-category_link">
-                                                New arrivals
-                                                <i class="icon icon-CaretRightThin"></i>
-                                            </a>
-                                        </li>
-                                        <li class="has-sub-nav-category">
-                                            <a href="shop-default.html" class="nav-category_link">
-                                                Sofas
-                                                <i class="icon icon-CaretRightThin"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-default.html" class="nav-category_link">
-                                                Chairs
-                                                <i class="icon icon-CaretRightThin"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-default.html" class="nav-category_link">
-                                                Tables
-                                                <i class="icon icon-CaretRightThin"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-default.html" class="nav-category_link">
-                                                Beds
-                                                <i class="icon icon-CaretRightThin"></i>
-                                            </a>
-                                        </li>
+                                    
+                                    <?php $menus = navigationMenuhm(); ?>
+
+                                                                                
+                                        <ul class="box-nav-category active-item">
+
+                                            <?php foreach ($menus as $menu){ ?>
+
+                                                <?php
+                                             
+                                                $hasSubmenu = !empty($menu['submenu']);
+                                                ?>
+
+                                                <li class="<?= $hasSubmenu ? 'has-menu-lv2' : 'menu-item' ?>">
+
+                                                    <a href="<?= base_url('category/' . $menu['slug']) ?>"
+                                                    class="nav-category_link">
+
+                                                        <span class="cus-text">
+                                                            <?= esc($menu['category']) ?>
+                                                        </span>
+
+                                                        <?php if ($hasSubmenu){ ?>
+
+                                                            <i class="icon icon-CaretRightThin"></i>
+
+                                                        <?php }; ?>
+
+                                                    </a>
+
+
+                                                    <?php if ($hasSubmenu){ ?>
+
+                                                        <div class="sub-menu-lv2 123 123">
+
+                                                            <?php renderCategoryMenu($menu['submenu']); ?>
+
+                                                        </div>
+
+                                                    <?php }; ?>
+
+                                                </li>
+
+                                            <?php }; ?>
+
+                                        </ul>
+
+                                        
+                                        
                                     </ul>
                                 </div>
                                 <form action="search-result.html" class="form-search-nav style-5 d-none d-xl-flex">
@@ -160,58 +179,13 @@
                                     </li>
 
                                     <li class="menu-item position-relative">
-                                        <a href="#" class="item-link">
+                                        <a href="<?= base_url('productlist') ?>" class="item-link">
                                             <span class="text cus-text">
                                                 Products
                                             </span>
-                                            <i class="icon icon-CaretDown"></i>
+                                            <!-- <i class="icon icon-CaretDown"></i> -->
                                         </a>
-                                        <div class="sub-menu mega-menu-item">
-                                            <ul class="sub-menu_list">
-                                                <li>
-                                                    <a href="about.html" class="sub-menu_link has-text">
-                                                        <span class="cus-text">
-                                                            Item-1
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="contact.html" class="sub-menu_link has-text">
-                                                        <span class="cus-text">
-                                                            Item-2
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="our-store.html" class="sub-menu_link has-text">
-                                                        <span class="cus-text">
-                                                            Item-3
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="invoice.html" class="sub-menu_link has-text">
-                                                        <span class="cus-text">
-                                                            Item-4
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="404.html" class="sub-menu_link has-text">
-                                                        <span class="cus-text">
-                                                            Item-5
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="compare.html" class="sub-menu_link has-text">
-                                                        <span class="cus-text">
-                                                            Item-6
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                        
                                     </li>
 
                                     <li class="menu-item">

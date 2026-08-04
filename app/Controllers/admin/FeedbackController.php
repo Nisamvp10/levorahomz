@@ -4,19 +4,24 @@ namespace App\Controllers\admin;
 use CodeIgniter\Controller;
 use App\Models\FeedbackModel;
 use App\Controllers\UploadImages;
+use App\Models\ProductManageModel;
 
 class FeedbackController extends Controller {
     protected $feedbackModel;
     protected $imgUploader;
+    protected $productManageModel;
 
     function __construct() {
         $this->feedbackModel = new FeedbackModel();
         $this->imgUploader = new UploadImages();
+        $this->productManageModel = new ProductManageModel();
     }
      public function index() {
         $page = (hasPermission('','feedback') ? ' Feedback' : lang('Custom.permissionDenied'));
         $route = (hasPermission('','feedback') ? 'admin/feedback/index' :'admin/pages-error-404');
-        return view($route,compact('page'));
+        $products = $this->productManageModel->where('product_status',1)->get()->getResult();
+
+        return view($route,compact('page','products'));
     }
 
     public function save () {
@@ -51,6 +56,7 @@ class FeedbackController extends Controller {
             'username' => $this->request->getPost('name'),
             'designation' => $this->request->getPost('designation'),
             'note' => $this->request->getPost('note'),
+            'product_id' => $this->request->getPost('product'),
 
         ];
         if(!empty($imagePath)) {
@@ -103,7 +109,7 @@ class FeedbackController extends Controller {
         return $this->response->setJSON(['success' => $status , 'result' => $result,'message' => $validMsg]);
     }
     public function getfeedback($id=false) {
-        $data = $this->feedbackModel->select('id,profile,designation,note,username')->where(['id' => decryptor($id)])->first();
+        $data = $this->feedbackModel->select('id,product_id,profile,designation,note,username')->where(['id' => decryptor($id)])->first();
         if ($data) {
             $data['image'] = !empty($data['profile']) 
                 ? $data['profile']

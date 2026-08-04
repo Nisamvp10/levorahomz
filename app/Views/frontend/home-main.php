@@ -85,19 +85,32 @@
                     data-pagination-sm="2" data-pagination-md="3" data-pagination-lg="4" data-grid="2">
                     <div class="swiper-wrapper">
                         <!-- slide 1 -->
+                         <?php
+                         if(!empty($products)) {
+                            foreach($products as $prod){
+                              //  print_r($prod); exit();
+                                 $price = calculatePrice(
+                                    $prod->price,
+                                    $prod->compare_price,
+                                    $prod->price_offer_type
+                                );
+
+                                $offerPrice  = $price['offer_price'];
+                                $discount    = $price['discount'];
+                                $actualPrice = $price['actual_price'];
+                         ?>
                         <div class="swiper-slide">
                             <div class="card-product wow fadeInUp">
                                 <div class="card-product_wrapper square">
-                                    <a href="#" class="product-img">
+                                    <a href="<?=base_url('product-details/'.$prod->slug)?>" class="product-img">
                                         <img class="img-product" loading="lazy" width="330" height="330"
-                                            src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-1.webp" alt="Product">
+                                            src="<?=validImg($prod->product_image)?>" alt="Product">
                                         <img class="img-hover" loading="lazy" width="330" height="330"
-                                            src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-1.webp" alt="Product">
+                                            src="<?=validImg($prod->product_image)?>" alt="Product">
                                     </a>
                                     <ul class="product-action_list">
-
                                         <li>
-                                            <a href="#quickView" data-bs-toggle="offcanvas"
+                                            <a href="#quickView" data-bs-toggle="offcanvas" data-id="<?=$prod->id;?>"
                                                 class="hover-tooltip tooltip-left box-icon">
                                                 <span class="icon icon-Eye"></span>
                                                 <span class="tooltip">Quick view</span>
@@ -105,16 +118,24 @@
                                         </li>
                                     </ul>
                                     <div class="product-action_bot">
-                                        <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                                            class="tf-btn btn-white small  w-100">
+                                      <a href="#quickAdd" data-bs-toggle="modal" data-product-id="<?=$prod->id;?>" class="tf-btn btn-white small  w-100">
                                             Enquiry
                                         </a>
                                     </div>
                                 </div>
                                 <div class="card-product_info">
+                                      <div class="price-wrap d-flex justify-content-between w-100">
+                                        <span class="price-new text-primary fw-semibold">
+                                            <?= money_format_custom($offerPrice) ?>
+                                        </span>
+                                        <?php if($prod->compare_price > 0){?>
+                                            <del><?=money_format_custom($actualPrice) ?></del>
+                                            <?php } ?>
+                                    </div>
+
                                     <a href="product-detail.html"
                                         class="name-product lh-24 fw-medium link-underline-text">
-                                        Product Name
+                                        <?=ucfirst($prod->product_title)?>
                                     </a>
                                     <div class="star-wrap d-flex align-items-center">
                                         <i class="icon icon-Star"></i>
@@ -123,421 +144,22 @@
                                         <i class="icon icon-Star"></i>
                                         <i class="icon icon-Star"></i>
                                     </div>
-                                    <div class="price-wrap">
-                                        <span class="price-new text-primary fw-semibold">₹69,99</span>
+                                    <div class="product_info">
+                                        <p><?= $prod->short_description?></p>
+                                        
                                     </div>
+                                  
                                 </div>
                             </div>
                         </div>
-                        <!-- slide 2 -->
-                        <div class="swiper-slide">
-                            <div class="card-product wow fadeInUp">
-                                <div class="card-product_wrapper square">
-                                    <a href="#" class="product-img">
-                                        <img class="img-product" loading="lazy" width="330" height="330"
-                                            src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-2.webp" alt="Product">
-                                        <img class="img-hover" loading="lazy" width="330" height="330"
-                                            src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-2.webp" alt="Product">
-                                    </a>
-                                    <ul class="product-action_list">
-
-                                        <li>
-                                            <a href="#quickView" data-bs-toggle="offcanvas"
-                                                class="hover-tooltip tooltip-left box-icon">
-                                                <span class="icon icon-Eye"></span>
-                                                <span class="tooltip">Quick view</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <ul class="product-badge_list">
-                                        <li class="product-badge_item text-caption-01 sale">-25%</li>
-                                    </ul>
-                                    <div class="product-action_bot">
-                                        <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                                            class="tf-btn btn-white small  w-100">
-                                            Enquiry
-                                        </a>
-                                    </div>
-                                    <div class="product-marquee_sale">
-                                        <div class="marquee-wrapper">
-                                            <div class="initial-child-container">
-                                                <!-- 1 -->
-                                                <div class="marquee-child-item">
-                                                    HOT SALE 25% OFF
-                                                </div>
-                                                <i class="icon icon-Star2"></i>
-                                                <!-- 2 -->
-                                                <div class="marquee-child-item">
-                                                    HOT SALE 25% OFF
-                                                </div>
-                                                <i class="icon icon-Star2"></i>
-                                                <!-- 3 -->
-                                                <div class="marquee-child-item">
-                                                    HOT SALE 25% OFF
-                                                </div>
-                                                <i class="icon icon-Star2"></i>
-                                                <!-- 4 -->
-                                                <div class="marquee-child-item">
-                                                    HOT SALE 25% OFF
-                                                </div>
-                                                <i class="icon icon-Star2"></i>
-                                                <!-- 5 -->
-                                                <div class="marquee-child-item">
-                                                    HOT SALE 25% OFF
-                                                </div>
-                                                <i class="icon icon-Star2"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-product_info">
-                                    <a href="product-detail.html"
-                                        class="name-product lh-24 fw-medium link-underline-text">
-                                        Product Name
-                                    </a>
-                                    <div class="star-wrap d-flex align-items-center">
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                    </div>
-                                    <div class="price-wrap">
-                                        <span class="price-new text-primary fw-semibold">₹79,99</span>
-                                        <span class="price-old text-caption-01 cl-text-3">₹99,99</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- slide 3 -->
-                        <div class="swiper-slide">
-                            <div class="card-product wow fadeInUp">
-                                <div class="card-product_wrapper square">
-                                    <a href="product-detail.html" class="product-img">
-                                        <img class="img-product" loading="lazy" width="330" height="330"
-                                            src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-3.webp" alt="Product">
-                                        <img class="img-hover" loading="lazy" width="330" height="330"
-                                            src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-3.webp" alt="Product">
-                                    </a>
-                                    <ul class="product-action_list">
-
-                                        <li>
-                                            <a href="#quickView" data-bs-toggle="offcanvas"
-                                                class="hover-tooltip tooltip-left box-icon">
-                                                <span class="icon icon-Eye"></span>
-                                                <span class="tooltip">Quick view</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <ul class="product-badge_list">
-                                        <li class="product-badge_item text-caption-01 new">NEW</li>
-                                    </ul>
-                                    <div class="product-action_bot">
-                                        <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                                            class="tf-btn btn-white small  w-100">
-                                            Enquiry
-                                        </a>
-                                    </div>
-                                    <div class="product-countdown">
-                                        <div class="js-countdown cd-has-zero" data-timer="1093120"
-                                            data-labels="D : ,H : ,M : ,S">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-product_info">
-                                    <a href="product-detail.html"
-                                        class="name-product lh-24 fw-medium link-underline-text">
-                                        Product Name
-                                    </a>
-                                    <div class="star-wrap d-flex align-items-center">
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                    </div>
-                                    <div class="price-wrap">
-                                        <span class="price-new text-primary fw-semibold">₹29,99</span>
-                                        <span class="price-old text-caption-01 cl-text-3">₹59,99</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php 
+                            }
+                        }
+                        ?>
+                       
+                    
                         <!-- slide 4 -->
-                        <div class="swiper-slide">
-                            <div class="card-product wow fadeInUp">
-                                <div class="card-product_wrapper square">
-                                    <a href="product-detail.html" class="product-img">
-                                        <img class="img-product" loading="lazy" width="330" height="330"
-                                            src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-4.webp" alt="Product">
-                                        <img class="img-hover" loading="lazy" width="330" height="330"
-                                            src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-4.webp" alt="Product">
-                                    </a>
-                                    <ul class="product-action_list">
-
-                                        <li>
-                                            <a href="#quickView" data-bs-toggle="offcanvas"
-                                                class="hover-tooltip tooltip-left box-icon">
-                                                <span class="icon icon-Eye"></span>
-                                                <span class="tooltip">Quick view</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <ul class="product-badge_list">
-                                        <li class="product-badge_item text-caption-01 sale">-25%</li>
-                                    </ul>
-                                    <div class="product-action_bot">
-                                        <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                                            class="tf-btn btn-white small  w-100">
-                                            Enquiry
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="card-product_info">
-                                    <a href="product-detail.html"
-                                        class="name-product lh-24 fw-medium link-underline-text">
-                                        Product Name
-                                    </a>
-                                    <div class="star-wrap d-flex align-items-center">
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                    </div>
-                                    <div class="price-wrap">
-                                        <span class="price-new text-primary fw-semibold">₹59,99</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- slide 1 -->
-                        <div class="swiper-slide">
-                            <div class="card-product wow fadeInUp">
-                                <div class="card-product_wrapper square">
-                                    <a href="product-detail.html" class="product-img">
-                                        <img class="img-product" loading="lazy" width="330" height="330"
-                                            src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-5.webp" alt="Product">
-                                        <img class="img-hover" loading="lazy" width="330" height="330"
-                                            src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-5.webp" alt="Product">
-                                    </a>
-                                    <ul class="product-action_list">
-
-                                        <li>
-                                            <a href="#quickView" data-bs-toggle="offcanvas"
-                                                class="hover-tooltip tooltip-left box-icon">
-                                                <span class="icon icon-Eye"></span>
-                                                <span class="tooltip">Quick view</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <div class="product-action_bot">
-                                        <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                                            class="tf-btn btn-white small  w-100">
-                                            Enquiry
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="card-product_info">
-                                    <a href="product-detail.html"
-                                        class="name-product lh-24 fw-medium link-underline-text">
-                                        Product Name
-                                    </a>
-                                    <div class="star-wrap d-flex align-items-center">
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                    </div>
-                                    <div class="price-wrap">
-                                        <span class="price-new text-primary fw-semibold">₹36,99</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- slide 2 -->
-                        <div class="swiper-slide">
-                            <div class="card-product wow fadeInUp">
-                                <div class="card-product_wrapper square">
-                                    <a href="product-detail.html" class="product-img">
-                                        <img class="img-product" loading="lazy" width="330" height="330"
-                                            src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-6.webp" alt="Product">
-                                        <img class="img-hover" loading="lazy" width="330" height="330"
-                                            src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-6.webp" alt="Product">
-                                    </a>
-                                    <ul class="product-action_list">
-
-                                        <li>
-                                            <a href="#quickView" data-bs-toggle="offcanvas"
-                                                class="hover-tooltip tooltip-left box-icon">
-                                                <span class="icon icon-Eye"></span>
-                                                <span class="tooltip">Quick view</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <ul class="product-badge_list">
-                                        <li class="product-badge_item text-caption-01 sale">-25%</li>
-                                    </ul>
-                                    <div class="product-action_bot">
-                                        <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                                            class="tf-btn btn-white small  w-100">
-                                            Enquiry
-                                        </a>
-                                    </div>
-                                    <div class="product-marquee_sale">
-                                        <div class="marquee-wrapper">
-                                            <div class="initial-child-container">
-                                                <!-- 1 -->
-                                                <div class="marquee-child-item">
-                                                    HOT SALE 25% OFF
-                                                </div>
-                                                <i class="icon icon-Star2"></i>
-                                                <!-- 2 -->
-                                                <div class="marquee-child-item">
-                                                    HOT SALE 25% OFF
-                                                </div>
-                                                <i class="icon icon-Star2"></i>
-                                                <!-- 3 -->
-                                                <div class="marquee-child-item">
-                                                    HOT SALE 25% OFF
-                                                </div>
-                                                <i class="icon icon-Star2"></i>
-                                                <!-- 4 -->
-                                                <div class="marquee-child-item">
-                                                    HOT SALE 25% OFF
-                                                </div>
-                                                <i class="icon icon-Star2"></i>
-                                                <!-- 5 -->
-                                                <div class="marquee-child-item">
-                                                    HOT SALE 25% OFF
-                                                </div>
-                                                <i class="icon icon-Star2"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-product_info">
-                                    <a href="product-detail.html"
-                                        class="name-product lh-24 fw-medium link-underline-text">
-                                        Product Name
-                                    </a>
-                                    <div class="star-wrap d-flex align-items-center">
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                    </div>
-                                    <div class="price-wrap">
-                                        <span class="price-new text-primary fw-semibold">₹49,99</span>
-                                        <span class="price-old text-caption-01 cl-text-3">₹69,99</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- slide 3 -->
-                        <div class="swiper-slide">
-                            <div class="card-product wow fadeInUp">
-                                <div class="card-product_wrapper square">
-                                    <a href="product-detail.html" class="product-img">
-                                        <img class="img-product" loading="lazy" width="330" height="330"
-                                            src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-7.webp" alt="Product">
-                                        <img class="img-hover" loading="lazy" width="330" height="330"
-                                            src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-7.webp" alt="Product">
-                                    </a>
-                                    <ul class="product-action_list">
-
-                                        <li>
-                                            <a href="#quickView" data-bs-toggle="offcanvas"
-                                                class="hover-tooltip tooltip-left box-icon">
-                                                <span class="icon icon-Eye"></span>
-                                                <span class="tooltip">Quick view</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <ul class="product-badge_list">
-                                        <li class="product-badge_item text-caption-01 new">NEW</li>
-                                    </ul>
-                                    <div class="product-action_bot">
-                                        <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                                            class="tf-btn btn-white small  w-100">
-                                            Enquiry
-                                        </a>
-                                    </div>
-                                    <div class="product-countdown">
-                                        <div class="js-countdown cd-has-zero" data-timer="1093120"
-                                            data-labels="D : ,H : ,M : ,S">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-product_info">
-                                    <a href="product-detail.html"
-                                        class="name-product lh-24 fw-medium link-underline-text">
-                                        Product Name
-                                    </a>
-                                    <div class="star-wrap d-flex align-items-center">
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                    </div>
-                                    <div class="price-wrap">
-                                        <span class="price-new text-primary fw-semibold">₹79,99</span>
-                                        <span class="price-old text-caption-01 cl-text-3">₹89,99</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- slide 4 -->
-                        <div class="swiper-slide">
-                            <div class="card-product wow fadeInUp">
-                                <div class="card-product_wrapper square">
-                                    <a href="product-detail.html" class="product-img">
-                                        <img class="img-product" loading="lazy" width="330" height="330"
-                                            src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-8.webp" alt="Product">
-                                        <img class="img-hover" loading="lazy" width="330" height="330"
-                                            src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-8.webp" alt="Product">
-                                    </a>
-                                    <ul class="product-action_list">
-
-                                        <li>
-                                            <a href="#quickView" data-bs-toggle="offcanvas"
-                                                class="hover-tooltip tooltip-left box-icon">
-                                                <span class="icon icon-Eye"></span>
-                                                <span class="tooltip">Quick view</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <ul class="product-badge_list">
-                                        <li class="product-badge_item text-caption-01 sale">-25%</li>
-                                    </ul>
-                                    <div class="product-action_bot">
-                                        <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                                            class="tf-btn btn-white small  w-100">
-                                            Enquiry
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="card-product_info">
-                                    <a href="product-detail.html"
-                                        class="name-product lh-24 fw-medium link-underline-text">
-                                        Product Name
-                                    </a>
-                                    <div class="star-wrap d-flex align-items-center">
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                        <i class="icon icon-Star"></i>
-                                    </div>
-                                    <div class="price-wrap">
-                                        <span class="price-new text-primary fw-semibold">₹39,99</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    
                     </div>
                     <div class="sw-dot-default tf-sw-pagination"></div>
                 </div>
@@ -648,8 +270,8 @@
                                 alt="Image">
                         </a>
                         <div class="box-image_content">
-                            <a href="#" class="tf-btn animate-btn btn-white">
-                                Explore Collection
+                            <a href="<?=base_url('collections/premium');?>" class="tf-btn animate-btn btn-white">
+                                Premium Collection
                             </a>
                         </div>
                     </div>
@@ -660,8 +282,8 @@
                                     src="<?=base_url('public/assets/template/');?>assets/images/home/collection-img-2.webp" alt="Image">
                             </a>
                             <div class="box-image_content">
-                                <a href="#" class="tf-btn animate-btn btn-white">
-                                    Explore Collection
+                                <a href="<?=base_url('collections/featured');?>" class="tf-btn animate-btn btn-white">
+                                    Featured Collection
                                 </a>
                             </div>
                         </div>
@@ -671,8 +293,8 @@
                                     src="<?=base_url('public/assets/template/');?>assets/images/home/collection-img-3.webp" alt="Image">
                             </a>
                             <div class="box-image_content">
-                                <a href="#" class="tf-btn animate-btn btn-white">
-                                    Explore Collection
+                                <a href="<?=base_url('productlist');?>" class="tf-btn animate-btn btn-white">
+                                    All Collection
                                 </a>
                             </div>
                         </div>
@@ -715,7 +337,7 @@
         </section>
         <!-- /Banner Countdown -->
         <!-- Banner Lookbook -->
-        <section class="flat-spacing tf-lookbook-hover lookbook-hover-v2">
+        <section class="flat-spacing tf-lookbook-hover lookbook-hover-v2 d-none">
             <div class="container">
                 <div class="row gy-30">
                     <div class="col-lg-6">
@@ -944,570 +566,211 @@
                         Top Picks for Every Home
                     </h3>
                     <ul class="tab-btn-wrap-v3 overflow-auto justify-content-lg-center text-nowrap" role="tablist">
-                        <li class="nav-tab-item" role="presentation">
-                            <a href="#bedside" data-bs-toggle="tab" class="tf-btn-tab active" role="tab">
-                                <span class="fw-medium">Bedside Tables</span>
-                            </a>
-                        </li>
-                        <li class="spread">/</li>
-                        <li class="nav-tab-item" role="presentation">
+                        <!-- all -->
+                        <?php
+                            $itemsCategories  = categories();
+                            if(!empty($itemsCategories)){
+                                $i=1;
+                                foreach($itemsCategories as $category){
+                        ?>
+                            <li class="nav-tab-item" role="presentation">
+                                <a href="#category-<?=$category['id'];?>" data-bs-toggle="tab" class="tf-btn-tab <?=($i==1 ? 'active' :'')?>" role="tab">
+                                    <span class="fw-medium"><?=$category['category'];?></span>
+                                </a>
+                            </li>
+                             <li class="spread">/</li>
+                        <?php 
+                        $i++;
+                         }
+                            }
+                            ?>
+                       
+                        <!-- <li class="nav-tab-item" role="presentation">
                             <a href="#beds" data-bs-toggle="tab" class="tf-btn-tab" role="tab">
                                 <span class="fw-medium">Beds by Size</span>
                             </a>
-                        </li>
-                        <li class="spread">/</li>
-                        <li class="nav-tab-item" role="presentation">
-                            <a href="#bedroom" data-bs-toggle="tab" class="tf-btn-tab" role="tab">
-                                <span class="fw-medium">Bedroom Furniture</span>
-                            </a>
-                        </li>
-                        <li class="spread">/</li>
-                        <li class="nav-tab-item" role="presentation">
-                            <a href="#lamps" data-bs-toggle="tab" class="tf-btn-tab" role="tab">
-                                <span class="fw-medium">Table Lamps</span>
-                            </a>
-                        </li>
-                        <li class="spread">/</li>
-                        <li class="nav-tab-item" role="presentation">
-                            <a href="#storage" data-bs-toggle="tab" class="tf-btn-tab" role="tab">
-                                <span class="fw-medium">Storage Beds</span>
-                            </a>
-                        </li>
-                        <li class="spread">/</li>
-                        <li class="nav-tab-item" role="presentation">
-                            <a href="#accessories" data-bs-toggle="tab" class="tf-btn-tab" role="tab">
-                                <span class="fw-medium">Accessories</span>
-                            </a>
-                        </li>
+                        </li> -->
+                       
                     </ul>
                 </div>
                 <div class="tab-content">
-                    <div class="tab-pane active show" id="bedside" role="tabpanel">
-                        <div dir="ltr" class="swiper tf-swiper" data-preview="4" data-tablet="3" data-mobile-sm="2"
-                            data-mobile="2" data-space-lg="30" data-space-md="20" data-space="10" data-pagination="2"
-                            data-pagination-sm="2" data-pagination-md="3" data-pagination-lg="4">
-                            <div class="swiper-wrapper">
-                                <!-- slide 1 -->
-                                <div class="swiper-slide">
-                                    <div class="card-product wow fadeInUp">
-                                        <div class="card-product_wrapper square">
-                                            <a href="#" class="product-img">
-                                                <img class="img-product" loading="lazy" width="330" height="330"
-                                                    src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-1.webp" alt="Product">
-                                                <img class="img-hover" loading="lazy" width="330" height="330"
-                                                    src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-1.webp" alt="Product">
-                                            </a>
-                                            <ul class="product-action_list">
-                                           
-                                                <li>
-                                                    <a href="#quickView" data-bs-toggle="offcanvas"
-                                                        class="hover-tooltip tooltip-left box-icon">
-                                                        <span class="icon icon-Eye"></span>
-                                                        <span class="tooltip">Quick view</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <div class="product-action_bot">
-                                                <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                                                    class="tf-btn btn-white small  w-100">
-                                                    Enquiry
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="card-product_info">
-                                            <a href="#"
-                                                class="name-product lh-24 fw-medium link-underline-text">
-                                               Product Name
-                                            </a>
-                                            <div class="star-wrap d-flex align-items-center">
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                            </div>
-                                            <div class="price-wrap">
-                                                <span class="price-new text-primary fw-semibold">₹69,99</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- slide 2 -->
-                                <div class="swiper-slide">
-                                    <div class="card-product wow fadeInUp">
-                                        <div class="card-product_wrapper square">
-                                            <a href="product-detail.html" class="product-img">
-                                                <img class="img-product" loading="lazy" width="330" height="330"
-                                                    src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-2.webp" alt="Product">
-                                                <img class="img-hover" loading="lazy" width="330" height="330"
-                                                    src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-2.webp" alt="Product">
-                                            </a>
-                                            <ul class="product-action_list">
-                                                
-                                                <li>
-                                                    <a href="#quickView" data-bs-toggle="offcanvas"
-                                                        class="hover-tooltip tooltip-left box-icon">
-                                                        <span class="icon icon-Eye"></span>
-                                                        <span class="tooltip">Quick view</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <ul class="product-badge_list">
-                                                <li class="product-badge_item text-caption-01 sale">-25%</li>
-                                            </ul>
-                                            <div class="product-action_bot">
-                                                <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                                                    class="tf-btn btn-white small  w-100">
-                                                    Enquiry
-                                                </a>
-                                            </div>
-                                            <div class="product-marquee_sale">
-                                                <div class="marquee-wrapper">
-                                                    <div class="initial-child-container">
-                                                        <!-- 1 -->
-                                                        <div class="marquee-child-item">
-                                                            HOT SALE 25% OFF
+                     <!-- slide 1 -->
+
+                        <?php
+
+                        $groupedProducts = [];
+
+                        if (!empty($productsfilter)) {
+
+                            foreach ($productsfilter as $product) {
+
+                                // Group by category
+                                $categoryId = $product->category_id;
+
+                                if (!isset($groupedProducts[$categoryId])) {
+                                    $groupedProducts[$categoryId] = [];
+                                }
+
+                                $groupedProducts[$categoryId][] = $product;
+                            }
+                        }
+
+                        ?>
+                        <?php if (!empty($groupedProducts)): ?>
+
+                            <?php $i = 1; ?>
+
+                            <?php foreach ($groupedProducts as $categoryId => $categoryProducts): ?>
+
+                                <?php
+                                    // Example:
+                                    // category ID 16 => accessories
+                                    $categorySlug = 'category-' . $categoryId;
+                                ?>
+
+                                <div class="tab-pane <?= ($i == 1 ? 'active' : '') ?>"
+                                    id="<?= $categorySlug ?>"
+                                    role="tabpanel">
+
+                                    <div dir="ltr"
+                                        class="swiper tf-swiper"
+                                        data-preview="4"
+                                        data-tablet="3"
+                                        data-mobile-sm="2"
+                                        data-mobile="2"
+                                        data-space-lg="30"
+                                        data-space-md="20"
+                                        data-space="10"
+                                        data-pagination="2"
+                                        data-pagination-sm="2"
+                                        data-pagination-md="3"
+                                        data-pagination-lg="4">
+
+                                        <div class="swiper-wrapper">
+
+                                            <?php foreach ($categoryProducts as $product): ?>
+
+                                                <?php
+                                                $price = calculatePrice(
+                                                    $product->price,
+                                                    $product->compare_price,
+                                                    $product->price_offer_type
+                                                );
+
+                                                $offerPrice = $price['offer_price'];
+                                                ?>
+
+                                                <div class="swiper-slide">
+
+                                                    <div class="card-product wow fadeInUp">
+
+                                                        <div class="card-product_wrapper square">
+
+                                                            <a href="<?= base_url('product-details/') . $product->slug ?>"
+                                                            class="product-img">
+
+                                                                <img
+                                                                    class="img-product"
+                                                                    loading="lazy"
+                                                                    width="330"
+                                                                    height="330"
+                                                                    src="<?= validImg($product->product_image) ?>"
+                                                                    alt="<?= htmlspecialchars($product->product_title) ?>"
+                                                                >
+
+                                                                <img
+                                                                    class="img-hover"
+                                                                    loading="lazy"
+                                                                    width="330"
+                                                                    height="330"
+                                                                    src="<?= validImg($product->product_image) ?>"
+                                                                    alt="<?= htmlspecialchars($product->product_title) ?>"
+                                                                >
+
+                                                            </a>
+
+                                                            <ul class="product-action_list">
+
+                                                                <li>
+                                                                    <a href="#quickView"
+                                                                    data-bs-toggle="offcanvas"
+                                                                    data-id="<?= $product->id ?>"
+                                                                    class="hover-tooltip tooltip-left box-icon">
+
+                                                                        <span class="icon icon-Eye"></span>
+
+                                                                        <span class="tooltip">
+                                                                            Quick view
+                                                                        </span>
+
+                                                                    </a>
+                                                                </li>
+
+                                                            </ul>
+
+                                                            <div class="product-action_bot">
+
+                                                                <a href="#shoppingCart"
+                                                                data-bs-toggle="offcanvas"
+                                                                data-product-id="<?= $product->id ?>"
+                                                                class="tf-btn btn-white small w-100">
+
+                                                                    Enquiry
+
+                                                                </a>
+
+                                                            </div>
+
                                                         </div>
-                                                        <i class="icon icon-Star2"></i>
-                                                        <!-- 2 -->
-                                                        <div class="marquee-child-item">
-                                                            HOT SALE 25% OFF
+
+                                                        <div class="card-product_info">
+
+                                                            <a href="<?= base_url('product-details/') . $product->slug ?>"
+                                                            class="name-product lh-24 fw-medium link-underline-text">
+
+                                                                <?= ucfirst(strtolower($product->product_title)) ?>
+
+                                                            </a>
+
+                                                            <div class="star-wrap d-flex align-items-center">
+                                                                <i class="icon icon-Star"></i>
+                                                                <i class="icon icon-Star"></i>
+                                                                <i class="icon icon-Star"></i>
+                                                                <i class="icon icon-Star"></i>
+                                                                <i class="icon icon-Star"></i>
+                                                            </div>
+
+                                                            <div class="price-wrap">
+
+                                                                <span class="price-new text-primary fw-semibold">
+                                                                    <?= money_format_custom($offerPrice) ?>
+                                                                </span>
+
+                                                            </div>
+
                                                         </div>
-                                                        <i class="icon icon-Star2"></i>
-                                                        <!-- 3 -->
-                                                        <div class="marquee-child-item">
-                                                            HOT SALE 25% OFF
-                                                        </div>
-                                                        <i class="icon icon-Star2"></i>
-                                                        <!-- 4 -->
-                                                        <div class="marquee-child-item">
-                                                            HOT SALE 25% OFF
-                                                        </div>
-                                                        <i class="icon icon-Star2"></i>
-                                                        <!-- 5 -->
-                                                        <div class="marquee-child-item">
-                                                            HOT SALE 25% OFF
-                                                        </div>
-                                                        <i class="icon icon-Star2"></i>
+
                                                     </div>
+
                                                 </div>
-                                            </div>
+
+                                            <?php endforeach; ?>
+
                                         </div>
-                                        <div class="card-product_info">
-                                            <a href="product-detail.html"
-                                                class="name-product lh-24 fw-medium link-underline-text">
-                                                Product Name
-                                            </a>
-                                            <div class="star-wrap d-flex align-items-center">
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                            </div>
-                                            <div class="price-wrap">
-                                                <span class="price-new text-primary fw-semibold">₹79,99</span>
-                                                <span class="price-old text-caption-01 cl-text-3">₹99,99</span>
-                                            </div>
-                                        </div>
+
+                                        <div class="sw-line-default style-2 tf-sw-pagination"></div>
+
                                     </div>
+
                                 </div>
-                                <!-- slide 3 -->
-                                <div class="swiper-slide">
-                                    <div class="card-product wow fadeInUp">
-                                        <div class="card-product_wrapper square">
-                                            <a href="product-detail.html" class="product-img">
-                                                <img class="img-product" loading="lazy" width="330" height="330"
-                                                    src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-3.webp" alt="Product">
-                                                <img class="img-hover" loading="lazy" width="330" height="330"
-                                                    src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-3.webp" alt="Product">
-                                            </a>
-                                            <ul class="product-action_list">
-                                                
-                                                <li>
-                                                    <a href="#quickView" data-bs-toggle="offcanvas"
-                                                        class="hover-tooltip tooltip-left box-icon">
-                                                        <span class="icon icon-Eye"></span>
-                                                        <span class="tooltip">Quick view</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <ul class="product-badge_list">
-                                                <li class="product-badge_item text-caption-01 new">NEW</li>
-                                            </ul>
-                                            <div class="product-action_bot">
-                                                <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                                                    class="tf-btn btn-white small  w-100">
-                                                    Enquiry
-                                                </a>
-                                            </div>
-                                            <div class="product-countdown">
-                                                <div class="js-countdown cd-has-zero" data-timer="1093120"
-                                                    data-labels="D : ,H : ,M : ,S">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-product_info">
-                                            <a href="#"
-                                                class="name-product lh-24 fw-medium link-underline-text">
-                                                Product Name
-                                            </a>
-                                            <div class="star-wrap d-flex align-items-center">
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                            </div>
-                                            <div class="price-wrap">
-                                                <span class="price-new text-primary fw-semibold">₹29,99</span>
-                                                <span class="price-old text-caption-01 cl-text-3">₹59,99</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- slide 4 -->
-                                <div class="swiper-slide">
-                                    <div class="card-product wow fadeInUp">
-                                        <div class="card-product_wrapper square">
-                                            <a href="product-detail.html" class="product-img">
-                                                <img class="img-product" loading="lazy" width="330" height="330"
-                                                    src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-4.webp" alt="Product">
-                                                <img class="img-hover" loading="lazy" width="330" height="330"
-                                                    src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-4.webp" alt="Product">
-                                            </a>
-                                            <ul class="product-action_list">
-                                               
-                                                <li>
-                                                    <a href="#quickView" data-bs-toggle="offcanvas"
-                                                        class="hover-tooltip tooltip-left box-icon">
-                                                        <span class="icon icon-Eye"></span>
-                                                        <span class="tooltip">Quick view</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <ul class="product-badge_list">
-                                                <li class="product-badge_item text-caption-01 sale">-25%</li>
-                                            </ul>
-                                            <div class="product-action_bot">
-                                                <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                                                    class="tf-btn btn-white small  w-100">
-                                                    Enquiry
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="card-product_info">
-                                            <a href="product-detail.html"
-                                                class="name-product lh-24 fw-medium link-underline-text">
-                                                Product Name
-                                            </a>
-                                            <div class="star-wrap d-flex align-items-center">
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                            </div>
-                                            <div class="price-wrap">
-                                                <span class="price-new text-primary fw-semibold">₹59,99</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="sw-line-default style-2 tf-sw-pagination"></div>
-                        </div>
-                    </div>
+
+                                <?php $i++; ?>
+
+                            <?php endforeach; ?>
+
+                        <?php endif; ?>
                 
                     
-                
-                    <div class="tab-pane" id="accessories" role="tabpanel">
-                        <div dir="ltr" class="swiper tf-swiper" data-preview="4" data-tablet="3" data-mobile-sm="2"
-                            data-mobile="2" data-space-lg="30" data-space-md="20" data-space="10" data-pagination="2"
-                            data-pagination-sm="2" data-pagination-md="3" data-pagination-lg="4">
-                            <div class="swiper-wrapper">
-                                <!-- slide 1 -->
-                                <div class="swiper-slide">
-                                    <div class="card-product">
-                                        <div class="card-product_wrapper square">
-                                            <a href="product-detail.html" class="product-img">
-                                                <img class="img-product" loading="lazy" width="330" height="330"
-                                                    src="<?=base_url('public/assets/template/');?>assets/images/product/furniture/product-9.jpg" alt="Product">
-                                                <img class="img-hover" loading="lazy" width="330" height="330"
-                                                    src="<?=base_url('public/assets/template/');?>assets/images/product/furniture/product-9_2.jpg" alt="Product">
-                                            </a>
-                                            <ul class="product-action_list">
-                                                <li class="wishlist">
-                                                    <a href="#;" class="hover-tooltip tooltip-left box-icon">
-                                                        <span class="icon icon-heart"></span>
-                                                        <span class="tooltip">Add to Wishlist</span>
-                                                    </a>
-                                                </li>
-                                                <li class="compare">
-                                                    <a href="#compare" data-bs-toggle="offcanvas"
-                                                        class="hover-tooltip tooltip-left box-icon">
-                                                        <span class="icon icon-ArrowsLeftRight"></span>
-                                                        <span class="tooltip">Compare</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#quickView" data-bs-toggle="offcanvas"
-                                                        class="hover-tooltip tooltip-left box-icon">
-                                                        <span class="icon icon-Eye"></span>
-                                                        <span class="tooltip">Quick view</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <div class="product-action_bot">
-                                                <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                                                    class="tf-btn btn-white small  w-100">
-                                                    Enquiry
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="card-product_info">
-                                            <a href="product-detail.html"
-                                                class="name-product lh-24 fw-medium link-underline-text">
-                                                Bukowski Chair New York
-                                            </a>
-                                            <div class="star-wrap d-flex align-items-center">
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                            </div>
-                                            <div class="price-wrap">
-                                                <span class="price-new text-primary fw-semibold">₹69,99</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- slide 2 -->
-                                <div class="swiper-slide">
-                                    <div class="card-product">
-                                        <div class="card-product_wrapper square">
-                                            <a href="product-detail.html" class="product-img">
-                                                <img class="img-product" loading="lazy" width="330" height="330"
-                                                    src="<?=base_url('public/assets/template/');?>assets/images/product/furniture/product-10.jpg" alt="Product">
-                                                <img class="img-hover" loading="lazy" width="330" height="330"
-                                                    src="<?=base_url('public/assets/template/');?>assets/images/product/furniture/product-10_2.jpg"
-                                                    alt="Product">
-                                            </a>
-                                            <ul class="product-action_list">
-                                                <li class="wishlist">
-                                                    <a href="#;" class="hover-tooltip tooltip-left box-icon">
-                                                        <span class="icon icon-heart"></span>
-                                                        <span class="tooltip">Add to Wishlist</span>
-                                                    </a>
-                                                </li>
-                                                <li class="compare">
-                                                    <a href="#compare" data-bs-toggle="offcanvas"
-                                                        class="hover-tooltip tooltip-left box-icon">
-                                                        <span class="icon icon-ArrowsLeftRight"></span>
-                                                        <span class="tooltip">Compare</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#quickView" data-bs-toggle="offcanvas"
-                                                        class="hover-tooltip tooltip-left box-icon">
-                                                        <span class="icon icon-Eye"></span>
-                                                        <span class="tooltip">Quick view</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <ul class="product-badge_list">
-                                                <li class="product-badge_item text-caption-01 sale">-25%</li>
-                                            </ul>
-                                            <div class="product-action_bot">
-                                                <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                                                    class="tf-btn btn-white small  w-100">
-                                                    Enquiry
-                                                </a>
-                                            </div>
-                                            <div class="product-marquee_sale">
-                                                <div class="marquee-wrapper">
-                                                    <div class="initial-child-container">
-                                                        <!-- 1 -->
-                                                        <div class="marquee-child-item">
-                                                            HOT SALE 25% OFF
-                                                        </div>
-                                                        <i class="icon icon-Star2"></i>
-                                                        <!-- 2 -->
-                                                        <div class="marquee-child-item">
-                                                            HOT SALE 25% OFF
-                                                        </div>
-                                                        <i class="icon icon-Star2"></i>
-                                                        <!-- 3 -->
-                                                        <div class="marquee-child-item">
-                                                            HOT SALE 25% OFF
-                                                        </div>
-                                                        <i class="icon icon-Star2"></i>
-                                                        <!-- 4 -->
-                                                        <div class="marquee-child-item">
-                                                            HOT SALE 25% OFF
-                                                        </div>
-                                                        <i class="icon icon-Star2"></i>
-                                                        <!-- 5 -->
-                                                        <div class="marquee-child-item">
-                                                            HOT SALE 25% OFF
-                                                        </div>
-                                                        <i class="icon icon-Star2"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-product_info">
-                                            <a href="product-detail.html"
-                                                class="name-product lh-24 fw-medium link-underline-text">
-                                                Bilboquet Flos
-                                            </a>
-                                            <div class="star-wrap d-flex align-items-center">
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                            </div>
-                                            <div class="price-wrap">
-                                                <span class="price-new text-primary fw-semibold">₹79,99</span>
-                                                <span class="price-old text-caption-01 cl-text-3">₹99,99</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- slide 3 -->
-                                <div class="swiper-slide">
-                                    <div class="card-product">
-                                        <div class="card-product_wrapper square">
-                                            <a href="product-detail.html" class="product-img">
-                                                <img class="img-product" loading="lazy" width="330" height="330"
-                                                    src="<?=base_url('public/assets/template/');?>assets/images/product/furniture/product-11.jpg" alt="Product">
-                                                <img class="img-hover" loading="lazy" width="330" height="330"
-                                                    src="<?=base_url('public/assets/template/');?>assets/images/product/furniture/product-11_2.jpg"
-                                                    alt="Product">
-                                            </a>
-                                            <ul class="product-action_list">
-                                                <li class="wishlist">
-                                                    <a href="#;" class="hover-tooltip tooltip-left box-icon">
-                                                        <span class="icon icon-heart"></span>
-                                                        <span class="tooltip">Add to Wishlist</span>
-                                                    </a>
-                                                </li>
-                                                <li class="compare">
-                                                    <a href="#compare" data-bs-toggle="offcanvas"
-                                                        class="hover-tooltip tooltip-left box-icon">
-                                                        <span class="icon icon-ArrowsLeftRight"></span>
-                                                        <span class="tooltip">Compare</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#quickView" data-bs-toggle="offcanvas"
-                                                        class="hover-tooltip tooltip-left box-icon">
-                                                        <span class="icon icon-Eye"></span>
-                                                        <span class="tooltip">Quick view</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <ul class="product-badge_list">
-                                                <li class="product-badge_item text-caption-01 new">NEW</li>
-                                            </ul>
-                                            <div class="product-action_bot">
-                                                <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                                                    class="tf-btn btn-white small  w-100">
-                                                    Enquiry
-                                                </a>
-                                            </div>
-                                            <div class="product-countdown">
-                                                <div class="js-countdown cd-has-zero" data-timer="1093120"
-                                                    data-labels="D : ,H : ,M : ,S">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-product_info">
-                                            <a href="product-detail.html"
-                                                class="name-product lh-24 fw-medium link-underline-text">
-                                                Angular Ceramic Vase
-                                            </a>
-                                            <div class="star-wrap d-flex align-items-center">
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                            </div>
-                                            <div class="price-wrap">
-                                                <span class="price-new text-primary fw-semibold">₹29,99</span>
-                                                <span class="price-old text-caption-01 cl-text-3">₹59,99</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- slide 4 -->
-                                <div class="swiper-slide">
-                                    <div class="card-product">
-                                        <div class="card-product_wrapper square">
-                                            <a href="product-detail.html" class="product-img">
-                                                <img class="img-product" loading="lazy" width="330" height="330"
-                                                    src="<?=base_url('public/assets/template/');?>assets/images/product/furniture/product-12.jpg" alt="Product">
-                                                <img class="img-hover" loading="lazy" width="330" height="330"
-                                                    src="<?=base_url('public/assets/template/');?>assets/images/product/furniture/product-12_2.jpg"
-                                                    alt="Product">
-                                            </a>
-                                            <ul class="product-action_list">
-                                                <li class="wishlist">
-                                                    <a href="#;" class="hover-tooltip tooltip-left box-icon">
-                                                        <span class="icon icon-heart"></span>
-                                                        <span class="tooltip">Add to Wishlist</span>
-                                                    </a>
-                                                </li>
-                                                <li class="compare">
-                                                    <a href="#compare" data-bs-toggle="offcanvas"
-                                                        class="hover-tooltip tooltip-left box-icon">
-                                                        <span class="icon icon-ArrowsLeftRight"></span>
-                                                        <span class="tooltip">Compare</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#quickView" data-bs-toggle="offcanvas"
-                                                        class="hover-tooltip tooltip-left box-icon">
-                                                        <span class="icon icon-Eye"></span>
-                                                        <span class="tooltip">Quick view</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <ul class="product-badge_list">
-                                                <li class="product-badge_item text-caption-01 sale">-25%</li>
-                                            </ul>
-                                            <div class="product-action_bot">
-                                                <a href="#shoppingCart" data-bs-toggle="offcanvas"
-                                                    class="tf-btn btn-white small  w-100">
-                                                    Enquiry
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="card-product_info">
-                                            <a href="product-detail.html"
-                                                class="name-product lh-24 fw-medium link-underline-text">
-                                                Stockholm pendant
-                                            </a>
-                                            <div class="star-wrap d-flex align-items-center">
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                                <i class="icon icon-Star"></i>
-                                            </div>
-                                            <div class="price-wrap">
-                                                <span class="price-new text-primary fw-semibold">₹59,99</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="sw-line-default style-2 tf-sw-pagination"></div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -1525,7 +788,7 @@
                         <div class="sect-heading type-2 has-col-right wow fadeInUp">
                             <div>
                                 <h3 class="s-title">
-                                    What Our Customers Love
+                                    What Our Customers Say
                                 </h3>
                                 <p class="s-desc text-body-1 cl-text-2">
                                     Discover why customers trust our furniture for comfort, quality, and timeless style.
@@ -1545,7 +808,26 @@
                             data-pagination-sm="2" data-pagination-md="2" data-pagination-lg="2">
                             <div class="swiper-wrapper">
                                 <!-- slide 1 -->
-                                <div class="swiper-slide">
+
+                                <?php 
+
+                                if(!empty($feedback)) {
+                                    foreach($feedback as $fdbk) {
+
+                                        $price = calculatePrice(
+                                            $fdbk['price'],
+                                            $fdbk['compare_price'],
+                                            $fdbk['price_offer_type']
+                                        );
+
+                                        $offerPrice  = $price['offer_price'];
+                                        $discount    = $price['discount'];
+                                        $actualPrice = $price['actual_price'];
+                                     
+
+                                   
+                                        ?>
+                                        <div class="swiper-slide">
                                     <div class="testimonial-v04 wow fadeInUp">
                                         <div class="star-wrap d-flex align-items-center mb-16">
                                             <i class="icon icon-Star fs-24"></i>
@@ -1555,119 +837,40 @@
                                             <i class="icon icon-Star fs-24"></i>
                                         </div>
                                         <div class="tes_author d-flex align-items-center gap-8 mb-24">
-                                            <h6 class="author-name">Sarah Mitchell</h6>
+                                            <h6 class="author-name"><?=$fdbk['username']?></h6>
                                             <div class="author-verified d-flex align-items-center gap-4">
                                                 <i class="icon icon-CheckCircle1"></i>
                                                 <span class="cl-text-2">
-                                                    Interior Design Enthusiast
+                                                    <?=$fdbk['designation']?>
                                                 </span>
                                             </div>
                                         </div>
                                         <p class="tes_text h5 text-capitalize mb-24">
-                                            “The online shopping experience was seamless from start to finish. The
-                                            bookshelf fits perfectly in my workspace and feels sturdy and premium.”
+                                            “<?=$fdbk['note']?>”
                                         </p>
                                         <div class="br-line mb-24"></div>
                                         <div class="tes_product">
                                             <div class="product-image">
                                                 <img loading="lazy" width="80" height="80"
-                                                    src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-1.webp" alt="Image">
+                                                    src="<?= validImg($fdbk['product_image']) ?>" alt="Image">
                                             </div>
                                             <div class="product-infor">
-                                                <a href="product-detail.html" class="link fw-medium lh-24">
-                                                    Product name
+                                                <a href="#" class="link fw-medium lh-24">
+                                                   <?=$fdbk['product_title']?>
                                                 </a>
                                                 <div class="price-wrap prd_price">
-                                                    <span class="price-new text-primary fw-semibold">₹74.99</span>
-                                                    <span class="price-old text-caption-01 cl-text-3">₹89,99</span>
+                                                    <span class="price-new text-primary fw-semibold"><?=money_format_custom($offerPrice)?></span>
+                                                    <span class="price-old text-caption-01 cl-text-3"><?=money_format_custom($actualPrice)?></span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <?php }
+                                }
+                                ?>
                                 <!-- slide 2 -->
-                                <div class="swiper-slide">
-                                    <div class="testimonial-v04 wow fadeInUp">
-                                        <div class="star-wrap d-flex align-items-center mb-16">
-                                            <i class="icon icon-Star fs-24"></i>
-                                            <i class="icon icon-Star fs-24"></i>
-                                            <i class="icon icon-Star fs-24"></i>
-                                            <i class="icon icon-Star fs-24"></i>
-                                            <i class="icon icon-Star fs-24"></i>
-                                        </div>
-                                        <div class="tes_author d-flex align-items-center gap-8 mb-24">
-                                            <h6 class="author-name">Aarav Sharma</h6>
-                                            <div class="author-verified d-flex align-items-center gap-4">
-                                                <i class="icon icon-CheckCircle1"></i>
-                                                <span class="cl-text-2">
-                                                    Homeowner
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <p class="tes_text h5 text-capitalize mb-24">
-                                            “The quality exceeded my expectations. The sofa was easy to assemble,
-                                            incredibly comfortable, and instantly upgraded our living room.”
-                                        </p>
-                                        <div class="br-line mb-24"></div>
-                                        <div class="tes_product">
-                                            <div class="product-image">
-                                                <img loading="lazy" width="80" height="80"
-                                                    src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-2.webp" alt="Image">
-                                            </div>
-                                            <div class="product-infor">
-                                                <a href="product-detail.html" class="link fw-medium lh-24">
-                                                    Product name
-                                                </a>
-                                                <div class="price-wrap prd_price">
-                                                    <span class="price-new text-primary fw-semibold">₹74.99</span>
-                                                    <span class="price-old text-caption-01 cl-text-3">₹89,99</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- slide 3 -->
-                                <div class="swiper-slide">
-                                    <div class="testimonial-v04">
-                                        <div class="star-wrap d-flex align-items-center mb-16">
-                                            <i class="icon icon-Star fs-24"></i>
-                                            <i class="icon icon-Star fs-24"></i>
-                                            <i class="icon icon-Star fs-24"></i>
-                                            <i class="icon icon-Star fs-24"></i>
-                                            <i class="icon icon-Star fs-24"></i>
-                                        </div>
-                                        <div class="tes_author d-flex align-items-center gap-8 mb-24">
-                                            <h6 class="author-name">Priya Menon</h6>
-                                            <div class="author-verified d-flex align-items-center gap-4">
-                                                <i class="icon icon-CheckCircle1"></i>
-                                                <span class="cl-text-2">
-                                                    Homeowner
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <p class="tes_text h5 text-capitalize mb-24">
-                                            “This dining set perfectly balances style, comfort, and durability. The
-                                            craftsmanship is impressive, and we've received so many compliments from
-                                            guests.”
-                                        </p>
-                                        <div class="br-line mb-24"></div>
-                                        <div class="tes_product">
-                                            <div class="product-image">
-                                                <img loading="lazy" width="80" height="80"
-                                                    src="<?=base_url('public/assets/template/');?>assets/images/product/home/product-3.webp" alt="Image">
-                                            </div>
-                                            <div class="product-infor">
-                                                <a href="product-detail.html" class="link fw-medium lh-24">
-                                                    Office Chair V Leg
-                                                </a>
-                                                <div class="price-wrap prd_price">
-                                                    <span class="price-new text-primary fw-semibold">₹74.99</span>
-                                                    <span class="price-old text-caption-01 cl-text-3">₹89,99</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            
                             </div>
 
                             <!-- <div class="sw-line-default style-2 tf-sw-pagination"></div> -->
@@ -1718,12 +921,16 @@
                     data-mobile="2" data-space="10" data-pagination="2" data-pagination-sm="3" data-pagination-md="4"
                     data-pagination-lg="5">
                     <div class="swiper-wrapper">
+                         <?php
+                            if(!empty($gallery)){
+                                foreach($gallery as $img) {
+                                ?>
                         <!-- slide 1 -->
                         <div class="swiper-slide">
                             <div class="gallery-item style-2 hover-img hover-overlay wow fadeInUp">
                                 <div class="image img-style">
                                     <img loading="lazy" width="346" height="346"
-                                        src="<?=base_url('public/assets/template/');?>assets/images/insta/insta-img-1.webp" alt="Image">
+                                        src="<?=validImg($img['image']) ?>" alt="Image">
                                 </div>
                                 <a href="#" class="box-icon hover-tooltip">
                                     <span class="icon icon-Eye"></span>
@@ -1731,58 +938,12 @@
                                 </a>
                             </div>
                         </div>
-                        <!-- slide 2 -->
-                        <div class="swiper-slide">
-                            <div class="gallery-item style-2 hover-img hover-overlay wow fadeInUp">
-                                <div class="image img-style">
-                                    <img loading="lazy" width="346" height="346"
-                                        src="<?=base_url('public/assets/template/');?>assets/images/insta/insta-img-2.webp" alt="Image">
-                                </div>
-                                <a href="#" class="box-icon hover-tooltip">
-                                    <span class="icon icon-Eye"></span>
-                                    <span class="tooltip">View product</span>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- slide 3 -->
-                        <div class="swiper-slide">
-                            <div class="gallery-item style-2 hover-img hover-overlay wow fadeInUp">
-                                <div class="image img-style">
-                                    <img loading="lazy" width="346" height="346"
-                                        src="<?=base_url('public/assets/template/');?>assets/images/insta/insta-img-3.webp" alt="Image">
-                                </div>
-                                <a href="#" class="box-icon hover-tooltip">
-                                    <span class="icon icon-Eye"></span>
-                                    <span class="tooltip">View product</span>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- slide 4 -->
-                        <div class="swiper-slide">
-                            <div class="gallery-item style-2 hover-img hover-overlay wow fadeInUp">
-                                <div class="image img-style">
-                                    <img loading="lazy" width="346" height="346"
-                                        src="<?=base_url('public/assets/template/');?>assets/images/insta/insta-img-4.webp" alt="Image">
-                                </div>
-                                <a href="#" class="box-icon hover-tooltip">
-                                    <span class="icon icon-Eye"></span>
-                                    <span class="tooltip">View product</span>
-                                </a>
-                            </div>
-                        </div>
-                        <!-- slide 5 -->
-                        <div class="swiper-slide">
-                            <div class="gallery-item style-2 hover-img hover-overlay wow fadeInUp">
-                                <div class="image img-style">
-                                    <img loading="lazy" width="346" height="346"
-                                        src="<?=base_url('public/assets/template/');?>assets/images/insta/insta-img-5.webp" alt="Image">
-                                </div>
-                                <a href="#" class="box-icon hover-tooltip">
-                                    <span class="icon icon-Eye"></span>
-                                    <span class="tooltip">View product</span>
-                                </a>
-                            </div>
-                        </div>
+                        <?php
+                                }
+                            }
+                            ?>
+                       
+                        
                     </div>
                     <div class="sw-dot-default tf-sw-pagination"></div>
                 </div>
