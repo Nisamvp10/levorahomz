@@ -96,9 +96,11 @@ function products() {
             'child': child
         },
         dataType: "json",
+        beforeSend: function(){
 
-        
-
+            $('#loader').show();
+            loading = true;
+        },
         success: function(res) {
 
             if (res.status == 200) {
@@ -110,7 +112,7 @@ function products() {
                 if (res.products.length < perPage) {
 
                     hasMore = false;
-                    $('#loader').hide();
+                        $('#loader').hide();
                 }
 
             } else {
