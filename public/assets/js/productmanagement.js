@@ -657,9 +657,9 @@ function renderfun(response) {
                     <label class="mr-2">Rows per page:</label>
                     <select onchange="changeRowsPerPage(this.value)" class="px-2 py-1 border rounded">
                 
-                        <option value="10"  ${rowsPerPage == 10 ? 'selected' : ''}>10</option>
-                        <option value="20"  ${rowsPerPage == 20 ? 'selected' : ''}>20</option>
-                        <option value="50"  ${rowsPerPage == 50 ? 'selected' : ''}>50</option>
+                        <option value="10" ${rowsPerPage == 10 ? 'selected' : ''}>10</option>
+                        <option value="20" ${rowsPerPage == 20 ? 'selected' : ''}>20</option>
+                        <option value="50" ${rowsPerPage == 50 ? 'selected' : ''}>50</option>
                         <option value="100" ${rowsPerPage == 100 ? 'selected' : ''}>100</option>
                     </select>
                 </div>
@@ -673,6 +673,31 @@ function renderfun(response) {
     }
     $('#servicesTable').html(html);
 }
+
+
+// Change rows per page
+function changeRowsPerPage(value) {
+    rowsPerPage = parseInt(value);
+    currentPage = 1;
+    renderfun(allData);
+}
+
+// Pagination functions
+function prevPage() {
+    if (currentPage > 1) {
+        currentPage--;
+        renderfun(allData);
+    }
+}
+function nextPage(totalPages) {
+    if (currentPage < totalPages) {
+        currentPage++;
+        renderfun(allData);
+    }
+}
+
+
+
 function deleteItem(e) {
     let id = $(e).data('id');
     if (confirm('are you sure You want to Delete This')) {

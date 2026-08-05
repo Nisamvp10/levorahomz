@@ -74,17 +74,16 @@
 let currentPage = 1;
 let loading = false;
 let hasMore = true;
+const perPage = 12;
 
 // Load first page
 products();
 
 function products() {
-    console.log(loading, hasMore);
     if (loading || !hasMore) return;
       
     loading = true;
     let currentcate = $('#sort_product_bycategory').val();
-    console.log(currentcate);
     let category = currentcate != '' ? currentcate : "<?= isset($category) ? $category : ''; ?>";
     let child = "<?= isset($child) ? $child : ''; ?>";
     $.ajax({
@@ -92,24 +91,24 @@ function products() {
         type: "GET",
         data: {
             page: currentPage,
+            perPage: perPage,
             'category': category,
             'child': child
         },
         dataType: "json",
 
-        beforeSend: function () {
-            $('#loader').show();
-        },
+        
 
         success: function(res) {
 
             if (res.status == 200) {
+                
                 // Append products instead of replacing
                 renderProducts(res.products, currentPage > 1);
                 currentPage++;
-                console.log(res.products.length);
                 // Stop loading when there are no more products
-                if (res.products.length < 4) {
+                if (res.products.length < perPage) {
+
                     hasMore = false;
                     $('#loader').hide();
                 }

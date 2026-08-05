@@ -24,6 +24,7 @@ class ProductController extends BaseController
     }
    public function details()
     {
+        
         $categorySlug = $this->request->getGet('perPage');
         $perPage = $this->request->getGet('perPage') ?? 12;
 
@@ -245,7 +246,10 @@ class ProductController extends BaseController
 
     public function singleDetails($slug) {
         $result = $this->productModel->productSingle($slug);
+      
         $proFind = $this->productModel->where('slug', $slug)->first();
+
+
         $relatedProducts = [];
         $productFeedback = []; 
         if(!empty($proFind)) {
@@ -284,6 +288,7 @@ class ProductController extends BaseController
                 
             }
   
+            
         }
         return view('frontend/products/productdetials',compact('product','productFeedback','relatedProducts'));
     }
