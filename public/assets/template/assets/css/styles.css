@@ -6477,7 +6477,9 @@ header.header-sticky.tf-header-landing {
 
 .canvas-quickview .wrap-quick .image img {
   border-radius: 12px;
-  aspect-ratio: 0.7657657658;
+  /* aspect-ratio: 0.7657657658; */
+  aspect-ratio: -0.234234;
+
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -20610,7 +20612,7 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   height: 600px;
   border-radius: 0px;
   overflow: hidden;
- 
+
 }
 
 .wg-map iframe {
@@ -27564,12 +27566,12 @@ html:not([dir=rtl]) .noUi-horizontal .noUi-handle {
   border: 1px solid #b0d2c2;
 }
 
-.whyus-container .icon{
+.whyus-container .icon {
   margin-bottom: 10px;
 }
 
 .whyus-container span img {
-    width: 53px;
+  width: 53px;
 }
 
 .align-center {
@@ -27744,10 +27746,10 @@ header {
 .contact-form-container {}
 
 .contact-main-container {
-    background-color: #f9f9f9;
-    border-radius: 20px;
-    padding-left: 33px;
-    padding-right: 33px;
+  background-color: #f9f9f9;
+  border-radius: 20px;
+  padding-left: 33px;
+  padding-right: 33px;
 }
 
 .contact-form-container form {
@@ -27765,11 +27767,10 @@ header {
   padding-bottom: 35px !important;
 }
 
-.no-padding{
-   padding: 0px !important;
+.no-padding {
+  padding: 0px !important;
 }
 
-.justify-center{
+.justify-center {
   justify-content: center !important;
 }
-
