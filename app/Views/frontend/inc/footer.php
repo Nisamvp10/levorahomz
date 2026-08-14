@@ -132,6 +132,7 @@
                                         <li><a href="#" class="cl-text-3 link">+91 8086017775 - Trippunithura</a></li>
                                         <li><a href="#" class="cl-text-3 link">+91 9539122022 - Koothattukulam</a></li>
                                         <li><a href="#" class="cl-text-3 link">+91 9048134377 - Mala</a></li>
+                                        <li><a href="#" class="cl-text-3 link">+91 9048134355 - Muvattupuzha</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -226,16 +227,7 @@
                     </select>
                 </div>
             </div>
-            <div class="d-flex justify-content-center">
-                <div class="tf-languages">
-                    <select class="tf-dropdown-select style-default type-languages">
-                        <option>English</option>
-                        <option>العربية</option>
-                        <option>简体中文</option>
-                        <option>اردو</option>
-                    </select>
-                </div>
-            </div>
+            
         </div>
     </div>
     <!-- /Mobile Menu -->
