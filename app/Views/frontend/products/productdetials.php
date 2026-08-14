@@ -255,6 +255,17 @@ $description = '';
                                         </p>
 
                                     <?php endif; ?>
+                                    <!-- description -->
+
+                                    <div class="product- mt-5">
+
+                                                <a href="#quickAdd" data-bs-toggle="modal" data-product-id="<?=($item['id'])?>" class="btn-action-price tf-btn type-xl animate-btn w-100">
+
+                                                    Enquiry
+
+                                                </a>
+
+                                            </div>
 
                                 </div>
 
@@ -347,6 +358,8 @@ $description = '';
                         <?= $description ?>
 
                     </div>
+
+                    
 
                 </div>
 

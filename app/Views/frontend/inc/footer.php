@@ -271,44 +271,36 @@
                         </div>
                     </div>
 
-                    <form class="form-get">
+                    <form class="form-get" id="enquiryForm">
                         <div class="form-content">
+                            <?=csrf_field();?>
+                            <input type="hidden" name="productId" id="productId">
                             <div class="tf-grid-layout sm-col-12">
                                 <fieldset class="tf-field">
-                                    <label for="your-name" class="tf-lable fw-medium">
-                                        Your Name
-                                        <span class="text-primary">*</span>
-                                    </label>
-                                    <input type="text" id="your-name" placeholder="Your Name*" required>
+                                    <label for="your-name" class="tf-lable fw-medium">Your Name<span class="text-primary">*</span></label>
+                                    <input type="text" id="your-name" placeholder="Your Name*" name="name" >
+                                    <span id="nameError" class="text-danger"></span>
                                 </fieldset>
                             </div>
 
                             <div class="tf-grid-layout sm-col-2">
                                 <fieldset class="tf-field">
-                                    <label for="your-phone-number" class="tf-lable fw-medium">
-                                        Your phone number
-                                        <span class="text-primary">*</span>
-                                    </label>
-                                    <input type="tel" id="your-name" inputmode="numeric"
-                                        placeholder="Your phone number*"
-                                        oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
+                                    <label for="your-phone-number" class="tf-lable fw-medium">Your phone number<span class="text-primary">*</span></label>
+                                    <input type="tel" id="your-name" inputmode="numeric" placeholder="Your phone number*" oninput="this.value = this.value.replace(/[^0-9]/g, '')" name="phone" >
+                                    <span id="phoneError" class="text-danger"></span>
                                 </fieldset>
                                 <fieldset class="tf-field">
-                                    <label for="your-email" class="tf-lable fw-medium">
-                                        Your Email
-                                        <span class="text-primary">*</span>
-                                    </label>
-                                    <input type="email" id="your-email" placeholder="Your Email*" required>
+                                    <label for="your-email" class="tf-lable fw-medium">Your Email<span class="text-primary">*</span></label>
+                                    <input type="email" id="your-email" placeholder="Your Email*" name="email">
+                                    <span id="emailError" class="text-danger"></span>
                                 </fieldset>
                             </div>
 
 
                             <fieldset class="tf-field">
-                                <label for="your-email" class="tf-lable fw-medium">
-                                    Description
-                                    <span class="text-primary">*</span>
-                                </label>
-                                <textarea placeholder="Your Message*" required></textarea>
+                                <label for="your-email" class="tf-lable fw-medium">Description<span class="text-primary">*</span></label>
+                                <textarea placeholder="Your Message*" name="message"></textarea>
+                                <span id="messageError" class="text-danger"></span>
                             </fieldset>
                         </div>
                         <button type="submit" class="tf-btn animate-btn">
