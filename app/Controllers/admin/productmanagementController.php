@@ -209,12 +209,22 @@ class ProductmanagementController extends Controller
                 }
             }
         }
-
+        // check dublicate slug
+        $slug = slugify($this->request->getPost('title'));
+        if(!empty($id)){
+            $checkDuplidateSlug = $this->productManageModel->where('id !=', $id)->where('slug', $slug)->first();
+        }else{
+            $checkDuplidateSlug = $this->productManageModel->where('slug', $slug)->first();
+        }
+        if(!empty($checkDuplidateSlug)){
+            $slug .= '-' . time();
+        }
+        
 
        $data = [
             'product_title' => $this->request->getPost('title'),
             'category_id'   => (int) $this->request->getPost('category'),
-            'slug'           =>  slugify($this->request->getPost('title')),
+            'slug'           =>  $slug,
             'product_id'    => (int) $this->request->getPost('products'),
             'price'         => (float) $this->request->getPost('price'),
             'current_stock' => (int) $this->request->getPost('current_stock'),

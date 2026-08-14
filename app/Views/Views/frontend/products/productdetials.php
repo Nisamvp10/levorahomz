@@ -111,13 +111,7 @@
                           <div class="quantity">
                              <p>Quantity</p>
                              <div class="qty-wrapper">
-                                <input
-                                   type="number"
-                                   id="quantity"
-                                   class="qty-input"
-                                   step="1"
-                                   min="1"
-                                   max=" <?= $item['stock']; ?>"
+                                <input type="number" id="quantity" class="qty-input" step="1" min="1" max=" <?= $item['stock']; ?>"
                                    name="quantity"
                                    value="1"
                                    title="Qty"

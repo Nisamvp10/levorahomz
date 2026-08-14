@@ -264,7 +264,7 @@
                   class="footer-wrapper d-flex align-items-center justify-content-between"
                >
                   <p class="wow fadeInLeft" data-wow-delay=".3s">
-                     © All Copyright 2026 by <a href="#">RobinFood</a>
+                     © All Copyright 2026 by <a href="#">Levorahomez</a>
                   </p>
                   <ul
                      class="credit-card-logo wow fadeInRight"

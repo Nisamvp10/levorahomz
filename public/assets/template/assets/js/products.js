@@ -184,6 +184,8 @@ $(document).on('click', 'a[href="#quickAdd"]', function () {
     $('#price-old').text('');
     $('#productDiscount').text('');
     let productName = $('#productName').text();
+    $('#productId').val('');
+
     if (id) {
         $.ajax({
             url: App.getSiteurl() + 'product/quick-view',
@@ -207,6 +209,7 @@ $(document).on('click', 'a[href="#quickAdd"]', function () {
                 $('#price-old').text(item.actual_price);
                 $('#productDiscount').text(item.discount);
                 $('#url-product-quickadd').attr('href', App.getSiteurl() + 'product-details/' + item.slug);
+                $('#productId').val(item.id);
                 // renderDetails(response.product);
             },
             error: function () {
@@ -215,3 +218,62 @@ $(document).on('click', 'a[href="#quickAdd"]', function () {
         });
     }
 })
+
+
+$('#enquiryForm').on('submit', function (e) {
+    e.preventDefault();
+    let form = $(this);
+    let btn = form.find('button[type="submit"]');
+    let btnText = btn.html();
+
+    $.ajax({
+        url: App.getSiteurl() + 'product-enquiry',
+        type: 'POST',
+        data: form.serialize(),
+        dataType: 'json',
+
+        beforeSend: function () {
+            btn.html('<i class="fa fa-spin fa-spinner"></i> Sending...');
+            btn.prop('disabled', true);
+        },
+
+        success: function (response) {
+            if (response.status == 200) {
+                form[0].reset();
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: response.message,
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            } else {
+                if (response.errors) {
+                    $.each(response.errors, function (key, value) {
+                        $('#' + key + 'Error').text(value);
+                    });
+                } else {
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: response.message,
+                    });
+                }
+            }
+        },
+
+        error: function () {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: 'Something went wrong. Please try again.',
+            });
+        },
+
+        complete: function () {
+            btn.html(btnText);
+            btn.prop('disabled', false);
+        }
+    });
+});
