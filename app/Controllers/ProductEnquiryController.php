@@ -54,7 +54,7 @@ class ProductEnquiryController extends BaseController{
             ]);
         }
         
-        $mailTo = "nisamvp10@gmail.com";
+        $mailTo = "onlinelevora@gmail.com";
 
         $this->emailService->setTo($mailTo);
         $this->emailService->setSubject('Product Enquiry');
