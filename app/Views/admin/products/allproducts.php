@@ -77,28 +77,28 @@
 <script>
 
   const openBtn = document.getElementById('openProductModal');
-  const modal = document.getElementById('productModal');
+  const modal2 = document.getElementById('productModal');
   const closeBtn = document.getElementById('closeProductModal');
   const cancelBtn = document.getElementById('cancelProductModal');
 
   // Open modal
 if (openBtn) {
   openBtn.addEventListener('click', () => {
-    modal.classList.remove('hidden');
+    modal2.classList.remove('hidden');
   });
 }
 
   // Close modal
   function closeModal() {
-    modal.classList.add('hidden');
+    modal2.classList.add('hidden');
   }
 
   closeBtn.addEventListener('click', closeModal);
   cancelBtn.addEventListener('click', closeModal);
 
   // Optional: close on background click
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
+  modal2.addEventListener('click', (e) => {
+    if (e.target === modal2) {
       closeModal();
     }
   });
