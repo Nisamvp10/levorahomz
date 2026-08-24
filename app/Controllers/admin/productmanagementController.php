@@ -163,6 +163,7 @@ class ProductmanagementController extends Controller
         }
 
         $file = $this->request->getFile('file');
+
         $selectedImage = $this->request->getPost('selected_image');
         $id = decryptor($this->request->getPost('itmId'));
 
@@ -174,11 +175,13 @@ class ProductmanagementController extends Controller
             // Keep old image if no new upload
             $imagePath = $selectedImage;
         }
-
         // multiple Images
         $selectedImages = $this->request->getPost('selected_images')[0] ?? '[]';
+        
         $selectedImages = html_entity_decode($selectedImages); // decode &quot;
         $selectedImages = json_decode($selectedImages, true);
+
+      //  print_r($selectedImages);exit();
 
         $uploadedPaths = [];
         if(!empty($selectedImages)){
@@ -257,6 +260,12 @@ class ProductmanagementController extends Controller
             $validStatus = true;
         }else{
             $this->productManageModel->insert($data);
+            $lastIncId = $this->productManageModel->getLastID();
+            if(!empty($uploadedPaths)) {
+                foreach ($uploadedPaths as $url) {
+                        $this->productvariantImagesModel->insert(['product_id'   => $lastIncId,'image' => $url]);
+                }
+            }
             $message = 'Data successfully added';
             $validStatus = true;
         }
@@ -350,7 +359,7 @@ class ProductmanagementController extends Controller
         $msg = '';
         $item = $this->productManageModel->find(decryptor($id));
         if($item) {
-            if($this->productManageModel->update(decryptor($id),['product_status'=>2])) {
+            if($this->productManageModel->update(decryptor($id),['product_status'=>3])) {
                 $status  = true;
                 $msg = 'Successfully Deleted';
             }else{
