@@ -191,7 +191,7 @@ if (!empty($userData)){
                 </li>
                 
                 <?php 
-                }if(haspermission('','coupen-code')) { ?>?>
+                }if(haspermission('','coupen-code')) { ?>
                 <li class="nav-item">
                     <a class="nav-link <?= strpos(uri_string(), 'admin/coupen-code') === 0 && strpos(uri_string(), 'coupen-codes') === false ? 'active' : '' ?>" href="<?= base_url('admin/coupen-code') ?>">
                     <span class="flex-shrink-0">
