@@ -17,6 +17,14 @@ class CategoryController extends Controller{
         $roles = $this->categoryModel->orderBy('level','ASC')->findAll();
         return view($route,compact('page','roles'));
     }
+
+    function categoryAjaxFun(){
+       if(!$this->request->isAJAX()){
+          return $this->response->setJSON(['success' => false,'message' => ' Invalid Request']);
+       } 
+        $roles = $this->categoryModel->orderBy('level','ASC')->findAll();
+        return $this->response->setJSON(['success' => true,'message' => 'Get category successfully!', 'roles' => $roles]);
+    }
     
 
     function save(){
@@ -173,9 +181,9 @@ class CategoryController extends Controller{
          if(!haspermission('','category')) {
             return $this->response->setJSON(['success' => false,'message' => 'Permission Denied']);
         }
-        if(!$this->request->isAJAX()) {
-            return $this->response->setJSON(['success' => false,'message' => ' Invalid Request']);
-        }
+        // if(!$this->request->isAJAX()) {
+        //     return $this->response->setJSON(['success' => false,'message' => ' Invalid Request']);
+        // }
         
         $category =  $this->categoryModel->where('is_active',1)->where('parent_id IS NULL')->findAll();
         return $this->response->setJSON(['success' => true,'result'=>$category]) ;

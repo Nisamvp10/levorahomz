@@ -23,6 +23,7 @@ class ProductManageModel extends Model{
            pvi.image as variantimages,pvi.id as variantimageid' )
           ->join('product_variant_images as pvi','pvi.product_id = pm.id','left');
         $builder->where('pm.id', $id);
+        $builder->where('pm.product_status !=', 3);
         
         return $builder->get()->getResult();
     }
@@ -66,7 +67,7 @@ class ProductManageModel extends Model{
         if($id) {
             $builder->where('pm.id', $id);
         }
-        
+        $builder->where('pm.product_status !=', 3);
         return $builder->get()->getResult();
     }
 }

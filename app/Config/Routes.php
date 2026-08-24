@@ -109,6 +109,8 @@ $routes->get('dashboard','admin\AuthController::login');
         $routes->get(slugify(getappdata('category'))."/edit/(:any)",'CategoryController::getinfo/$1');
         $routes->delete(slugify(getappdata('category')).'/delete/(:any)','CategoryController::delete/$1');
         $routes->post(slugify(getappdata('category')).'/categories','CategoryController::ajaxcategory');
+        // all cate
+        $routes->post(slugify(getappdata('category')).'/categoryAjaxFun','CategoryController::categoryAjaxFun');
         $routes->delete('services/delete-variant-gallery/(:any)','ServiceController::deleteVariantGallery/$1');
         $routes->post('services/subcategories/(:any)','ServiceController::subcategories/$1');
 
