@@ -16,8 +16,9 @@ class CoupenCodeController extends Controller
     }
     public function index()
     {
+        $route = (hasPermission('','coupen-code') ? 'admin/coupencode/index' :'admin/pages-error-404');
         $page = 'Coupen Code';
-        return view('admin/coupencode/index',compact('page'));
+        return view($route,compact('page'));
     }
 
     public function list() {
