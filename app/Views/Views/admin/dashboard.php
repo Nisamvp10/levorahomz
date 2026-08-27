@@ -16,7 +16,7 @@
     <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-100 transition-all hover:shadow-md">
         <div class="flex items-start justify-between">
             <div>
-                <p class="text-gray-500 text-sm capitalize"><?='Products';?></p>
+                <p class="text-gray-500 text-sm capitalize"><?='Stock Items';?></p>
                 <h3 class="text-2xl font-semibold mt-1"><?= $productCount ?? 0 ?></h3>
                 <div class="flex items-center mt-2">
                     <span class="mr-1 text-green-500">
@@ -34,7 +34,7 @@
     <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-100 transition-all hover:shadow-md">
         <div class="flex items-start justify-between">
             <div>
-                <p class="text-gray-500 text-sm">Orders</p>
+                <p class="text-gray-500 text-sm">Selling Products</p>
                 <h3 class="text-2xl font-semibold mt-1"><?= $orderCount ?? 0 ?></h3>
                 <div class="flex items-center mt-2">
                     <span class="mr-1 text-green-500">
@@ -71,7 +71,7 @@
     <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-100 transition-all hover:shadow-md">
         <div class="flex items-start justify-between">
             <div>
-                <p class="text-gray-500 text-sm">Enquiries</p>
+                <p class="text-gray-500 text-sm">Purchases</p>
                 <h3 class="text-2xl font-semibold mt-1"><?= $lowStock ?? 0 ?></h3>
                 <div class="flex items-center mt-2">
                     <span class="mr-1 text-green-500">
