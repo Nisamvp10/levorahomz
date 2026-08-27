@@ -8,6 +8,7 @@ use App\Models\ProductModel;
 use App\Models\ServiceModel;
 use App\Models\CustomerOrderModel;
 use App\Models\ProductManageModel;
+use App\Models\PurchaseOrderModel;
 
 class AuthController extends Controller {
     protected $userModel;
@@ -16,6 +17,7 @@ class AuthController extends Controller {
     protected $productModel;
     protected $customerOrderModel;
     protected $productManagementModel;
+    protected $purchaseOrderModel;
     function __construct()
     {
         $this->userModel = new UserModel();
@@ -24,6 +26,7 @@ class AuthController extends Controller {
         $this->productModel = new ProductModel();
         $this->customerOrderModel = new CustomerOrderModel();
         $this->productManagementModel = new ProductManageModel();
+        $this->purchaseOrderModel = new PurchaseOrderModel();
     }
 
     function login() {
@@ -38,6 +41,7 @@ class AuthController extends Controller {
         $productCount = $this->productModel->where(['status' => 1])->countAllResults() ?? 0 ;
         $salesItemCount = $this->productManagementModel->where(['product_status' => 1])->countAllResults() ?? 0 ;
         $orderCount = $this->customerOrderModel->countAllResults() ?? 0 ;
+        $purchaseOrderCount = $this->purchaseOrderModel->countAllResults() ?? 0 ;
        if(session()->get('user_data')['role'] == 6)
        {
             //echo $this->productInfoModel->getLastQuery();
@@ -45,7 +49,7 @@ class AuthController extends Controller {
             return view('admin/dashboard',compact('page','serviceCount','memberCount','productCount'));
 
        }else{
-            return view('admin/dashboard',compact('page','serviceCount','memberCount','productCount','orderCount','salesItemCount'));
+            return view('admin/dashboard',compact('page','serviceCount','memberCount','productCount','orderCount','salesItemCount','purchaseOrderCount'));
 
        }
     }
