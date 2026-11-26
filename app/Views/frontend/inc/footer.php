@@ -256,10 +256,12 @@
                             <a href="" class="prd-name fw-medium link-underline" id="productName">
                                 Product name
                             </a>
+                              <?php   if(getappdata('price_mode') == 'on') { ?>
                             <div class="price-wrap">
                                 <span class="price-new text-primary fw-semibold price-on-sale" id="price-new"></span>
                                 <span class="price-old text-caption-01 cl-text-3" id="price-old"></span>
                             </div>
+                            <?php } ?>
                         </div>
                     </div>
 

@@ -53,6 +53,12 @@ class SettingsController extends Controller{
         } else {
             $postData['site_mode'] = 'off';
         }
+        if (isset($postData['price_mode'])) {
+            $postData['price_mode'] = 'on';
+        } else {
+            $postData['price_mode'] = 'off';
+        }
+        //print_r($postData['price_mode']);exit();
         if(isset($postData['order_status_mail_notification'])){
             $postData['order_status_mail_notification'] = 'on';
         }else{

@@ -126,7 +126,7 @@ function renderDetails(product) {
 
                         </div>
 
-                        <div class="product-infor-price mb-12">
+                        <div class="product-infor-price mb-12 d-none">
 
                             <h4 class="price-on-sale">
                                 ${item.offer_price}

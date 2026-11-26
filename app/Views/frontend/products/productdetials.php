@@ -213,6 +213,7 @@ $description = '';
 
 
                                     <!-- Product Price -->
+                                      <?php   if(getappdata('price_mode') == 'on') { ?>
                                     <div class="product-infor-price mb-12">
 
                                         <h4 class="price-on-sale">
@@ -242,6 +243,7 @@ $description = '';
                                         <?php endif; ?>
 
                                     </div>
+                                    <?php } ?>
                                     <!-- /Product Price -->
 
 
@@ -665,12 +667,12 @@ $description = '';
                                                                 <div class="marquee-child-item">
 
                                                                     HOT SALE
-
+                                                                     <?php   if(getappdata('price_mode') == 'on') { ?>
                                                                     <?= $discount ?>
 
                                                                     <?= ($items['price_offer_type'] == 1 ? 'RS' : '%') ?>
 
-                                                                    OFF
+                                                                    OFF <?php } ?>
 
                                                                 </div>
 
@@ -723,6 +725,7 @@ $description = '';
 
 
                                             <!-- Price -->
+                                              <?php   if(getappdata('price_mode') == 'on') { ?>
                                             <div class="price-wrap">
 
                                                 <span class="price-new text-primary fw-semibold">
@@ -744,6 +747,7 @@ $description = '';
 
 
                                             </div>
+                                            <?php } ?>
                                             <!-- /Price -->
 
 

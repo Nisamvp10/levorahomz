@@ -195,7 +195,7 @@ function renderProducts(products, append = false) {
                         
                                 ${Array(8).fill(`
                                     <div class="marquee-child-item">
-                                        ${(product.compare_price > 0) ? `HOT SALE ${product.discount}${type}` : 'HOT SALE'}
+                                        ${(product.compare_price > 0) ? `HOT SALE   <?php   if(getappdata('price_mode') == 'on') { ?> ${product.discount} ${type}<?php } ?> ` : 'HOT SALE'}
                                     </div>
                                     <i class="icon icon-Star2"></i>
                                 `).join('')}
@@ -222,7 +222,7 @@ function renderProducts(products, append = false) {
                         <i class="icon icon-Star"></i>
                         <i class="icon icon-Star"></i>
                     </div>
-
+                      <?php   if(getappdata('price_mode') == 'on') { ?>
                     <div class="price-wrap">
                         <span class="price-new text-primary fw-semibold">
                             ${product.offer_price}
@@ -232,6 +232,7 @@ function renderProducts(products, append = false) {
                             ${product.actual_price}
                         </span>
                     </div>
+                    <?php } ?>
 
                     <p class="description text-caption-01 mb-10">
                         ${product.short_description ?? ''}

@@ -119,10 +119,12 @@
                                     </ul>
                                     <div class="product-action_bot">
                                       <a href="#quickAdd" data-bs-toggle="modal" data-product-id="<?=$prod->id;?>" class="tf-btn btn-white small  w-100">
-                                            Enquiry
+                                            Enquiry 
                                         </a>
                                     </div>
                                 </div>
+                                <?php 
+                                  if(getappdata('price_mode') == 'on') { ?>
                                 <div class="card-product_info">
                                       <div class="price-wrap d-flex justify-content-between w-100">
                                         <span class="price-new text-primary fw-semibold">
@@ -132,6 +134,7 @@
                                             <del><?=money_format_custom($actualPrice) ?></del>
                                             <?php } ?>
                                     </div>
+                                    <?php } ?>
 
                                     <a href="product-detail.html"
                                         class="name-product lh-24 fw-medium link-underline-text">
@@ -739,14 +742,15 @@
                                                                 <i class="icon icon-Star"></i>
                                                                 <i class="icon icon-Star"></i>
                                                             </div>
-
+                                                          <?php   if(getappdata('price_mode') == 'on') { ?>
                                                             <div class="price-wrap">
-
+                                                          
                                                                 <span class="price-new text-primary fw-semibold">
                                                                     <?= money_format_custom($offerPrice) ?>
                                                                 </span>
 
                                                             </div>
+                                                            <?php } ?>
 
                                                         </div>
 
@@ -858,10 +862,12 @@
                                                 <a href="#" class="link fw-medium lh-24">
                                                    <?=$fdbk['product_title']?>
                                                 </a>
+                                                  <?php   if(getappdata('price_mode') == 'on') { ?>
                                                 <div class="price-wrap prd_price">
                                                     <span class="price-new text-primary fw-semibold"><?=money_format_custom($offerPrice)?></span>
                                                     <span class="price-old text-caption-01 cl-text-3"><?=money_format_custom($actualPrice)?></span>
                                                 </div>
+                                                <?php } ?> 
                                             </div>
                                         </div>
                                     </div>
