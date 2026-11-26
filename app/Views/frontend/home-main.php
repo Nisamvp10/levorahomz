@@ -123,9 +123,10 @@
                                         </a>
                                     </div>
                                 </div>
-                                <?php 
-                                  if(getappdata('price_mode') == 'on') { ?>
+                               
                                 <div class="card-product_info">
+                                      <?php 
+                                  if(getappdata('price_mode') == 'on') { ?>
                                       <div class="price-wrap d-flex justify-content-between w-100">
                                         <span class="price-new text-primary fw-semibold">
                                             <?= money_format_custom($offerPrice) ?>
