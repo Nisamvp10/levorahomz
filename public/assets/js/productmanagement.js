@@ -631,7 +631,6 @@ function renderfun(response) {
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">`
         paginatedData.forEach(function (item, idx) {
-            console.log(item);
             html += `<tr>
                 <td class="px-2 py-2 whitespace-nowrap border border-gray-300">${start + idx + 1}</td>
                 <td class="px-2 py-2 whitespace-nowrap border border-gray-300">

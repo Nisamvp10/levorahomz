@@ -21,8 +21,6 @@
 
     <main id="wrapper">
 
-
-
         <!-- Topbar -->
         <div class="tf-topbar bg-secondary tf-btn-swiper-main">
             <div class="container-full">
@@ -59,9 +57,6 @@
                                             <?php
                                         }
                                     } ?>
-                                   
-                                 
-                                  
                                 </div>
                             </div>
                         </div>
@@ -179,7 +174,7 @@
                                     </li>
 
                                     <li class="menu-item position-relative">
-                                        <a href="<?= base_url('productlist') ?>" class="item-link">
+                                        <a href="<?= base_url('products') ?>" class="item-link">
                                             <span class="text cus-text">
                                                 Products
                                             </span>
