@@ -123,7 +123,7 @@
                                         </a>
                                     </div>
                                 </div>
-                              
+                               
                                 <div class="card-product_info">
                                       <?php 
                                   if(getappdata('price_mode') == 'on') { ?>
