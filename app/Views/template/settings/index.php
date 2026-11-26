@@ -280,6 +280,11 @@
                             <label class="form-check-label" for="flexSwitchCheckChecked">Site Mode</label>
                         </div>
                          <div class="form-check form-switch">
+                            <input class="form-check-input" <?= (getappdata('price_mode') == 'on' ? 'checked' : ''); ?> name="price_mode" type="checkbox" id="price_mode">
+                            <label class="form-check-label" for="price_mode">Price Visibility</label>
+                        </div>
+
+                         <div class="form-check form-switch">
                             <input class="form-check-input" <?= (getappdata('order_status_mail_notification') == 'on' ? 'checked' : ''); ?> name="order_status_mail_notification" type="checkbox" id="order_status_mail_notification">
                             <label class="form-check-label" for="order_status_mail_notification">Order Status Mail Notification</label>
                         </div>
