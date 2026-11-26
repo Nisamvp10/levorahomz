@@ -123,7 +123,7 @@
                                         </a>
                                     </div>
                                 </div>
-                               
+                              
                                 <div class="card-product_info">
                                       <?php 
                                   if(getappdata('price_mode') == 'on') { ?>
@@ -149,7 +149,7 @@
                                         <i class="icon icon-Star"></i>
                                     </div>
                                     <div class="product_info">
-                                        <p><?= $prod->short_description?></p>
+                                        <p><?=mb_substr($prod->short_description,0,100,"UTF-8");?></p>
                                         
                                     </div>
                                   
