@@ -4,3 +4,4 @@ writable/*
 writable/debugbar/
 writable/logs/
 uploads/*
+app\Views\__Views/*
