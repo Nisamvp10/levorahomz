@@ -195,6 +195,7 @@ class ProductController extends BaseController
                 $product['actual_price'] = money_format_custom($price['actual_price']);
                 $product['discount']     = $price['discount'];
                 $product['product_image'] = validImg($product['product_image']);
+                $product['short_description'] = mb_substr($product['short_description'], 0, 100, 'UTF-8');
             }
             
         }
